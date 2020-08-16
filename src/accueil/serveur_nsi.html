@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>UTILISATION DU SERVEUR nsiboisdo.bdrd.fr &#8212; Spécialité NSI 1ère</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="RECURSIVITE" href="../LP2/Recursivite.html" />
+    <link rel="prev" title="NUMERIQUE &amp; SCIENCE INFORMATIQUE - Terminale" href="../../intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI 1ère</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="active">
+    <a href="">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/accueil/serveur_nsi.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/accueil/serveur_nsi.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#acces-a-jupyter" class="nav-link">Accès à jupyter</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#acces-au-terminal" class="nav-link">Accès au terminal</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#operations-courantes-dans-le-terminal-rappels-de-1ere" class="nav-link">Opérations courantes dans le terminal (rappels de 1ere)</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#recuperation-de-fichiers-par-ftp" class="nav-link">Récupération de fichiers par FTP</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#decompression-de-fichier-xz-en-ligne-de-commande" class="nav-link">Décompression de fichier .xz en ligne de commande</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="utilisation-du-serveur-nsiboisdo-bdrd-fr">
+<h1>UTILISATION DU SERVEUR nsiboisdo.bdrd.fr<a class="headerlink" href="#utilisation-du-serveur-nsiboisdo-bdrd-fr" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="acces-a-jupyter">
+<h2>Accès à jupyter<a class="headerlink" href="#acces-a-jupyter" title="Permalink to this headline">¶</a></h2>
+<p>Adresse: <a class="reference external" href="https://nsiboisdo.bdrd.fr">https://nsiboisdo.bdrd.fr</a><br />
+<img alt="accueil" src="../../_images/site.png" /></p>
+<p><em>Remarque</em>: lors de la première connexion, entrer le nom d’utilisateur fourni par le professeur et <strong>choisir</strong> un mot de passe.</p>
+</div>
+<div class="section" id="acces-au-terminal">
+<h2>Accès au terminal<a class="headerlink" href="#acces-au-terminal" title="Permalink to this headline">¶</a></h2>
+<p>Après une connexion réussie à jupyterhub, choisir:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>New
+Terminal
+</pre></div>
+</div>
+<p><img alt="menu" src="../../_images/menu.png" /></p>
+</div>
+<div class="section" id="operations-courantes-dans-le-terminal-rappels-de-1ere">
+<h2>Opérations courantes dans le terminal (rappels de 1ere)<a class="headerlink" href="#operations-courantes-dans-le-terminal-rappels-de-1ere" title="Permalink to this headline">¶</a></h2>
+<p>Pour <strong>lister</strong> le contenu  d’un répertoire, on utilise la commande <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>. De plus on peut avoir une vue détaillée de l’arborescence du dossier avec la commande <code class="docutils literal notranslate"><span class="pre">tree</span></code>.<br />
+<img alt="tree" src="../../_images/tree.png" /></p>
+<p>Pour <strong>créer un dossier</strong>, utiliser la commande <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>. Si on souhaite créer un dossier et un sous dossier en une seule opération, l’option <code class="docutils literal notranslate"><span class="pre">-p</span></code> n’est nécessaire.<br />
+Exemples:</p>
+<ul class="simple">
+<li><p>création d’un seul dossier nommé ‘cours’: <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">cours</span></code>;</p></li>
+<li><p>création en une seule fois de ‘cours/LP2’: <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">cours/LP2</span></code>;</p></li>
+<li><p>(<em>le dossier ‘cours’ existant déjà</em>) création d’un sous dossier ‘cours/LP2’: <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">cours/LP2</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="recuperation-de-fichiers-par-ftp">
+<h2>Récupération de fichiers par FTP<a class="headerlink" href="#recuperation-de-fichiers-par-ftp" title="Permalink to this headline">¶</a></h2>
+<p>Pour accéder au serveur <a class="reference external" href="https://fr.wikipedia.org/wiki/File_Transfer_Protocol">FTP</a> et récupérer des fichiers, on utilisera le client <code class="docutils literal notranslate"><span class="pre">lftp</span></code>.<br />
+<img alt="lftp" src="../../_images/lftp.png" /></p>
+<p>Les paramètres d’accès au serveur sont:</p>
+<ul class="simple">
+<li><p>login: <code class="docutils literal notranslate"><span class="pre">nsi</span></code>;</p></li>
+<li><p>password: <code class="docutils literal notranslate"><span class="pre">Readpep8python</span></code>.</p></li>
+</ul>
+<p>La commande est:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lftp -u nsi nsiboisdo.bdrd.fr
+</pre></div>
+</div>
+<p><em>L’option -u est mise pour ‘user’</em>. Une fois la connexion établie, se rendre dans le dossier ‘files’ avec <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">files/</span> </code></p>
+<p>Dans l’exemple présent sur la capture, on souhaite récupérer le fichier ‘LP2_recursivite.tar.xz’ et le déposer dans le dossier ‘cours/LP2’ créé précédemment. La commande est:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>get -O ~/cours/LP2/ LP2_recursivite.tar.xz
+</pre></div>
+</div>
+<p><strong>Attention dans l’option de la commande précédente, il s’agit d’un ‘o’ majuscule et non zéro</strong>. La syntaxe générale est:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>get -O dossier_accueil fichier_a_recuperer
+</pre></div>
+</div>
+<p>On termine toujours une session FTP avec la commande <code class="docutils literal notranslate"><span class="pre">bye</span></code>.</p>
+</div>
+<div class="section" id="decompression-de-fichier-xz-en-ligne-de-commande">
+<h2>Décompression de fichier .xz en ligne de commande<a class="headerlink" href="#decompression-de-fichier-xz-en-ligne-de-commande" title="Permalink to this headline">¶</a></h2>
+<p>Après s’être rendu dans le dossier contenant le fichier à décompresser (ici <code class="docutils literal notranslate"><span class="pre">cours/LP2</span></code>), on utilise la commande:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar -xJvf LP2_recursivite.tar.xz
+</pre></div>
+</div>
+<p>Il s’agit d’un ‘j’ majuscule dans l’option de la commande. Dans l’exemple donné, l’archive contenait 3 fichiers.</p>
+<p><img alt="decompression" src="../../_images/decompression.png" /></p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../../intro.html" title="previous page">NUMERIQUE &amp; SCIENCE INFORMATIQUE - Terminale</a>
+    <a class='right-next' id="next-link" href="../LP2/Recursivite.html" title="next page">RECURSIVITE</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
