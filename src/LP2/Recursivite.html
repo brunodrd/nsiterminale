@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>RECURSIVITE &#8212; Spécialité NSI 1ère</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Fiche d’activité 1" href="Activites_Recursivite.html" />
+    <link rel="prev" title="UTILISATION DU SERVEUR nsiboisdo.bdrd.fr" href="../accueil/serveur_nsi.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI 1ère</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="active">
+    <a href="">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/LP2/Recursivite.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/LP2/Recursivite.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#introduction" class="nav-link">Introduction</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#la-recursivite-simple-et-magique" class="nav-link">La récursivité: simple et magique ?</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#d-autres-exemples-de-fonctions-recursives-precautions" class="nav-link">D’autres exemples de fonctions récursives - précautions</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#la-suite-de-fibonacci-ecriture-d-une-fonction-recursive-naive" class="nav-link">La suite de Fibonacci: écriture d’une fonction récursive naïve</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#analyse-de-la-fonction-naive" class="nav-link">Analyse de la fonction naïve</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#retour-sur-la-pile" class="nav-link">Retour sur la pile</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#bien-ecrire-des-fonctions-recursives" class="nav-link">Bien écrire des fonctions récursives</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#a-retenir" class="nav-link">A retenir</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="recursivite">
+<h1>RECURSIVITE<a class="headerlink" href="#recursivite" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># AUTO EVALUATION - A EXECUTER !</span>
+<span class="c1"># Imports utiles à l&#39;auto-évaluation - Décommenter la ligne ci-dessous</span>
+<span class="c1">#from correction import q1, q2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Soit le problème simple du calcul de la somme des <span class="math notranslate nohighlight">\(n+1\)</span> premiers entiers naturels:</p>
+<div class="math notranslate nohighlight">
+\[
+0+1+2+3+\cdots+n
+\]</div>
+<p>Les connaissances de première permettent de résoudre très facilement ce problème en utilisant une boucle (<code class="docutils literal notranslate"><span class="pre">for</span></code>ou <code class="docutils literal notranslate"><span class="pre">while</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">somme</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Renvoie la somme des n entiers compris entre 0 et n;</span>
+<span class="sd">    n: entier naturel positif</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">somme</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>36
+</pre></div>
+</div>
+</div>
+</div>
+<p>En procédant ainsi on a résolu le problème en expliquant <strong>comment</strong> calculer <code class="docutils literal notranslate"><span class="pre">somme(n)</span></code>. On aurait pu aussi arriver au même résultat en expliquant <strong>c’est quoi</strong> <code class="docutils literal notranslate"><span class="pre">somme(n)</span></code>.  En effet,</p>
+<div class="math notranslate nohighlight">
+\[
+\underbrace{0+1+2+3+\cdots+(n-1)}_{somme(n-1)}+n=somme(n-1)+n
+\]</div>
+<p>Ainsi on peut calculer la valeur de <code class="docutils literal notranslate"><span class="pre">somme(n)</span></code> comme étant une fonction mathématique de <span class="math notranslate nohighlight">\(n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+somme(n)=
+\begin{cases}
+0 &amp; \text{si } n=0 \\
+n+somme(n-1) &amp; \text{si } n\geq 1
+\end{cases}
+\end{split}\]</div>
+<p>En python, cela se programme facilement:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">somme_rec</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="n">somme_rec</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">somme_rec</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p>On remarque que <code class="docutils literal notranslate"><span class="pre">somme_rec(n)</span></code> fait appel à <code class="docutils literal notranslate"><span class="pre">somme_rec(n-1)</span></code>. Une fonction qui fait appel à elle même est dite <strong>récursive</strong>.</p>
+<p><strong>Exercice d’application directe</strong> (<em>Auto-évaluation possible</em>)<br />
+La puissance <span class="math notranslate nohighlight">\(n\)</span>-ième d’un nombre <span class="math notranslate nohighlight">\(x\)</span> est la multiplication répétée <span class="math notranslate nohighlight">\(n\)</span> fois de <span class="math notranslate nohighlight">\(x\)</span> avec lui même. Par convention <span class="math notranslate nohighlight">\(x^0=1\)</span>. La puissance <span class="math notranslate nohighlight">\(n\)</span>-ième de <span class="math notranslate nohighlight">\(x\)</span> s’écrit:</p>
+<div class="math notranslate nohighlight">
+\[
+x^n = \underbrace{x\times \cdots \times x}_{n-1 \text{ fois}}\times x=x^{n-1}\times x
+\]</div>
+<p>On peut donc définir une fonction <code class="docutils literal notranslate"><span class="pre">puissance</span></code> <span class="math notranslate nohighlight">\(n\)</span>-ième de <span class="math notranslate nohighlight">\(x\)</span> telle que:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+puissance(x,n)=
+\begin{cases}
+1 &amp; \text{si } n=0\\
+puissance(x,n-1)\times x &amp; \text{si } n&gt;0
+\end{cases}
+\end{split}\]</div>
+<p>Coder de manière récursive cette fonction en python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">puissance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="c1"># Supprimer l&#39;instruction &#39;pass&#39; et compléter avec votre code</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Cellule de test - Décommenter et exécuter</span>
+<span class="c1">#q1.correction(puissance)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="la-recursivite-simple-et-magique">
+<h2>La récursivité: simple et magique ?<a class="headerlink" href="#la-recursivite-simple-et-magique" title="Permalink to this headline">¶</a></h2>
+<p>Pour bien comprendre le déroulement de l’exécution de la fonction récursive <code class="docutils literal notranslate"><span class="pre">somme_rec</span></code>, analysons l’appel <code class="docutils literal notranslate"><span class="pre">somme_rec(4)</span></code> (<em>on dit aussi l’arbre d’appels</em>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">somme_rec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">--&gt;</span> <span class="k">return</span>  <span class="mi">4</span> <span class="o">+</span> <span class="n">somme_rec</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+                            <span class="o">|</span>
+                            <span class="k">return</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">somme_rec</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+                                        <span class="o">|</span>
+                                        <span class="k">return</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">somme_rec</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                                                    <span class="o">|</span>
+                                                    <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">somme_rec</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                                                                <span class="o">|</span>
+                                                                <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>L’appel de <code class="docutils literal notranslate"><span class="pre">somme_rec(4)</span></code> provoque une série d’appels en cascade jusqu’à l’appel <code class="docutils literal notranslate"><span class="pre">somme_rec(0)</span></code> qui renvoit 0. A ce moment là, <code class="docutils literal notranslate"><span class="pre">somme_rec(1)</span></code> peut se terminer en renvoyant 1, puis <code class="docutils literal notranslate"><span class="pre">somme_rec(2)</span></code> en renvoyant 3, etc.</p>
+<p>Cette succession d’appels rend naturellement les <strong>boucles inutiles</strong> dans dans une fonction récursive.</p>
+<p>Chaque appel de fonction se traduit par le stockage dans une zone mémoire appelée <strong>pile</strong>, de données liées au contexte d’exécution de la fonction appelante (<em>adresse de retour, paramètres de la fonction, etc.</em>).</p>
+<p><strong>Exercice d’application directe</strong><br />
+Analyser l’arbre d’appels de <code class="docutils literal notranslate"><span class="pre">puissance(2,</span> <span class="pre">4)</span></code> et justifier la valeur renvoyée.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Votre analyse ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d-autres-exemples-de-fonctions-recursives-precautions">
+<h2>D’autres exemples de fonctions récursives - précautions<a class="headerlink" href="#d-autres-exemples-de-fonctions-recursives-precautions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="la-suite-de-fibonacci-ecriture-d-une-fonction-recursive-naive">
+<h3>La suite de Fibonacci: écriture d’une fonction récursive naïve<a class="headerlink" href="#la-suite-de-fibonacci-ecriture-d-une-fonction-recursive-naive" title="Permalink to this headline">¶</a></h3>
+<p>Cette suite est définie pour tout entier naturel <span class="math notranslate nohighlight">\(n\)</span>, par:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+F(n)=
+\begin{cases}
+n &amp; \text{si } n&lt;2\\
+F(n-1) + F(n-2)&amp; \text{si } n\geq 2
+\end{cases}
+\end{split}\]</div>
+<p>Ecrire une fonction récursive en python <code class="docutils literal notranslate"><span class="pre">fib(n)</span></code> qui renvoie le calcul du <span class="math notranslate nohighlight">\((n+1)\)</span>-ième terme de la suite de Fibonacci, compte tenu de la définition ci-dessus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># Supprimer &#39;pass&#39; et compléter avec votre code</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Auto-évaluation - Décommenter et exécuter</span>
+<span class="c1">#q2.correction(fib)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analyse-de-la-fonction-naive">
+<h3>Analyse de la fonction naïve<a class="headerlink" href="#analyse-de-la-fonction-naive" title="Permalink to this headline">¶</a></h3>
+<p>Jupyter Notebook possède une extension intéressante (les <em>magic commands</em>) qui permet d’appeler une fonction python (ou autre). On va utiliser la commande <code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">fib(n)</span></code> pour mesurer le temps d’exécution de <code class="docutils literal notranslate"><span class="pre">fib(n)</span></code>.<br />
+Par exemple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">timeit</span> <span class="n">fib</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Les résultats sont consignés dans le tableau ci-dessous:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>n</p></th>
+<th class="text-align:center head"><p>%timeit fib(n)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5</p></td>
+<td class="text-align:center"><p>1.2 µs</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td class="text-align:center"><p>14 µs</p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td class="text-align:center"><p>1.7 ms</p></td>
+</tr>
+<tr class="row-odd"><td><p>30</p></td>
+<td class="text-align:center"><p>0.22 s</p></td>
+</tr>
+<tr class="row-even"><td><p>35</p></td>
+<td class="text-align:center"><p>2.4 s</p></td>
+</tr>
+</tbody>
+</table>
+<p>On constate que la complexité explose rapidement. Essayons de comprendre pourquoi en examinant une partie de l’arbre d’appels de <code class="docutils literal notranslate"><span class="pre">fib(5)</span></code> par exemple.<br />
+<img alt="fibo5" src="../../_images/fib5.png" /></p>
+<p>Des calculs déjà effectués lors de l’appel de <code class="docutils literal notranslate"><span class="pre">fib(4)</span></code> sont à nouveau effectués lors de l’appel de <code class="docutils literal notranslate"><span class="pre">fib(3)</span></code> !!</p>
+<p><strong>Conclusion<br />
+La traduction naïve d’une fonction mathématique en une fonction récursive peut conduire à une complexité inacceptable.</strong><br />
+<em>Des techniques simples existent pour régler le problème précédent et seront abordées plus loin dans le cours de terminale</em>.</p>
+</div>
+<div class="section" id="retour-sur-la-pile">
+<h3>Retour sur la pile<a class="headerlink" href="#retour-sur-la-pile" title="Permalink to this headline">¶</a></h3>
+<p>Après l’avoir décommenter, exécuter la cellule suivante et analyser le résultat obtenu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;def f(n):</span>
+<span class="sd">    return 1 + f(n + 1)</span>
+
+<span class="sd">f(0)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;def f(n):\n    return 1 + f(n + 1)\n\nf(0)\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Votre analyse</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Conclusion</strong><br />
+<strong>La taille de la pile est limitée, le nombre d’appels récursifs est donc limité aussi</strong>. Python limite naturellement et assez sévèrement d’ailleurs, le nombre d’appels récursifs. On peut avoir une idée de cette limite avec le code suivant:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getrecursionlimit</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>3000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bien-ecrire-des-fonctions-recursives">
+<h2>Bien écrire des fonctions récursives<a class="headerlink" href="#bien-ecrire-des-fonctions-recursives" title="Permalink to this headline">¶</a></h2>
+<p>Il est généralement simple de <em>traduire</em> une fonction mathématique définie par récurrence en une fonction récursive python.<br />
+On veillera néanmoins à ce que le schéma suivant soit toujours présent dans la définition de la fonction:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_rec</span><span class="p">(</span><span class="n">parametres</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+        <span class="c1">#cas de base: cas trivial où la fonction termine</span>
+        <span class="k">return</span> <span class="n">valeur</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1">#cas récursifs où on appelle à nouveau f_rec</span>
+        <span class="k">return</span> <span class="n">f_rec</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Les différents cas sont typiquement examinés avec des tests <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span></code>. Enfin, le cas de base peut être … constitué de plusieurs cas!</p>
+</div>
+<div class="section" id="a-retenir">
+<h2>A retenir<a class="headerlink" href="#a-retenir" title="Permalink to this headline">¶</a></h2>
+<p>La récursivité est une technique de programmation élégante, très proche de la définition mathématique des fonctions ou des problèmes. Les boucles y sont inutiles.<br />
+Une fonction récursive est généralement constitué d’un ou de plusieurs cas de base, qui permet(tent) à la fonction de terminer et de cas récursifs.<br />
+La récursivité repose sur l’utilisation d’une zone mémoire appelée pile, de capacité limitée. Une erreur est signalée lors d’une tentative de dépassement de cette capacité.<br />
+Enfin, il faut toujours être vigilant sur le fait que cette technique appliquée de manière naïve peut engendrer une complexité inacceptable.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../accueil/serveur_nsi.html" title="previous page">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+    <a class='right-next' id="next-link" href="Activites_Recursivite.html" title="next page">Fiche d’activité 1</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

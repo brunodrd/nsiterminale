@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fiche d’activité 1 &#8212; Spécialité NSI 1ère</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="RECURSIVITE" href="Recursivite.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI 1ère</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="active">
+    <a href="">Fiche d’activité 1</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/LP2/Activites_Recursivite.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/LP2/Activites_Recursivite.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#rappels-complements-les-chaines-de-caracteres-en-python" class="nav-link">Rappels - compléments: les chaines de caractères en python</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#declaration" class="nav-link">Déclaration</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#indexation-et-longueur" class="nav-link">Indexation et longueur</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#les-chaines-objets-non-mutables" class="nav-link">Les chaines: objets non mutables</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#tranches" class="nav-link">Tranches</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#concatenation" class="nav-link">Concaténation</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#exercices" class="nav-link">Exercices</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#fonction-factorielle" class="nav-link">Fonction factorielle</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#inversion-de-chaine" class="nav-link">Inversion de chaîne</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#conversion-binaire-encore" class="nav-link">Conversion binaire (encore)</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#probleme-classique-les-tours-de-hanoi" class="nav-link">Problème classique: les tours de Hanoï</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="fiche-d-activite-1">
+<h1>Fiche d’activité 1<a class="headerlink" href="#fiche-d-activite-1" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Réaliser les imports suivants pour bénéficier de fonctions d&#39;autoévaluation</span>
+<span class="c1"># - Décommenter et exécuter</span>
+<span class="c1">#from correction import qfact, qinv, qbin</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rappels-complements-les-chaines-de-caracteres-en-python">
+<h2>Rappels - compléments: les chaines de caractères en python<a class="headerlink" href="#rappels-complements-les-chaines-de-caracteres-en-python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="declaration">
+<h3>Déclaration<a class="headerlink" href="#declaration" title="Permalink to this headline">¶</a></h3>
+<p><strong>Rappel</strong>: une chaîne de caractère python peut être initialisée avec une déclaration du type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_chaine1</span> <span class="o">=</span> <span class="s1">&#39;caracteres&#39;</span>
+</pre></div>
+</div>
+<p>Si la chaîne contient un apostrophe, il vaut mieux utiliser une paire de doubles quotes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_chaine2</span> <span class="o">=</span> <span class="s2">&quot;l&#39;apostrophe n&#39;est pas interprété comme délimiteur de chaine ici&quot;</span>
+</pre></div>
+</div>
+<p>Enfin, si la chaîne occupe plusieurs lignes, on utilisera une paire de triple quotes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ma_chaine3</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">ligne 1</span>
+<span class="s2">ligne 2</span>
+<span class="s2">etc.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ma_chaine1</span> <span class="o">=</span> <span class="s1">&#39;caracteres&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">ma_chaine1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indexation-et-longueur">
+<h3>Indexation et longueur<a class="headerlink" href="#indexation-et-longueur" title="Permalink to this headline">¶</a></h3>
+<p>On peut accéder aux différents caractères de la chaîne en utilisant une indexation comme pour les tableaux.  Une particularité de python est de permettre une indexation négative. Ainsi l’index -1 correspond au dernier caractère.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ma_chaine2</span> <span class="o">=</span> <span class="s2">&quot;l&#39;apostrophe n&#39;est pas interprété comme délimiteur de chaine ici&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ma_chaine2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ma_chaine2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>l
+i
+</pre></div>
+</div>
+</div>
+</div>
+<p>On obtient la longueur de la chaîne avec la fonction <code class="docutils literal notranslate"><span class="pre">len</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ma_chaine2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="les-chaines-objets-non-mutables">
+<h3>Les chaines: objets non mutables<a class="headerlink" href="#les-chaines-objets-non-mutables" title="Permalink to this headline">¶</a></h3>
+<p>Les chaînes de caractères sont des objets non mutables (on dit aussi <em>immuables</em>). Décommenter et exécuter la cellule ci-après pour observer une conséquence.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ma_chaine2[0] = &#39;L&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tranches">
+<h3>Tranches<a class="headerlink" href="#tranches" title="Permalink to this headline">¶</a></h3>
+<p>On peut sélectionner des <em>tranches</em> dans une chaîne. Par exemple, pour récupérer les caractères situés entre les index <span class="math notranslate nohighlight">\(i\)</span> (<em>inclus</em>) et <span class="math notranslate nohighlight">\(j\)</span> (<strong>exclus</strong>) d’une chaîne <code class="docutils literal notranslate"><span class="pre">ch</span></code>, on utilise la syntaxe: <code class="docutils literal notranslate"><span class="pre">ch[i:j]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ma_chaine2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span><span class="c1">#récupère les caractères entre les index 0 (inclus) et 12 (exclus)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;l&#39;apostrophe&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="concatenation">
+<h3>Concaténation<a class="headerlink" href="#concatenation" title="Permalink to this headline">¶</a></h3>
+<p>On peut utiliser le signe ‘+’ pour concaténer (mettre bout à bout) deux chaînes. Le résultat est une nouvelle chaîne.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_chaine</span> <span class="o">=</span> <span class="s1">&#39;Les &#39;</span> <span class="o">+</span> <span class="n">ma_chaine1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_chaine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Les caracteres
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercices">
+<h2>Exercices<a class="headerlink" href="#exercices" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fonction-factorielle">
+<h3>Fonction factorielle<a class="headerlink" href="#fonction-factorielle" title="Permalink to this headline">¶</a></h3>
+<p>La traditionnelle fonction factorielle (pratiquement systématiquement présentée lorsqu’on aborde la récursivité) est définie par: <span class="math notranslate nohighlight">\(fact(n)=n!=1\times 2\times \cdots \times n\)</span>. Par ailleurs, <span class="math notranslate nohighlight">\(0!=1\)</span>.<br />
+Coder une fonction factorielle <code class="docutils literal notranslate"><span class="pre">fact(n)</span></code> de <strong>manière récursive</strong>. Coup de pouce: revoir le codage de la fonction puissance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fact</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># Supprimer l&#39;instruction &#39;pass&#39; et compléter avec votre code</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Auto évaluation - Décommenter et exécuter</span>
+<span class="c1">#qfact.correction(fact)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="inversion-de-chaine">
+<h3>Inversion de chaîne<a class="headerlink" href="#inversion-de-chaine" title="Permalink to this headline">¶</a></h3>
+<p>Soit une chaîne <code class="docutils literal notranslate"><span class="pre">ch</span></code>. On souhaite écrire une fonction <code class="docutils literal notranslate"><span class="pre">inversechaine(ch)</span></code> qui inverse tous les caractères de <code class="docutils literal notranslate"><span class="pre">ch</span></code>. Par exemple, l’appel <code class="docutils literal notranslate"><span class="pre">inversechaine('bonjour')</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">'ruojnob'</span></code>. Plusieurs méthodes de programmation sont possibles. <strong>On impose ici une méthode récursive</strong>.</p>
+<ul class="simple">
+<li><p>Le cas de base est simple à identifier: il s’agit d’une chaîne de longueur 1 ! Lorsque ce cas se produit, il suffit de retourner la chaîne;</p></li>
+<li><p>Pour les autres cas, on s’appuie sur le constat suivant: l’inverse d’une chaîne c’est tout simplement la concaténation du dernier caractère de celle-ci avec l’inverse du reste de la chaîne.</p></li>
+</ul>
+<p>Compléter la fonction suivante qui inverse <code class="docutils literal notranslate"><span class="pre">ch</span></code> de manière récursive. Puis tester la fonction en exécutant la cellule prévue à cet effet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inversechaine</span><span class="p">(</span><span class="n">ch</span><span class="p">):</span>
+    <span class="c1"># Supprimer l&#39;instruction &#39;pass&#39; et compléter avec votre code</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Auto évaluation - Décommenter et exécuter</span>
+<span class="c1">#qinv.correction(inversechaine)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conversion-binaire-encore">
+<h3>Conversion binaire (encore)<a class="headerlink" href="#conversion-binaire-encore" title="Permalink to this headline">¶</a></h3>
+<p>On a vu en première qu’on pouvait obtenir la conversion en binaire d’un entier naturel en réalisant les divisions successives de son quotient par 2. Exprimons cette idée de manière à faire émerger une méthode récursive.<br />
+On peut voir la <strong>décomposition en binaire</strong> d’un nombre <span class="math notranslate nohighlight">\(N\)</span> comme la <strong>concaténation</strong> de la <strong>décomposition en binaire</strong> du quotient de <span class="math notranslate nohighlight">\(\frac{N}{2}\)</span>, avec son reste. Le cas de base étant obtenu lorsque le nombre <span class="math notranslate nohighlight">\(N\)</span> est nul, dans ce cas on renvoie une chaîne vide.</p>
+<p>Compléter la fonction <code class="docutils literal notranslate"><span class="pre">binaire(N)</span></code> qui prend en paramètre un entier naturel <span class="math notranslate nohighlight">\(N\)</span> et qui renvoie une chaîne qui correspond à sa conversion en binaire. Une méthode récursive est exigée.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binaire</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="c1"># Supprimer l&#39;instruction &#39;pass&#39; et compléter avec votre code</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Auto évaluation - Décommenter et exécuter</span>
+<span class="c1">#qbin.correction(binaire)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="probleme-classique-les-tours-de-hanoi">
+<h2>Problème classique: les tours de Hanoï<a class="headerlink" href="#probleme-classique-les-tours-de-hanoi" title="Permalink to this headline">¶</a></h2>
+<p><em>Origine: wikipedia</em></p>
+<p>Le problème mathématique des tours de Hanoï a été inventé par Édouard Lucas. Il est publié dans le tome 3 de ses Récréations mathématiques, parues à titre posthume en 1892. Il annonce que ce problème est dû à un de ses amis, N. Claus de Siam (anagramme de Lucas d’Amiens, Amiens étant sa ville de naissance), prétendument professeur au collège de Li-Sou-Stian (anagramme de Saint Louis, le lycée où Lucas enseignait).</p>
+<p>Sous le titre « Les brahmes tombent », Lucas relate que « N. Claus de Siam a vu, dans ses voyages pour la publication des écrits de l’illustre Fer-Fer-Tam-Tam, dans le grand temple de Bénarès, au-dessous du dôme qui marque le centre du monde, trois aiguilles de diamant, plantées dans une dalle d’airain, hautes d’une coudée et grosses comme le corps d’une abeille. Sur une de ces aiguilles, Dieu enfila au commencement des siècles, 64 disques d’or pur, le plus large reposant sur l’airain, et les autres, de plus en plus étroits, superposés jusqu’au sommet. C’est la tour sacrée du Brahmâ. Nuit et jour, les prêtres se succèdent sur les marches de l’autel, occupés à transporter la tour de la première aiguille sur la troisième, sans s’écarter des règles fixes que nous venons d’indiquer, et qui ont été imposées par Brahma. Quand tout sera fini, la tour et les brahmes tomberont, et ce sera la fin des mondes1 ! ».</p>
+<p>Comme indiqué ci-dessous, un jeu à 64 disques requiert un minimum de <span class="math notranslate nohighlight">\(2^{64}-1\)</span> déplacements. En admettant qu’il faille 1 seconde pour déplacer un disque, ce qui fait 86 400 déplacements par jour, la fin du jeu aurait lieu au bout d’environ 213 000 milliards de jours, ce qui équivaut à peu près à 584,5 milliards d’années, soit 43 fois l’âge estimé de l’univers (13,7 milliards d’années selon certaines sources).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;U3nGNJTxYc4&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">450</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="800"
+    height="450"
+    src="https://www.youtube.com/embed/U3nGNJTxYc4"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>L’objectif est de résoudre ce casse-tête en utilisant une méthode récursive. Le cas de base est obtenu lorsque le nombre <span class="math notranslate nohighlight">\(n\)</span> de disques à déplacer est nul. Dans ce cas on retourne.<br />
+Le cas récursif est à faire apparaître avec la remarque suivante: pour déplacer n disques d’une tour A vers une tour C, il faut:</p>
+<ul class="simple">
+<li><p>déplacer les <span class="math notranslate nohighlight">\(n-1\)</span> premiers disques vers une tour intermédiaire (B par exemple);</p></li>
+<li><p>déplacer le plus grand disque restant vers sa destination (ici tour C);</p></li>
+<li><p>déplacer les <span class="math notranslate nohighlight">\(n-1\)</span> disques de la première étape vers C.</p></li>
+</ul>
+<p>Proposer une solution récursive, en python, du problème des tours de Hanoï. La fonction pourrait avoir une signature du type: <code class="docutils literal notranslate"><span class="pre">hanoi(nb_disques,</span> <span class="pre">tour_depart,</span> <span class="pre">tour</span> <span class="pre">interm,</span> <span class="pre">tour_arrivee)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hanoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">inter</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">):</span>
+    <span class="c1"># Supprimer l&#39;instruction &#39;pass&#39; et compléter avec votre code</span>
+    <span class="k">pass</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hanoi</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Recursivite.html" title="previous page">RECURSIVITE</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
