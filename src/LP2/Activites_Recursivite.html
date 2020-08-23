@@ -31,6 +31,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Structures de données: implémentation et interface" href="../SDD1/Structures_de_données.html" />
     <link rel="prev" title="RECURSIVITE" href="Recursivite.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,6 +78,12 @@
   </li>
   <li class="active">
     <a href="">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données_1_Exercice.html">Structure de données pile et file</a>
   </li>
 </ul>
 </nav>
@@ -359,7 +366,7 @@ Coder une fonction factorielle <code class="docutils literal notranslate"><span 
 <h3>Inversion de chaîne<a class="headerlink" href="#inversion-de-chaine" title="Permalink to this headline">¶</a></h3>
 <p>Soit une chaîne <code class="docutils literal notranslate"><span class="pre">ch</span></code>. On souhaite écrire une fonction <code class="docutils literal notranslate"><span class="pre">inversechaine(ch)</span></code> qui inverse tous les caractères de <code class="docutils literal notranslate"><span class="pre">ch</span></code>. Par exemple, l’appel <code class="docutils literal notranslate"><span class="pre">inversechaine('bonjour')</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">'ruojnob'</span></code>. Plusieurs méthodes de programmation sont possibles. <strong>On impose ici une méthode récursive</strong>.</p>
 <ul class="simple">
-<li><p>Le cas de base est simple à identifier: il s’agit d’une chaîne de longueur 1 ! Lorsque ce cas se produit, il suffit de retourner la chaîne;</p></li>
+<li><p>Le cas de base est simple à identifier: il s’agit d’une chaîne de longueur 0 ! Lorsque ce cas se produit, il suffit de retourner la chaîne vide <code class="docutils literal notranslate"><span class="pre">''</span></code>;</p></li>
 <li><p>Pour les autres cas, on s’appuie sur le constat suivant: l’inverse d’une chaîne c’est tout simplement la concaténation du dernier caractère de celle-ci avec l’inverse du reste de la chaîne.</p></li>
 </ul>
 <p>Compléter la fonction suivante qui inverse <code class="docutils literal notranslate"><span class="pre">ch</span></code> de manière récursive. Puis tester la fonction en exécutant la cellule prévue à cet effet.</p>
@@ -384,7 +391,7 @@ Coder une fonction factorielle <code class="docutils literal notranslate"><span 
 <div class="section" id="conversion-binaire-encore">
 <h3>Conversion binaire (encore)<a class="headerlink" href="#conversion-binaire-encore" title="Permalink to this headline">¶</a></h3>
 <p>On a vu en première qu’on pouvait obtenir la conversion en binaire d’un entier naturel en réalisant les divisions successives de son quotient par 2. Exprimons cette idée de manière à faire émerger une méthode récursive.<br />
-On peut voir la <strong>décomposition en binaire</strong> d’un nombre <span class="math notranslate nohighlight">\(N\)</span> comme la <strong>concaténation</strong> de la <strong>décomposition en binaire</strong> du quotient de <span class="math notranslate nohighlight">\(\frac{N}{2}\)</span>, avec son reste. Le cas de base étant obtenu lorsque le nombre <span class="math notranslate nohighlight">\(N\)</span> est nul, dans ce cas on renvoie une chaîne vide.</p>
+On peut voir la <strong>décomposition en binaire</strong> d’un nombre <span class="math notranslate nohighlight">\(N\)</span> comme la <strong>concaténation</strong> de la <strong>décomposition en binaire</strong> du quotient de <span class="math notranslate nohighlight">\(\frac{N}{2}\)</span>, avec son reste. Le cas de base étant obtenu lorsque le nombre <span class="math notranslate nohighlight">\(N\)</span> est nul, dans ce cas on renvoie la chaîne <code class="docutils literal notranslate"><span class="pre">'0'</span></code>.</p>
 <p>Compléter la fonction <code class="docutils literal notranslate"><span class="pre">binaire(N)</span></code> qui prend en paramètre un entier naturel <span class="math notranslate nohighlight">\(N\)</span> et qui renvoie une chaîne qui correspond à sa conversion en binaire. Une méthode récursive est exigée.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -468,6 +475,7 @@ Le cas récursif est à faire apparaître avec la remarque suivante: pour dépla
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="Recursivite.html" title="previous page">RECURSIVITE</a>
+    <a class='right-next' id="next-link" href="../SDD1/Structures_de_données.html" title="next page">Structures de données: implémentation et interface</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
