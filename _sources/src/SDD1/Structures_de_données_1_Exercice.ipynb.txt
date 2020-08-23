@@ -4,8 +4,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Structure de données pile et file\n",
-    "=========================="
+    "Exercice: implémenter une file bornée avec un tableau\n",
+    "============================================"
    ]
   },
   {
