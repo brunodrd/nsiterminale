@@ -1,0 +1,585 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Structures de données: implémentation et interface &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Structure de données pile et file" href="Structures_de_données_1_Exercice.html" />
+    <link rel="prev" title="Fiche d’activité 1" href="../LP2/Activites_Recursivite.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="active">
+    <a href="">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="Structures_de_données_1_Exercice.html">Structure de données pile et file</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/SDD1/Structures_de_données.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/SDD1/Structures_de_données.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#les-tableaux-le-retour" class="nav-link">Les tableaux (le retour)</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#une-premiere-structure-simple-la-pile" class="nav-link">Une première structure simple: la pile</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#une-deuxieme-structure-la-file" class="nav-link">Une deuxième structure: la file</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#vers-une-abstraction-des-structures-de-donnees" class="nav-link">Vers une abstraction des structures de données</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="structures-de-donnees-implementation-et-interface">
+<h1>Structures de données: implémentation et interface<a class="headerlink" href="#structures-de-donnees-implementation-et-interface" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="les-tableaux-le-retour">
+<h2>Les tableaux (le retour)<a class="headerlink" href="#les-tableaux-le-retour" title="Permalink to this headline">¶</a></h2>
+<p>En classe de première on a rencontré et utilisé des tableaux. En toute rigueur, ce sont des <strong>structures ayant une taille fixe et contenant des objets de même type</strong>.</p>
+<p>Cependant, Python n’implémente pas des tableaux répondant à ces critères (du moins pas sans module spécialisé). A la place, on trouve une structure plus complexe: les tableaux dynamiques (<em>les fameuses “listes de python”</em> ou encore <em>objet de type</em> <code class="docutils literal notranslate"><span class="pre">list</span></code>) qui ont la propriété de pouvoir être agrandis, à droite.<br />
+On peut ajouter ou retirer des éléments d’une <em>liste de python</em> avec les méthodes <code class="docutils literal notranslate"><span class="pre">append</span></code> et <code class="docutils literal notranslate"><span class="pre">pop</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 20, 30, 50, 70]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>70
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 20, 30, 50]
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut éventuellement agrandir le tableau “par la gauche” avec la méthode <code class="docutils literal notranslate"><span class="pre">insert</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[-20, 10, 20, 30, 50]
+</pre></div>
+</div>
+</div>
+</div>
+<p>On <strong>évitera autant que possible cette pratique à cause de ses médiocres performances</strong>, notamment sur les tableaux de grande taille.<br />
+Enfin, l’accès à la <strong>dernière valeur du tableau</strong> est très simple avec l’index <strong>-1</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="une-premiere-structure-simple-la-pile">
+<h2>Une première structure simple: la pile<a class="headerlink" href="#une-premiere-structure-simple-la-pile" title="Permalink to this headline">¶</a></h2>
+<p>Considérons le problème de l’annulation de la dernière action enregistrée de nombreux logiciels (le fameux Crtl+Z). Il s’agit de sauvegarder les actions de l’utilisateur et de pouvoir restaurer la dernière si besoin.<br />
+Une structure adaptée pour résoudre ce problème est: <strong>une pile</strong> (<em>stack</em> en anglais) . Voir une animation de son utilisation ci-dessous.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+
+
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;1SWr7q121gc&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">450</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="800"
+    height="450"
+    src="https://www.youtube.com/embed/1SWr7q121gc"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>Une première réalisation possible d’une pile (<em>bornée</em>) peut se faire avec un tableau (de taille fixe <span class="math notranslate nohighlight">\(N\)</span>). La première case du tableau (index 0) stockera le nombre <span class="math notranslate nohighlight">\(n\)</span> d’éléments de la pile, permettant ainsi d’avoir accès au <strong>sommet</strong>.</p>
+<p><img alt="tableaupile" src="../../_images/tableau.png" /></p>
+<p>Les opérations d’insertions et de suppressions, qu’on nomme <strong>empiler</strong> et <strong>dépiler</strong> (en anglais <em>push</em> et <em>pop</em>), se font au sommet.<br />
+Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile pleine ! Il faut donc gérer ces cas.   Souvent, on prévoit une fonction <code class="docutils literal notranslate"><span class="pre">est_pilevide</span></code> dont le nom est suffisamment explicite.</p>
+<p>Enfin, une fonction <code class="docutils literal notranslate"><span class="pre">sommet</span></code> (en anglais <em>top</em>) permet de connaitre l’état de la pile; en fait le sommet est le seul élément accessible de la pile.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TAILLE</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="c1">#la taille choisie est arbitraire</span>
+
+<span class="k">def</span> <span class="nf">creer_pile</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">TAILLE</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">est_pilevide</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>    
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_pilevide</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s2">&quot;Erreur: pile vide&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span><span class="c1">#ne pas oublier de réajuster le sommet</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Erreur: pile pleine&quot;</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span><span class="c1">#la pile va contenir un élément de plus</span>
+    <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="n">p</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+
+<span class="k">def</span> <span class="nf">sommet</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_pilevide</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s2">&quot;Erreur: pile vide&quot;</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Travail</strong>: donner la situation de la pile après chacune des opérations suivantes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">()</span>
+<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Quelle valeur se trouve au sommet de la pile? Le vérifier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">()</span>
+<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sommet</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="n">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sommet</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>15
+5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">|0|..|..|..|..|..|</span>
+<span class="sd">|1| 5|..|..|..|..|</span>
+<span class="sd">|2| 5|15|..|..|..|</span>
+<span class="sd">|3| 5|15|25|..|..|</span>
+<span class="sd">|2| 5|15|..|..|..|</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;\n|0|..|..|..|..|..|\n|1| 5|..|..|..|..|\n|2| 5|15|..|..|..|\n|3| 5|15|25|..|..|\n|2| 5|15|..|..|..|\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut aussi réaliser une pile (<em>non bornée</em>) avec des <em>listes de python</em> et leurs méthodes <code class="docutils literal notranslate"><span class="pre">append</span></code> et <code class="docutils literal notranslate"><span class="pre">pop</span></code>. Compléter les fonctions <code class="docutils literal notranslate"><span class="pre">depiler</span></code> , <code class="docutils literal notranslate"><span class="pre">empiler</span></code> et <code class="docutils literal notranslate"><span class="pre">sommet</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_pile</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">est_pilevide</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="c1">#A compléter - supprimer l&#39;instruction &#39;pass&#39;</span>
+    <span class="k">pass</span>
+    
+<span class="k">def</span> <span class="nf">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+    <span class="c1">#A compléter - supprimer l&#39;instruction &#39;pass&#39;</span>
+    <span class="k">pass</span>
+    
+<span class="k">def</span> <span class="nf">sommet</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="c1">#A compléter - supprimer l&#39;instruction &#39;pass&#39;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter et exécuter la cellule</span>
+<span class="c1">#p = creer_pile()</span>
+<span class="c1">#empiler(p, 5)</span>
+<span class="c1">#empiler(p, 15)</span>
+<span class="c1">#empiler(p, 25)</span>
+<span class="c1">#depiler(p)</span>
+<span class="c1">#print(sommet(p))</span>
+<span class="c1">#depiler(p)</span>
+<span class="c1">#print(sommet(p))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Les opérations réalisables sur une pile peuvent donner lieu à des réalisations (on dit aussi implémentations) différentes</strong>.</p>
+</div>
+<div class="section" id="une-deuxieme-structure-la-file">
+<h2>Une deuxième structure: la file<a class="headerlink" href="#une-deuxieme-structure-la-file" title="Permalink to this headline">¶</a></h2>
+<p>La file est une structure qui diffère de la pile dans le sens où l’insertion et la suppression ne se font pas du même côté (penser à une <em>file d’attente</em> devant un guichet). Ces opérations sont nommées <strong>enfiler</strong> et <strong>défiler</strong> (ou <em>enqueue</em> et <em>dequeue</em> en anglais).  Les files sont par exemple utilisées dans les gestionnaires d’impression (des imprimantes).</p>
+<p>Une implémentation triviale peut être réalisée avec des <em>listes de python</em>.</p>
+<p>Compléter le code suivant. <em>Coup de pouce</em>: utiliser les méthodes <code class="docutils literal notranslate"><span class="pre">append</span></code> , <code class="docutils literal notranslate"><span class="pre">pop</span></code> et <code class="docutils literal notranslate"><span class="pre">insert</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_file</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="c1"># Enlever l&#39;instruction &#39;pass&#39; et compléter</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+    <span class="c1"># Enlever l&#39;instruction &#39;pass&#39; et compléter</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vérifier que l’on a bien une structure de file en exécutant la cellule suivante</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter et exécuter la cellule</span>
+<span class="c1">#f = creer_file()</span>
+<span class="c1">#enfiler(f, 5)</span>
+<span class="c1">#enfiler(f, 15)</span>
+<span class="c1">#enfiler(f, 25)</span>
+<span class="c1">#while not est_filevide(f):</span>
+<span class="c1">#    print(defiler(f), end=&#39; &#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter, exécuter la cellule et analyser la sortie</span>
+<span class="c1">#defiler(f)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Une autre réalisation est possible en utilisant 2 piles qu’on nommera <code class="docutils literal notranslate"><span class="pre">p_in</span></code> et <code class="docutils literal notranslate"><span class="pre">p_out</span></code>.  Les opérations <code class="docutils literal notranslate"><span class="pre">enfiler</span></code> et <code class="docutils literal notranslate"><span class="pre">défiler</span></code> sont détaillées ci dessous:</p>
+<p><strong>enfiler</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">empiler</span> <span class="n">sur</span> <span class="n">p_in</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>defiler</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Si</span> <span class="n">p_out</span> <span class="n">est</span> <span class="n">vide</span><span class="p">:</span>
+    <span class="n">Tant</span> <span class="n">que</span> <span class="n">p_in</span> <span class="n">n</span><span class="s1">&#39;est pas vide:</span>
+        <span class="n">depiler</span> <span class="n">p_in</span> <span class="n">et</span> <span class="n">empiler</span> <span class="n">cet</span> <span class="n">élément</span> <span class="n">sur</span> <span class="n">p_out</span>
+<span class="n">depiler</span> <span class="n">p_out</span>
+</pre></div>
+</div>
+<p>Compléter l’implémentation d’une file qui utilise deux piles, dans la cellule suivante.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_file</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">creer_pile</span><span class="p">(),</span> <span class="n">creer_pile</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+    <span class="n">p_in</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1">#A compléter</span>
+    
+<span class="k">def</span> <span class="nf">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="s2">&quot;Erreur: file vide&quot;</span>
+    <span class="c1">#A compléter</span>
+
+<span class="k">def</span> <span class="nf">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">p_in</span><span class="p">,</span> <span class="n">p_out</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">est_pilevide</span><span class="p">(</span><span class="n">p_in</span><span class="p">)</span> <span class="ow">and</span> <span class="n">est_pilevide</span><span class="p">(</span><span class="n">p_out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter et exécuter la cellule</span>
+<span class="c1">#f = creer_file()</span>
+<span class="c1">#enfiler(f, 5)</span>
+<span class="c1">#enfiler(f, 15)</span>
+<span class="c1">#enfiler(f, 25)</span>
+<span class="c1">#while not est_filevide(f):</span>
+<span class="c1">#    print(defiler(f), end=&#39; &#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter, exécuter la cellule et analyser la sortie</span>
+<span class="c1">#defiler(f)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Comme pour la pile, même si les implémentations d’une file peuvent être très différentes les fonctionnalités qu’elles offrent sont identiques</strong>.</p>
+</div>
+<div class="section" id="vers-une-abstraction-des-structures-de-donnees">
+<h2>Vers une abstraction des structures de données<a class="headerlink" href="#vers-une-abstraction-des-structures-de-donnees" title="Permalink to this headline">¶</a></h2>
+<p>Les exemples précédents ont montré qu’on pouvait définir <strong>une structure de données comme étant une description logique de la façon dont on voit ces données et des opérations permises</strong>.<br />
+D’un point de vue utilisateur (<em>c’est-à-dire le programmeur</em>), manipuler une structure de données c’est se préoccuper de ce que les données représentent et utiliser les opérations autorisées <strong>sans se soucier de leur implémentation</strong>.</p>
+<p><img alt="abstraction" src="../../_images/adt.png" /></p>
+<p>Les détails de mise en oeuvre des structures de données étant cachés à l’utilisateur, celui-ci accède à ces objets par le biais d’une <strong>interface</strong> (ensemble des opérations permises et d’une description informelle de leur effet).</p>
+<p>Voici par exemple, les spécifications de la structure de données <strong>pile</strong> précedente:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Struture de données Pile</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Opérations</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-odd"><td><p>creer_pile(n)</p></td>
+<td><p>Créé une pile vide de taille n optionnelle</p></td>
+</tr>
+<tr class="row-even"><td><p>est_pilevide(p)</p></td>
+<td><p>retourne un booléen correspondant <br>à l’état de la pile p.</p></td>
+</tr>
+<tr class="row-odd"><td><p>empiler(p, val)</p></td>
+<td><p>empile val dans la pile p.</p></td>
+</tr>
+<tr class="row-even"><td><p>depiler(p)</p></td>
+<td><p>renvoie le sommet de la pile p et le supprime<br>de celle-ci</p></td>
+</tr>
+<tr class="row-odd"><td><p>sommet(p)</p></td>
+<td><p>renvoie le sommet de la pile p, sans le <br>supprimer</p></td>
+</tr>
+</tbody>
+</table>
+<p>Cette liste de spécifications est souvent appelée <strong>API</strong> pour <strong>A</strong>pplication <strong>P</strong>rogramming <strong>I</strong>nterface.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../LP2/Activites_Recursivite.html" title="previous page">Fiche d’activité 1</a>
+    <a class='right-next' id="next-link" href="Structures_de_données_1_Exercice.html" title="next page">Structure de données pile et file</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

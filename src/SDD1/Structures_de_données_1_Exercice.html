@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Structure de données pile et file &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Structures de données: implémentation et interface" href="Structures_de_données.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="active">
+    <a href="">Structure de données pile et file</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/SDD1/Structures_de_données_1_Exercice.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/SDD1/Structures_de_données_1_Exercice.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="structure-de-donnees-pile-et-file">
+<h1>Structure de données pile et file<a class="headerlink" href="#structure-de-donnees-pile-et-file" title="Permalink to this headline">¶</a></h1>
+<p>On propose ici une autre réalisation possible d’une file bornée à partir d’un tableau.  La file sera repérée par deux index <code class="docutils literal notranslate"><span class="pre">tete</span></code> et <code class="docutils literal notranslate"><span class="pre">queue</span></code>. On enfile par la queue et défile par la tête.</p>
+<p>Soit <span class="math notranslate nohighlight">\(N\)</span> la taille de la file. On prévoit un tableau de taille <span class="math notranslate nohighlight">\(N+3\)</span> car on souhaite stocker également:</p>
+<ul class="simple">
+<li><p>la position de la tête (index 0);</p></li>
+<li><p>la position de la queue (index 1);</p></li>
+<li><p>la longueur effective de la file (index 3)</p></li>
+</ul>
+<p>La position de la queue indique l’endroit où sera enfilée la prochaine donnée. La figure (a) ci-dessous montre une file <code class="docutils literal notranslate"><span class="pre">f</span></code> de taille maximale 7, dans laquelle figure 4 éléments. Après les opérations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>on se trouve dans la situation (b).</p>
+<p><img alt="file" src="../../_images/file_tab.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">creer_file</span><span class="p">(</span><span class="n">taille</span><span class="o">=</span><span class="n">N</span><span class="p">):</span>
+    <span class="c1">#création d&#39;un tableau ayant 3 cases supplémentaires par rapport à la taille de la file</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">taille</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="c1">#index 0: position de la tête, initialisée à 3</span>
+    <span class="c1">#index 1: position de la queue, initialisée à 3</span>
+    <span class="c1">#index 2: longueur courante de la file, initialisée à 0</span>
+    <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">f</span>
+
+<span class="k">def</span> <span class="nf">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+    <span class="n">long</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">long</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Erreur: file pleine&quot;</span>
+    <span class="n">pos_queue</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">f</span><span class="p">[</span><span class="n">pos_queue</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="c1">#réajustement de la queue</span>
+    <span class="k">if</span> <span class="n">pos_queue</span> <span class="o">==</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="c1">#réajustement de la longueur de la file</span>
+    <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">long</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="s2">&quot;Erreur: file vide&quot;</span>
+    <span class="n">pos_tete</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">long</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">pos_tete</span><span class="p">]</span>
+    <span class="c1">#réajustement de l&#39;index de la tête</span>
+    <span class="k">if</span> <span class="n">pos_tete</span> <span class="o">==</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="c1">#réajustement de la longueur de la file</span>
+    <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">long</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">val</span>
+
+<span class="k">def</span> <span class="nf">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>A partir des informations disponibles:</p></li>
+</ol>
+<ul class="simple">
+<li><p>dire combien d’opérations sont autorisées sur cette structure;</p></li>
+<li><p>rédiger leur spécification.</p></li>
+</ul>
+<ol class="simple">
+<li><p>Prévoir les réponses de l’interpréteur python après les séquences de commandes suivantes (<em>qui se suivent!</em>):</p></li>
+</ol>
+<p>Séquence 1</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">()</span>
+<span class="n">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Séquence 2</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Séquence 3</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">35</span><span class="p">)</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Séquence 4</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f2</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>(+++) Quels pourraient être les avantages / inconvénients de cettte implémentation d’une file comparée à celle utilisant une <em>liste de python</em> du cours ?</p></li>
+</ol>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Structures_de_données.html" title="previous page">Structures de données: implémentation et interface</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
