@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vocabulaire de la programmation objet - Manipuler des classes - Exercices &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Vocabulaire de la programmation objet" href="Vocabulaire_OOP.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   NUMERIQUE &amp; SCIENCE INFORMATIQUE - Terminale
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../accueil/serveur_nsi.html">
+   UTILISATION DU SERVEUR nsiboisdo.bdrd.fr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP2/Recursivite.html">
+   RECURSIVITE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP2/Activites_Recursivite.html">
+   Fiche d’activité 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD1/Structures_de_données.html">
+   Structures de données: implémentation et interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD1/Structures_de_données_1_Exercice.html">
+   Exercice: implémenter une file bornée avec un tableau
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vocabulaire_OOP.html">
+   Vocabulaire de la programmation objet
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Vocabulaire de la programmation objet - Manipuler des classes - Exercices
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/SDD2/Exercices_OOP.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#le-vocabulaire">
+   Le vocabulaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#une-classe-personne">
+   Une classe Personne
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#une-classe-article">
+   Une classe Article
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compte-bancaire">
+   Compte bancaire
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="vocabulaire-de-la-programmation-objet-manipuler-des-classes-exercices">
+<h1>Vocabulaire de la programmation objet - Manipuler des classes - Exercices<a class="headerlink" href="#vocabulaire-de-la-programmation-objet-manipuler-des-classes-exercices" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="le-vocabulaire">
+<h2>Le vocabulaire<a class="headerlink" href="#le-vocabulaire" title="Permalink to this headline">¶</a></h2>
+<p>Donner la définition des termes apparaissant en gras dans la consigne ci-dessous.</p>
+<p>Il existe dans la librairie standard un module nommé <code class="docutils literal notranslate"><span class="pre">datetime</span></code> qui permet de manipuler les dates. Il implémente notamment une <strong>classe</strong> <code class="docutils literal notranslate"><span class="pre">date</span></code> (<em>voir</em> <code class="docutils literal notranslate"><span class="pre">help(datetime.date)</span></code> <em>pour une description plus complète</em>).<br />
+Des objets <code class="docutils literal notranslate"><span class="pre">date</span></code> seront <strong>instanciés</strong> en utilisant la syntaxe <code class="docutils literal notranslate"><span class="pre">date(annee,</span> <span class="pre">mois,</span> <span class="pre">jour)</span></code> (<em>voir exemple ci-dessous</em>).<br />
+Une date possède des <strong>attributs</strong> intéressants: <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code> et <code class="docutils literal notranslate"><span class="pre">day</span></code> dont les noms sont suffisamment explicites.<br />
+Enfin, la date du jour peut être obtenue avec la <strong>méthode</strong> <code class="docutils literal notranslate"><span class="pre">today</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># le 1er décembre 2000</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>  <span class="c1"># le jour</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>  <span class="c1"># le  mois</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>  <span class="c1"># l&#39;année</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1
+12
+2000
+2020-08-26
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="une-classe-personne">
+<h2>Une classe Personne<a class="headerlink" href="#une-classe-personne" title="Permalink to this headline">¶</a></h2>
+<p>Créer une classe <code class="docutils literal notranslate"><span class="pre">Personne</span></code> qui initialisera les instances avec 3 paramètres: <code class="docutils literal notranslate"><span class="pre">nom</span></code>, <code class="docutils literal notranslate"><span class="pre">prenom</span></code> et une date de naissance <code class="docutils literal notranslate"><span class="pre">dnais</span></code>. Cette classe fournit une méthode <code class="docutils literal notranslate"><span class="pre">age</span></code> qui renvoie l’age de la personne.<br />
+Créer un objet ‘Bob’ ‘Leponge’ né le 17 juillet 1999. Donner alors son âge.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Réponses</span>
+<span class="c1"># Cellule à compléter</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+
+<span class="k">class</span> <span class="nc">Personne</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Informations personnelles sur une personne&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">dnais</span><span class="p">):</span>
+        <span class="k">pass</span>
+        <span class="c1"># à compléter - SUPPRIMER la ligne contenant l&#39;instruction &#39;pass&#39; !!</span>
+    
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+        <span class="c1"># à compléter</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="une-classe-article">
+<h2>Une classe Article<a class="headerlink" href="#une-classe-article" title="Permalink to this headline">¶</a></h2>
+<p>Compléter la cellule suivante dans laquelle on devra créer une classe <code class="docutils literal notranslate"><span class="pre">Article</span></code> qui <strong>initialisera</strong> les objets instanciés avec les paramètres <code class="docutils literal notranslate"><span class="pre">ref</span></code>, <code class="docutils literal notranslate"><span class="pre">prixHT</span></code>, et <code class="docutils literal notranslate"><span class="pre">tva</span></code>. Cette classe implémentera les méthodes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">prixTTC</span></code> qui renvoie le prix TTC calculé de la manière suivante: <code class="docutils literal notranslate"><span class="pre">prixHT</span> <span class="pre">+</span> <span class="pre">prixHT*tva/100</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">affiche</span></code> qui affiche toutes la référence de l’article, son prix HT et son prixTTC.</p></li>
+</ul>
+<p>Tester (<em>avec une TVA à 20% par exemple</em>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Réponses</span>
+<span class="c1"># Cellule à compléter</span>
+
+<span class="k">class</span> <span class="nc">Article</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Une classe pour manipuler les caractéristiques des articles&quot;&quot;&quot;</span>
+    
+    <span class="c1">#def __init__(...):</span>
+        
+    <span class="c1">#def prixTTC(...):</span>
+    
+    <span class="c1">#def affiche(...):</span>
+        
+        
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compte-bancaire">
+<h2>Compte bancaire<a class="headerlink" href="#compte-bancaire" title="Permalink to this headline">¶</a></h2>
+<p>On définit compte bancaire par la donnée:</p>
+<ul class="simple">
+<li><p>d’un nom et d’un prénom</p></li>
+<li><p>d’un numéro de compte</p></li>
+<li><p>d’un solde initial de 50 (la banque offre 50€ de bienvenue pour l’ouverture d’un compte)</p></li>
+</ul>
+<p>Par ailleurs, le titulaire peut débiter son compte, le créditer ou le consulter (<em>c-à-d obtenir la valeur du solde</em>). Attention, on ne peut débiter son compte que si son solde le permet !</p>
+<p>Ecrire et tester une classe <code class="docutils literal notranslate"><span class="pre">CompteBancaire</span></code> qui répond à ce cahier des charges.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/SDD2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Vocabulaire_OOP.html" title="previous page">Vocabulaire de la programmation objet</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
