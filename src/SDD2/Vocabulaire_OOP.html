@@ -1,0 +1,481 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vocabulaire de la programmation objet &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Vocabulaire de la programmation objet - Manipuler des classes - Exercices" href="Exercices_OOP.html" />
+    <link rel="prev" title="Exercice: implémenter une file bornée avec un tableau" href="../SDD1/Structures_de_données_1_Exercice.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   NUMERIQUE &amp; SCIENCE INFORMATIQUE - Terminale
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../accueil/serveur_nsi.html">
+   UTILISATION DU SERVEUR nsiboisdo.bdrd.fr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP2/Recursivite.html">
+   RECURSIVITE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP2/Activites_Recursivite.html">
+   Fiche d’activité 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD1/Structures_de_données.html">
+   Structures de données: implémentation et interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD1/Structures_de_données_1_Exercice.html">
+   Exercice: implémenter une file bornée avec un tableau
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Vocabulaire de la programmation objet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Exercices_OOP.html">
+   Vocabulaire de la programmation objet - Manipuler des classes - Exercices
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/SDD2/Vocabulaire_OOP.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#voyage-en-premiere-classe-avec-les-objets">
+   Voyage en première classe avec les objets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#amelioration-du-code">
+   Amélioration du code
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="vocabulaire-de-la-programmation-objet">
+<h1>Vocabulaire de la programmation objet<a class="headerlink" href="#vocabulaire-de-la-programmation-objet" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>En python on ne manipule que des objets. On en a rencontré de plusieurs sortes depuis la classe de première. Le type d’un objet peut être obtenu avec la fonction … <code class="docutils literal notranslate"><span class="pre">type</span></code>!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>ch = &#39;bonjour&#39;
+print(type(ch))
+&lt;class &#39;str&#39;&gt;
+
+l = 3.1
+print(type(l))
+&lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+<p>Même si les types d’objets natifs de Python sont très puissants, on pourra souvent être amené à en créer d’autres.</p>
+<p>Les paragraphes qui suivent ont pour objectif de:</p>
+<ul class="simple">
+<li><p>se familiariser avec tout le vocabulaire nécessaire à la compréhension de la construction des objets;</p></li>
+<li><p>présenter les bases permettant de créer ses propres classes d’objets.</p></li>
+</ul>
+</div>
+<div class="section" id="voyage-en-premiere-classe-avec-les-objets">
+<h2>Voyage en première classe avec les objets<a class="headerlink" href="#voyage-en-premiere-classe-avec-les-objets" title="Permalink to this headline">¶</a></h2>
+<p>Une <strong>classe est un bloc de code qui peut contenir des variables et des définitions de fonctions</strong>. On peut faire l’analogie avec une usine ayant des plans de construction et qui pourra donc construire des objets.</p>
+<p>Dans le cas le plus simple, en python on définit une classe avec le mot clé <code class="docutils literal notranslate"><span class="pre">class</span></code> suivi d’un nom de classe (<em>qu’on écrit avec une première lettre en majuscule, par convention</em>) puis des <code class="docutils literal notranslate"><span class="pre">:</span></code> annonçant l’arrivée d’un bloc.</p>
+<p>Commençons par un premier exemple où on crée une classe <code class="docutils literal notranslate"><span class="pre">Exercices</span></code> définissant une variable <code class="docutils literal notranslate"><span class="pre">nb_questions</span></code> et une fonction <code class="docutils literal notranslate"><span class="pre">resoudre</span></code> qui prend en paramètre un numéro de question.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Exercices</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Notion de classe: premier exemple&quot;&quot;&quot;</span>
+    <span class="c1"># Un attribut</span>
+    <span class="n">nb_questions</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="c1"># Une méthode</span>
+    <span class="k">def</span> <span class="nf">resoudre</span><span class="p">(</span><span class="n">num_question</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Solution de la question </span><span class="si">{</span><span class="n">num_question</span><span class="si">}</span><span class="s2">: .. cherchez!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Une variable définie dans une classe est un <strong>attribut</strong> de la classe. Une fonction définie dans une classe est une <strong>méthode</strong>.<br />
+La classe permet de créer des objets. Ce processus de création d’objet est appelé <strong>instanciation</strong> et l’objet créé est une <strong>instance</strong> de la classe.</p>
+<p>Créons une instance de la classe <code class="docutils literal notranslate"><span class="pre">Exercices</span></code> et appelons <code class="docutils literal notranslate"><span class="pre">exo1</span></code> l’objet créé.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exo1</span> <span class="o">=</span> <span class="n">Exercices</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut vérifier le type de <code class="docutils literal notranslate"><span class="pre">exo1</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">exo1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>__main__.Exercices
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Les objets créés sont-ils bien rattachés aux attributs et méthodes de la classe ?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exo1</span><span class="o">.</span><span class="n">nb_questions</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exo1</span><span class="o">.</span><span class="n">resoudre</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;bound method Exercices.resoudre of &lt;__main__.Exercices object at 0x7f46f72a1668&gt;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter et exécuter cette cellule</span>
+<span class="c1">#exo1.resoudre(2)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>L’objet <code class="docutils literal notranslate"><span class="pre">exo1</span></code> peut effectivement atteindre l’attribut <code class="docutils literal notranslate"><span class="pre">nb_questions</span></code> et la méthode <code class="docutils literal notranslate"><span class="pre">resoudre</span></code>. Par contre, il est impossible d’exécuter la méthode et python lève une <em>exception</em> (erreur) à priori curieuse:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">resoudre</span><span class="p">()</span> <span class="n">takes</span> <span class="mi">1</span> <span class="n">positional</span> <span class="n">argument</span> <span class="n">but</span> <span class="mi">2</span> <span class="n">were</span> <span class="n">given</span>
+</pre></div>
+</div>
+<p>La raison est assez subtile: lors de l’appel de la méthode <code class="docutils literal notranslate"><span class="pre">resoudre</span></code> python passe à cette fonction, de <strong>manière automatique</strong> un premier paramètre qui est une référence vers l’objet sur lequel agit cette méthode. Ainsi:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">exo1</span><span class="o">.</span><span class="n">resoudre</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>correspond en fait à:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Exercices</span><span class="o">.</span><span class="n">resoudre</span><span class="p">(</span><span class="n">exo1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pour résoudre ce problème, on doit modifier légèrement la méthode <code class="docutils literal notranslate"><span class="pre">resoudre</span></code> afin que celle-ci accepte un premier paramètre, correspondant à une référence vers l’objet et qui noté par convention <strong>self</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Exercices</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Notion de classe: premier exemple&quot;&quot;&quot;</span>
+    <span class="c1"># Un attribut</span>
+    <span class="n">nb_questions</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="c1"># Une méthode</span>
+    <span class="k">def</span> <span class="nf">resoudre</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_question</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Solution de la question </span><span class="si">{</span><span class="n">num_question</span><span class="si">}</span><span class="s2">: .. cherchez!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exo1</span> <span class="o">=</span> <span class="n">Exercices</span><span class="p">()</span>
+<span class="n">exo1</span><span class="o">.</span><span class="n">resoudre</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Solution de la question 2: .. cherchez!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>IMPORTANT: dans la très grande majorité des cas en terminale, les méthodes DEVRONT avoir un premier paramètre nommé par convention self</strong>.</p>
+</div>
+<div class="section" id="amelioration-du-code">
+<h2>Amélioration du code<a class="headerlink" href="#amelioration-du-code" title="Permalink to this headline">¶</a></h2>
+<p>En général, lorsqu’on crée un objet on souhaiterait que celui-ci possède quelques caractéristiques initiales. Pour reprendre le cas de la classe <code class="docutils literal notranslate"><span class="pre">Exercices</span></code>, on aimerait, par exemple, associer à chaque nouvel objet créé un nombre de question et un niveau de difficulté.</p>
+<p>Lorsqu’on souhaite affecter des propriétés initiales à des objets, on utilise une <strong>méthode spéciale</strong> appelée <code class="docutils literal notranslate"><span class="pre">__init__</span></code> (<strong>attention à la présence des 2 caractères ‘souligné’ avant et après init</strong>). Cette méthode est appelée automatiquement par python lors de la création d’un objet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Exercices</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Notion de classe: premier exemple&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nb_question</span><span class="p">,</span> <span class="n">niveau</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nb_question</span> <span class="o">=</span> <span class="n">nb_question</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">niveau</span> <span class="o">=</span> <span class="n">niveau</span>
+
+    <span class="k">def</span> <span class="nf">resoudre</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_question</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">num_question</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_question</span><span class="p">,</span> <span class="s2">&quot;Question inexistante&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">niveau</span> <span class="o">==</span> <span class="s1">&#39;facile&#39;</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;la réponse </span><span class="si">{</span><span class="n">num_question</span><span class="si">}</span><span class="s2"> est </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">niveau</span><span class="si">}</span><span class="s2"> !&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Un indice ?&quot;</span>
+        <span class="k">return</span> <span class="n">res</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exo2</span> <span class="o">=</span> <span class="n">Exercices</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;facile&#39;</span><span class="p">)</span>
+<span class="n">exo3</span> <span class="o">=</span> <span class="n">Exercices</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;difficile&#39;</span><span class="p">)</span>
+<span class="n">exo4</span> <span class="o">=</span> <span class="n">Exercices</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;difficile&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exo3</span><span class="o">.</span><span class="n">resoudre</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Un indice ?&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exo2</span><span class="o">.</span><span class="n">resoudre</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;la réponse 2 est facile !&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter et exécuter cette cellule</span>
+<span class="c1">#exo4.resoudre(4)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Application directe</strong><br />
+Définir une classe <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>. Les objets instanciés seront initialisés avec deux paramètres: <code class="docutils literal notranslate"><span class="pre">largeur</span></code> et <code class="docutils literal notranslate"><span class="pre">longueur</span></code>.
+Prévoir une méthode qui renvoie la surface du rectangle. Tester.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Réponse</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/SDD2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../SDD1/Structures_de_données_1_Exercice.html" title="previous page">Exercice: implémenter une file bornée avec un tableau</a>
+    <a class='right-next' id="next-link" href="Exercices_OOP.html" title="next page">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
