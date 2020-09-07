@@ -1,0 +1,420 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Vocabulaire de la programmation objet\n",
+    "================================"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Introduction"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "En python on ne manipule que des objets. On en a rencontré de plusieurs sortes depuis la classe de première. Le type d'un objet peut être obtenu avec la fonction ... `type`!\n",
+    "```python\n",
+    "ch = 'bonjour'\n",
+    "print(type(ch))\n",
+    "<class 'str'>\n",
+    "\n",
+    "l = 3.1\n",
+    "print(type(l))\n",
+    "<class 'float'>\n",
+    "```\n",
+    "Même si les types d'objets natifs de Python sont très puissants, on pourra souvent être amené à en créer d'autres.  \n",
+    "\n",
+    "Les paragraphes qui suivent ont pour objectif de:  \n",
+    "\n",
+    "* se familiariser avec tout le vocabulaire nécessaire à la compréhension de la construction des objets;\n",
+    "* présenter les bases permettant de créer ses propres classes d'objets.  "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Voyage en première classe avec les objets"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Une **classe est un bloc de code qui peut contenir des variables et des définitions de fonctions**. On peut faire l'analogie avec une usine ayant des plans de construction et qui pourra donc construire des objets. \n",
+    "\n",
+    "Dans le cas le plus simple, en python on définit une classe avec le mot clé `class` suivi d'un nom de classe (*qu'on écrit avec une première lettre en majuscule, par convention*) puis des `:` annonçant l'arrivée d'un bloc."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Commençons par un premier exemple où on crée une classe `Exercices` définissant une variable `nb_questions` et une fonction `resoudre` qui prend en paramètre un numéro de question."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Exercices:\n",
+    "    \"\"\"Notion de classe: premier exemple\"\"\"\n",
+    "    # Un attribut\n",
+    "    nb_questions = 2\n",
+    "\n",
+    "    # Une méthode\n",
+    "    def resoudre(num_question):\n",
+    "        return f\"Solution de la question {num_question}: .. cherchez!\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Une variable définie dans une classe est un **attribut** de la classe. Une fonction définie dans une classe est une **méthode**.  \n",
+    "La classe permet de créer des objets. Ce processus de création d'objet est appelé **instanciation** et l'objet créé est une **instance** de la classe.  \n",
+    "\n",
+    "Créons une instance de la classe `Exercices` et appelons `exo1` l'objet créé."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 102,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "exo1 = Exercices()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "On peut vérifier le type de `exo1`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 104,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "__main__.Exercices"
+      ]
+     },
+     "execution_count": 104,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(exo1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Les objets créés sont-ils bien rattachés aux attributs et méthodes de la classe ?**  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 108,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "2"
+      ]
+     },
+     "execution_count": 108,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exo1.nb_questions"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 106,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<bound method Exercices.resoudre of <__main__.Exercices object at 0x7fe62cdd15e0>>"
+      ]
+     },
+     "execution_count": 106,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exo1.resoudre"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Décommenter et exécuter cette cellule\n",
+    "#exo1.resoudre(2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "L'objet `exo1` peut effectivement atteindre l'attribut `nb_questions` et la méthode `resoudre`. Par contre, il est impossible d'exécuter la méthode et python lève une *exception* (erreur) à priori curieuse:  \n",
+    "```\n",
+    "resoudre() takes 1 positional argument but 2 were given\n",
+    "```\n",
+    "La raison est assez subtile: lors de l'appel de la méthode `resoudre` python passe à cette fonction, de **manière automatique** un premier paramètre qui est une référence vers l'objet sur lequel agit cette méthode. Ainsi:  \n",
+    "```python\n",
+    "exo1.resoudre(2)\n",
+    "```\n",
+    "correspond en fait à:\n",
+    "```python\n",
+    "Exercices.resoudre(exo1, 2)\n",
+    "```  \n",
+    "Pour résoudre ce problème, on doit modifier légèrement la méthode `resoudre` afin que celle-ci accepte un premier paramètre, correspondant à une référence vers l'objet et qui noté par convention **self**."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 113,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Exercices:\n",
+    "    \"\"\"Notion de classe: premier exemple\"\"\"\n",
+    "    # Un attribut\n",
+    "    nb_questions = 2\n",
+    "\n",
+    "    # Une méthode\n",
+    "    def resoudre(self, num_question):\n",
+    "        return f\"Solution de la question {num_question}: .. cherchez!\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 114,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Solution de la question 2: .. cherchez!'"
+      ]
+     },
+     "execution_count": 114,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exo1 = Exercices()\n",
+    "exo1.resoudre(2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**IMPORTANT: dans la très grande majorité des cas en terminale, les méthodes DEVRONT avoir un premier paramètre nommé par convention self**."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Amélioration du code"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "En général, lorsqu'on crée un objet on souhaiterait que celui-ci possède quelques caractéristiques initiales. Pour reprendre le cas de la classe `Exercices`, on aimerait, par exemple, associer à chaque nouvel objet créé un nombre de question et un niveau de difficulté."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Lorsqu'on souhaite affecter des propriétés initiales à des objets, on utilise une **méthode spéciale** appelée `__init__` (**attention à la présence des 2 caractères 'souligné' avant et après init**). Cette méthode est appelée automatiquement par python lors de la création d'un objet."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Exercices:\n",
+    "    \"\"\"Notion de classe: premier exemple\"\"\"\n",
+    "\n",
+    "    def __init__(self, nb_question, niveau):\n",
+    "        self.nb_question = nb_question\n",
+    "        self.niveau = niveau\n",
+    "\n",
+    "    def resoudre(self, num_question):\n",
+    "        assert num_question <= self.nb_question, \"Question inexistante\"\n",
+    "        if self.niveau == 'facile':\n",
+    "            res = f\"la réponse {num_question} est {self.niveau} !\"\n",
+    "        else:\n",
+    "            res = \"Un indice ?\"\n",
+    "        return res"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "exo2 = Exercices(5, 'facile')\n",
+    "exo3 = Exercices(3, 'difficile')\n",
+    "exo4 = Exercices(3, 'difficile')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Un indice ?'"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exo3.resoudre(1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'la réponse 2 est facile !'"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "exo2.resoudre(2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Décommenter et exécuter cette cellule\n",
+    "#exo4.resoudre(4)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Application directe**  \n",
+    "Définir une classe `Rectangle`. Les objets instanciés seront initialisés avec deux paramètres: `largeur` et `longueur`.\n",
+    "Prévoir une méthode qui renvoie la surface du rectangle. Tester.  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Réponse"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.4"
+  },
+  "latex_envs": {
+   "LaTeX_envs_menu_present": true,
+   "autoclose": false,
+   "autocomplete": true,
+   "bibliofile": "biblio.bib",
+   "cite_by": "apalike",
+   "current_citInitial": 1,
+   "eqLabelWithNumbers": true,
+   "eqNumInitial": 1,
+   "hotkeys": {
+    "equation": "Ctrl-E",
+    "itemize": "Ctrl-I"
+   },
+   "labels_anchors": false,
+   "latex_user_defs": false,
+   "report_style_numbering": false,
+   "user_envs_cfg": false
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
