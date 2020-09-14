@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>PARADIGMES DE PROGRAMMATION &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Paradigmes de programmation" href="paradigmes_exercices.html" />
+    <link rel="prev" title="Méthodes de programmation modulaire" href="../LP3/Modularite.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
+  </li>
+  <li class="active">
+    <a href="">PARADIGMES DE PROGRAMMATION</a>
+  </li>
+  <li class="">
+    <a href="paradigmes_exercices.html">Paradigmes de programmation</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/LP4/paradigmes.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/LP4/paradigmes.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#introduction" class="nav-link">Introduction</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#programmation-imperative" class="nav-link">Programmation impérative</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#les-caracteristiques" class="nav-link">Les caractéristiques</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#exemple-de-probleme-resolu-dans-le-style-imperatif-avec-python" class="nav-link">Exemple de problème résolu dans le style impératif avec Python</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#programmation-fonctionnelle" class="nav-link">Programmation fonctionnelle</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id1" class="nav-link">Les caractéristiques</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#exemple" class="nav-link">Exemple</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#programmation-orientee-objet" class="nav-link">Programmation orientée objet</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id2" class="nav-link">Les caractéristiques</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id3" class="nav-link">Exemple</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#choisir-un-paradigme" class="nav-link">Choisir un paradigme</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="paradigmes-de-programmation">
+<h1>PARADIGMES DE PROGRAMMATION<a class="headerlink" href="#paradigmes-de-programmation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Un paradigme de programmation est une façon de s’organiser pour concevoir un programme informatique. On peut le voir comme un style de programmation. C’est un critère déterminant pour le choix d’un langage.</p>
+<p>Il existe de très nombreux paradigmes de programmation (voir <a class="reference external" href="https://fr.wikipedia.org/wiki/Paradigme_(programmation)">wikipedia</a> à ce sujet). Dans le cadre du programme de terminale, on abordera sommairement les caractéristiques des paradigmes:</p>
+<ul class="simple">
+<li><p>impératif;</p></li>
+<li><p>fonctionnel;</p></li>
+<li><p>orienté objet.</p></li>
+</ul>
+<p>Enfin, on le constatera avec python, les grands langages généralistes actuels sont multi-paradigmes.</p>
+</div>
+<div class="section" id="programmation-imperative">
+<h2>Programmation impérative<a class="headerlink" href="#programmation-imperative" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="les-caracteristiques">
+<h3>Les caractéristiques<a class="headerlink" href="#les-caracteristiques" title="Permalink to this headline">¶</a></h3>
+<p>Dans le style impératif, un programme correspond à un ensemble <strong>d’instructions</strong>, qui représentent les actions à réaliser.<br />
+La notion de <strong>variable</strong> est importante. Elle correspond à une zone mémoire que l’on pourra lire et modifier . Cette modification de la mémoire est aussi appelée <strong>effet de bord</strong>.<br />
+On utilise abondamment des <strong>structures de boucle</strong> (<em>for</em>, <em>while</em>, etc.).<br />
+Les fonctions peuvent exister mais n’ont pas le même sens qu’en mathématique. Elles peuvent être vues comme des <strong>blocs</strong> destinés à mieux structurer le code. Les fonctions qui ne renvoient pas de valeurs sont souvent nommées <strong>procédures</strong>.</p>
+<p>Parmi les grands langages impératifs, on peut citer:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Fortran">Fortran</a> créé par <a class="reference external" href="https://fr.wikipedia.org/wiki/John_Backus">John Backus</a> en 1954;</p></li>
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/C_(langage)">le langage C</a> créé par <a class="reference external" href="https://fr.wikipedia.org/wiki/Dennis_Ritchie">Dennis Ritchie</a> en 1972.</p></li>
+</ul>
+<p>Python permet la programmation impérative. C’est ce que l’on fait depuis la première …</p>
+</div>
+<div class="section" id="exemple-de-probleme-resolu-dans-le-style-imperatif-avec-python">
+<h3>Exemple de problème résolu dans le style impératif avec Python<a class="headerlink" href="#exemple-de-probleme-resolu-dans-le-style-imperatif-avec-python" title="Permalink to this headline">¶</a></h3>
+<p>Concevoir un programme qui cacule la somme des éléments d’un tableau (<strong>sans utiliser la fonction</strong> <code class="docutils literal notranslate"><span class="pre">sum</span></code> <strong>de Python évidemment !!</strong>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">sommei</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="c1"># A compléter</span>
+    <span class="k">pass</span>
+
+<span class="c1"># Decommenter</span>
+<span class="c1">#sommei(t)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="programmation-fonctionnelle">
+<h2>Programmation fonctionnelle<a class="headerlink" href="#programmation-fonctionnelle" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Les caractéristiques<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Dans le style fonctionnel, un programme est une suite de <strong>déclarations</strong> (<em>de fonctions</em>) suivi d’une <strong>expression</strong>. Une expression est une combinaison d’éléments du langage qui renvoie une valeur. Le programme consiste à <strong>évaluer cette expression</strong>.</p>
+<p>Deux caractéristiques importantes:</p>
+<ul class="simple">
+<li><p><strong>absence de variables</strong> donc d’effets de bords;</p></li>
+<li><p><strong>absence d’itérations</strong>, qui seront remplacées par la <em>récursivité</em>.</p></li>
+</ul>
+<p>Les fonctions (<em>au sens mathématique du terme ici</em>) jouent un rôle très important. Elles peuvent être des <strong>expressions</strong>, <strong>passées en paramètres</strong> à d’autres fonctions et même être <strong>renvoyées</strong> par d’autre fonctions !</p>
+<p>Parmi les grands langages fonctionnels, on peut citer:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Lisp">Lisp</a> créé par <a class="reference external" href="https://fr.wikipedia.org/wiki/John_McCarthy">John Mc Carthy</a> en 1958;</p></li>
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/OCaml">Ocaml</a> créé par <a class="reference external" href="https://fr.wikipedia.org/wiki/Xavier_Leroy">Xavier Leroy</a> en 1996;</p></li>
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Haskell">Haskell</a> créé par une communauté de développeur en 1990. Son nom  a été donné en référence au mathématicien <a class="reference external" href="https://fr.wikipedia.org/wiki/Haskell_Curry">Haskell Curry</a>.</p></li>
+</ul>
+<p>Python implémente des caractéristiques d’un langage fonctionnnel. Voir <a class="reference external" href="https://docs.python.org/fr/3/howto/functional.html">documentation officielle</a>.</p>
+</div>
+<div class="section" id="exemple">
+<h3>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">¶</a></h3>
+<p>On reprend le même problème que celui donné au paragraphe précédent, mais cette fois on demande d’écrire une solution en style fonctionnel.</p>
+<p><em>Quelques indications</em><br />
+On doit se poser la question: <strong>qu’est-ce</strong> que la somme des éléments du tableau ? Réponse: c’est la somme de son premier terme et du reste du tableau. On pose par convention que la somme des éléments d’un tableau vide vaut 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sommef1</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="c1"># A compléter</span>
+    <span class="k">pass</span>
+
+<span class="c1"># Decommenter</span>
+<span class="c1">#sommef1([2, 8, 9, 18, 15])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Remarques</em>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">t[0]</span></code> est le 1er élément du tableau et <code class="docutils literal notranslate"><span class="pre">t[1:]</span></code> le reste;</p></li>
+<li><p>la définition de la somme des éléments d’un tableau est récursive;</p></li>
+<li><p>dans le style fonctionnel  on adopte fréquemment une écriture plus concise, du type: <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">expr</span> <span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> (voir ci-dessous).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Decommenter</span>
+<span class="c1">#def sommef2(t):</span>
+<span class="c1">#    return 0 if t == [] else t[0] + sommef2(t[1:])</span>
+<span class="c1">#</span>
+<span class="c1">#sommef2([2, 8, 9, 18, 15])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="programmation-orientee-objet">
+<h2>Programmation orientée objet<a class="headerlink" href="#programmation-orientee-objet" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>Les caractéristiques<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Ce paradigme est basé sur la notion <strong>d’objet</strong> qui peut être vu comme une zone mémoire qui possède ses propres <strong>attributs</strong> et méthodes.  L’objet expose uniquement les méthodes prévues dans son interface, tout en cachant les détails d’implémentations. C’est le mécanisme <strong>d’encapsulation</strong>.<br />
+L’objet est construit à partir de <strong>classes</strong> (<em>dans beaucoup de langages</em>).<br />
+D’autres aspects importants caractérisant la POO peuvent être cités mais sont clairement exclus du programme de terminal.</p>
+<p>Parmi les grands langages orientés objet, on peut citer:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/C%2B%2B">C++</a> qui peut être vu comme une extension du langage C, créé en 1983 par <a class="reference external" href="https://fr.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne Stroustrup</a>;</p></li>
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Java_(technique)">Java</a> créé en 1990 par <a class="reference external" href="https://fr.wikipedia.org/wiki/James_Gosling">James Gosling</a>;</p></li>
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Python_(langage)">Python</a> créé 1991 par <a class="reference external" href="https://fr.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Exemple<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>On résoud le même problème qu’aux deux paragraphes précédents.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Tableau</span><span class="p">:</span>
+    <span class="c1"># A compléter</span>
+    <span class="k">pass</span>
+
+<span class="c1"># Decommenter</span>
+<span class="c1">#tab = Tableau([2, 8, 9, 18, 15])</span>
+<span class="c1">#tab.somme()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="choisir-un-paradigme">
+<h2>Choisir un paradigme<a class="headerlink" href="#choisir-un-paradigme" title="Permalink to this headline">¶</a></h2>
+<p>Le choix d’un paradigme, puis d’un langage, dépend fortement de la nature du problème à résoudre et de l’expérience du programmeur.</p>
+<p>Pour les problèmes où l’algorithme laisse clairement apparaître une liste d’actions, la programmation impérative est un bon choix.</p>
+<p>Si le problème à résoudre fait apparaître des interactions entre entités et surtout si c’est un gros projet, la programmation orienté objet est probablement à privilégier.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../LP3/Modularite.html" title="previous page">Méthodes de programmation modulaire</a>
+    <a class='right-next' id="next-link" href="paradigmes_exercices.html" title="next page">Paradigmes de programmation</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
