@@ -1,0 +1,706 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "MISE AU POINT DE PROGRAMMES\n",
+    "============================="
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Introduction"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Que réalise la fonction suivante ?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def f(t):\n",
+    "    m = t[0]\n",
+    "    for i in range(1, len(t)):\n",
+    "        if t[i] > m:\n",
+    "            m = t[i]\n",
+    "    return m"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Même si l'on comprend chacune des instructions, il est clair que l'écriture de cette fonction souffre de gros défauts.  \n",
+    "Réalisons quelques appels."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Décommenter et exécuter\n",
+    "#f(5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "12"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f([10, 3, 6, 12])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Décommenter et exécuter\n",
+    "#f([])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Il est tout aussi évident que ces erreurs auraient pu être évitées avec une documentation adéquate et une vérification d'assertion(s).  \n",
+    "\n",
+    "Il s'agira ici, de rappeler dans un premier temps, quelques éléments de bonnes pratiques de programmation vues en 1ère.  \n",
+    "Puis, on prolongera le travail de documentation de programmes à travers un problème classique: le problème du typage.  \n",
+    "On verra ensuite comment gérer quelques bugs courants.  \n",
+    "Enfin, on insistera la nécessité de prévoir un *bon* jeu de tests pour ses fonctions."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Documenter !!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Un module ou une fonction **doit** être documenté. Cette documentation ou spécification sera disponible lorsqu'on utilisera la fonction `help` de python. La documentation sera portée entre une paire de triple double quotes `\"\"\" \"\"\"`. Elle renseigne sur ce que fait le module ou la fonction (**postcondition**) et sur les conditions portant sur les entrées (**préconditions**). Par exemple, la fonction donnée en introduction peut être améliorée de la manière suivante:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def max_tab(t):\n",
+    "    \"\"\"\n",
+    "    renvoie le maximum d'un tableau t;\n",
+    "    t: tableau d'éléments comparables, non vide\n",
+    "    \"\"\"\n",
+    "    m = t[0]\n",
+    "    for i in range(1, len(t)):\n",
+    "        if t[i] > m:\n",
+    "            m = t[i]\n",
+    "    return m"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on function max_tab in module __main__:\n",
+      "\n",
+      "max_tab(t)\n",
+      "    renvoie le maximum d'un tableau t;\n",
+      "    t: tableau d'éléments comparables, non vide\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "help(max_tab)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Pour éviter un comportement erroné de la fonction, on peut s'assurer que les préconditions sont respectées en utilisant des **assertions**. La fonction `max_tab` devient alors:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def max_tab(t):\n",
+    "    \"\"\"\n",
+    "    renvoie le maximum d'un tableau t;\n",
+    "    t: tableau d'éléments comparables, non vide\n",
+    "    \"\"\"\n",
+    "    assert len(t) > 0, \"Erreur: tableau vide\"\n",
+    "    m = t[0]\n",
+    "    for i in range(1, len(t)):\n",
+    "        if t[i] > m:\n",
+    "            m = t[i]\n",
+    "    return m"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Le premier appel de l'exemple d'introduction a provoqué une erreur de type `TypeError`. Il s'agit d'une erreur très courante. Certains langages vérifient avant l'exécution les problèmes de typage. De par sa nature, Python ne le fait pas (du moins pas directement). Cependant, depuis la version 3.5, on peut **annoter** les programmes de manière à bien préciser les types des variables utilisées ainsi que celui du résultat renvoyé."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def max_tab(t: list) -> int:\n",
+    "    \"\"\"\n",
+    "    renvoie le maximum d'un tableau t;\n",
+    "    t: tableau d'éléments comparables, non vide\n",
+    "    \"\"\"\n",
+    "    assert len(t) > 0, \"Erreur: tableau vide\"\n",
+    "    m = t[0]\n",
+    "    for i in range(1, len(t)):\n",
+    "        if t[i] > m:\n",
+    "            m = t[i]\n",
+    "    return m"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on function max_tab in module __main__:\n",
+      "\n",
+      "max_tab(t: list) -> int\n",
+      "    renvoie le maximum d'un tableau t;\n",
+      "    t: tableau d'éléments comparables, non vide\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "help(max_tab)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Le module `typing` de la bibliothèque standard permet d'aller encore plus loin dans l'annotation en précisant le type d'objet présent dans le tableau `t`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from typing import List\n",
+    "\n",
+    "\n",
+    "def max_tab(t: List[int]) -> int:\n",
+    "    \"\"\"\n",
+    "    renvoie le maximum d'un tableau t;\n",
+    "    t: tableau d'entiers, non vide\n",
+    "    \"\"\"\n",
+    "    assert len(t) > 0, \"Erreur: tableau vide\"\n",
+    "    m = t[0]\n",
+    "    for i in range(1, len(t)):\n",
+    "        if t[i] > m:\n",
+    "            m = t[i]\n",
+    "    return m"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on function max_tab in module __main__:\n",
+      "\n",
+      "max_tab(t: List[int]) -> int\n",
+      "    renvoie le maximum d'un tableau t;\n",
+      "    t: tableau d'entiers, non vide\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "help(max_tab)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "*Remarques*  \n",
+    "\n",
+    "* Le type du tableau est ici **List** avec un 'l' majuscule;  \n",
+    "* On a modifié la spécification de la fonction, notamment sa précondition, en précisant qu'on travaillait avec un tableau d'entiers.  \n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "On peut aller encore plus loin (*non exigible en terminale*) en faisant une vérification des types avec un outil externe `mypy`. Utilisation: on copie la fonction précédente dans le fichier `max_tab.py` par exemple et on execute:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Décommenter et exécuter\n",
+    "#!mypy max_tab.py"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Application directe**  \n",
+    "\n",
+    "Pour chacune des fonctions suivantes proposer un code plus explicite en y ajoutant des annotations par exemple. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def f1(x):\n",
+    "    return str(3.14 * x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def f2(p):\n",
+    "    x, y = p\n",
+    "    return 2 * x + y"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def f3(d, s):\n",
+    "    if s != 'toto':\n",
+    "        d[s] = d.get(s, 0) + 1\n",
+    "    return d.get(s, 0)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Gérer les bugs"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Utilisation d'assertions"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Parfois le code peut être syntaxiquement correct mais provoque quand même des erreurs à l'exécution. Considérons la portion de code suivante, extraite d'un exercice de première."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import csv\n",
+    "\n",
+    "\n",
+    "def lire_csv(fichier):\n",
+    "    \"\"\"\n",
+    "    renvoie un tableau correspondant aux données présentes dans fichier;\n",
+    "    fichier: chaine correspondant au nom du fichier traité.\n",
+    "    \"\"\"\n",
+    "    f = open(fichier, newline='', encoding='utf8')\n",
+    "    table = [ligne for ligne in csv.reader(f, delimiter=';')]\n",
+    "    return table\n",
+    "\n",
+    "# Décommenter la ligne suivante et executer\n",
+    "#t = lire_csv('./table.csv')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ce code est d'apparence correct. Néanmoins il échouera si le fichier demandé est absent. Une assertion judicieusement placée permet de gérer ce cas.  \n",
+    "*Note*: on utilise ici la méthode `is_file()` de la classe `Path` qui teste la présence d'un fichier."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import csv\n",
+    "from pathlib import Path\n",
+    "\n",
+    "\n",
+    "def lire_csv(fichier):\n",
+    "    \"\"\"\n",
+    "    renvoie un tableau correspondant aux données présentes dans fichier;\n",
+    "    fichier: chaine correspondant au nom du fichier traité.\n",
+    "    \"\"\"\n",
+    "    f = open(fichier, newline='', encoding='utf8')\n",
+    "    table = [ligne for ligne in csv.reader(f, delimiter=';')]\n",
+    "    return table\n",
+    "\n",
+    "# Décommenter les lignes suivantes et executer\n",
+    "#assert Path('./table.csv').is_file(), \"Erreur: fichier absent\"\n",
+    "#t = lire_csv('./table.csv')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Eviter les effets de bords non souhaités"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Considérons le problème simple suivant: transformer un tableau de tableaux (*matrice*) en un tableau. En d'autres termes, passer de:  \n",
+    "\n",
+    "```python\n",
+    "mat = [[1, 2, 3], \n",
+    "       [4, 5, 6,], \n",
+    "       [7, 8, 9]]\n",
+    "```\n",
+    "\n",
+    "à \n",
+    "\n",
+    "```python\n",
+    "t = [1, 2, 3, 4, 5, 6, 7, 8, 9]\n",
+    "```\n",
+    "\n",
+    "Un élève de terminale NSI++ propose:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from typing import List\n",
+    "\n",
+    "\n",
+    "def mat2tab(m: List[List[int]]) -> list:\n",
+    "    \"\"\"\n",
+    "    renvoie la matrice m sous la forme d'un tableau\n",
+    "    m: tableau de tableaux d'entiers\n",
+    "    \"\"\"\n",
+    "    tab = m[0] # on récupère l'intégralité du 1er sous tableau\n",
+    "    for t in m[1:]:\n",
+    "        tab += t # on va concaténer avec les sous tableaux restants\n",
+    "    return tab"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2, 3, 4, 5, 6, 7, 8, 9]\n"
+     ]
+    }
+   ],
+   "source": [
+    "mat = [[1, 2, 3], \n",
+    "       [4, 5, 6,], \n",
+    "       [7, 8, 9]]\n",
+    "t = mat2tab(mat)\n",
+    "print(t)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "La fonction est documentée et annotée. Le résultat correspond à ce qui était attendu. Malheureusement, un effet non souhaité s'est produit: la modification de la variable `mat`, non locale à la fonction. Cela s'appelle un **effet de bord**."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[[1, 2, 3, 4, 5, 6, 7, 8, 9], [4, 5, 6], [7, 8, 9]]"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mat"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Dans le cas général, on évitera de modifier les paramètres d'une fonction**. Il faudra être particulièrement vigilant si les paramètres sont des structures complexes mutables, il y a risque **d'effets de bords**. Dans ce cas, il vaut mieux travailler sur une copie. Python dispose d'une fonction pratique `deepcopy` du module copy qui permet de réaliser des copies de structures complexes.  \n",
+    "\n",
+    "*Une solution au problème précédent serait*:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from typing import List\n",
+    "from copy import deepcopy\n",
+    "\n",
+    "def mat2tab(m: List[List[int]]) -> list:\n",
+    "    \"\"\"\n",
+    "    renvoie la matrice m sous la forme d'un tableau\n",
+    "    m: tableau de tableaux d'entiers\n",
+    "    \"\"\"\n",
+    "    mcopie = deepcopy(m)\n",
+    "    tab = mcopie[0] # on récupère l'intégralité du 1er tableau\n",
+    "    for t in mcopie[1:]:\n",
+    "        tab += t # on va concaténer avec les sous tableaux restants\n",
+    "    return tab"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2, 3, 4, 5, 6, 7, 8, 9]\n"
+     ]
+    }
+   ],
+   "source": [
+    "mat = [[1, 2, 3], \n",
+    "       [4, 5, 6,], \n",
+    "       [7, 8, 9]]\n",
+    "t = mat2tab(mat)\n",
+    "print(t)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(mat)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Nécessité de tester"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Supposons que l'on dispose d'une fonction de tri écrite par un autre programmeur et provenant d'un module `tri`. Comment doit-on tester cette fonction ?  \n",
+    "D'abord, voyons la documentation."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# décommenter et exécuter\n",
+    "#import tri\n",
+    "\n",
+    "\n",
+    "#dir(tri)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# décommenter et exécuter\n",
+    "#help(tri.tri_insertion)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "La consultation de la spécification nous informe d'un tri d'entiers, sans plus de précisions. Il faut donc penser à inclure des entiers négatifs aussi.  \n",
+    "Sans autres précisions, on devra tester le comportement sur un tableau vide. On délèguera la tâche de vérifier les `assert` à une fonction `test` qui prendra une fonction de tri en paramètre.  \n",
+    "\n",
+    "*Remarque*: le tri étant réalisé **en place**, la fonction de tri renvoie `None`. On procèdera alors de la manière suivante:  \n",
+    "\n",
+    "1. définition de `t`;  \n",
+    "2. appel de la fonction de tri sur `t`;  \n",
+    "3. test de la véracité de l'assertion.\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from random import randint\n",
+    "\n",
+    "\n",
+    "def test(f):\n",
+    "    # cas tableau vide\n",
+    "    t = []\n",
+    "    f(t)\n",
+    "    assert t == [], \"Erreur: cas tableau vide incorrect\"\n",
+    "    # Cas quelconque\n",
+    "    t = [randint(-20, 20) for _ in range(10)]\n",
+    "    f(t)\n",
+    "    for i in range(len(t) - 1):\n",
+    "        assert t[i] <= t[i + 1]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# décommenter et exécuter\n",
+    "#test(tri.tri_insertion)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
