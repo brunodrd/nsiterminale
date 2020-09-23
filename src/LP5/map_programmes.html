@@ -31,6 +31,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="STRUCTURE DE DONNEES: LISTE" href="../SDD3/liste.html" />
     <link rel="prev" title="Paradigmes - Exercices" href="../LP4/paradigmes_exercices.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -101,6 +102,12 @@
   </li>
   <li class="active">
     <a href="">MISE AU POINT DE PROGRAMMES</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/liste.html">STRUCTURE DE DONNEES: LISTE</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/Exercices_liste.html">Exercices</a>
   </li>
 </ul>
 </nav>
@@ -399,8 +406,13 @@ max_tab(t: List[int]) -&gt; int
 <p>On peut aller encore plus loin (<em>non exigible en terminale</em>) en faisant une vérification des types avec un outil externe <code class="docutils literal notranslate"><span class="pre">mypy</span></code>. Utilisation: on copie la fonction précédente dans le fichier <code class="docutils literal notranslate"><span class="pre">max_tab.py</span></code> par exemple et on execute:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter et exécuter</span>
-<span class="c1">#!mypy max_tab.py</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Décommenter et exécuter
+!mypy max_tab.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>mypy: can&#39;t read file &#39;max_tab.py&#39;: No such file or directory
 </pre></div>
 </div>
 </div>
@@ -667,6 +679,7 @@ Sans autres précisions, on devra tester le comportement sur un tableau vide. On
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../LP4/paradigmes_exercices.html" title="previous page">Paradigmes - Exercices</a>
+    <a class='right-next' id="next-link" href="../SDD3/liste.html" title="next page">STRUCTURE DE DONNEES: LISTE</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
