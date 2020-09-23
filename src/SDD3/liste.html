@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>STRUCTURE DE DONNEES: LISTE &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercices" href="Exercices_liste.html" />
+    <link rel="prev" title="MISE AU POINT DE PROGRAMMES" href="../LP5/map_programmes.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes_exercices.html">Paradigmes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
+  </li>
+  <li class="active">
+    <a href="">STRUCTURE DE DONNEES: LISTE</a>
+  </li>
+  <li class="">
+    <a href="Exercices_liste.html">Exercices</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/SDD3/liste.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/SDD3/liste.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#repere-historique" class="nav-link">Repère historique</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#introduction" class="nav-link">Introduction</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#comment-formaliser-une-liste" class="nav-link">Comment formaliser une liste ?</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#implementation-avec-des-listes-chainees" class="nav-link">Implémentation avec des listes chainées</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#la-base-une-cellule" class="nav-link">La base: une cellule</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#operations-sur-les-listes" class="nav-link">Opérations sur les listes</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#construire-une-liste" class="nav-link">Construire une liste</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#determiner-si-la-liste-est-vide" class="nav-link">Déterminer si la liste est vide</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#ajouter-ou-supprimer-la-tete" class="nav-link">Ajouter ou supprimer la tête</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#obtenir-la-longueur-de-la-liste" class="nav-link">Obtenir la longueur de la liste</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#acceder-au-n-ieme-element" class="nav-link">Accéder au n-ième élément</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#concatener-deux-listes" class="nav-link">Concaténer deux listes</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#encapsulation-dans-une-classe" class="nav-link">Encapsulation dans une classe</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#rechercher-un-element-comparaison-dictionnaire-liste" class="nav-link">Rechercher un élément: comparaison dictionnaire / liste</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="structure-de-donnees-liste">
+<h1>STRUCTURE DE DONNEES: LISTE<a class="headerlink" href="#structure-de-donnees-liste" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="repere-historique">
+<h2>Repère historique<a class="headerlink" href="#repere-historique" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://fr.wikipedia.org/wiki/John_McCarthy">John McCarthy</a>, prix Turing en 1971, créa en 1958 le langage <a class="reference external" href="https://fr.wikipedia.org/wiki/Lisp">Lisp</a> qui signifie <strong>LIS</strong>t <strong>P</strong>rocessor.  Les listes constituent le fondement de Lisp.</p>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Une liste est une collection finie d’éléments qui se suivent. C’est une structure de données <strong>linéaire</strong>. Les doublons sont possibles. Une liste qui ne contient aucun élément est une <strong>liste vide</strong>.<br />
+On formalisera quelque peu cette définition dans un premier temps, avant de donner des implémentations possibles des opérations fondamentales sur les listes.<br />
+Enfin, on fera une comparaison entre l’opération de recherche d’un élément dans une liste chainée et dans un dictionnaire.</p>
+</div>
+<div class="section" id="comment-formaliser-une-liste">
+<h2>Comment formaliser une liste ?<a class="headerlink" href="#comment-formaliser-une-liste" title="Permalink to this headline">¶</a></h2>
+<p>Supposons une liste composée de trois éléments, ici des entiers: <span class="math notranslate nohighlight">\(\ell = [3, 7, 9]\)</span>. Une façon de décrire cette liste consiste à voir <span class="math notranslate nohighlight">\(\ell\)</span> comme l’association:</p>
+<ul class="simple">
+<li><p>d’un premier élément 3 qu’on nomme élément de tête;</p></li>
+<li><p>et d’une liste <span class="math notranslate nohighlight">\(\ell_1 = [7, 9]\)</span> des éléments qui suivent (liste qu’on nomme souvent <em>reste</em>).</p></li>
+</ul>
+<p>Cette description de <span class="math notranslate nohighlight">\(\ell\)</span> est aussi valable pour <span class="math notranslate nohighlight">\(\ell_1\)</span> qui est constituée:</p>
+<ul class="simple">
+<li><p>d’un élément de tête : 7,</p></li>
+<li><p>et d’un reste : <span class="math notranslate nohighlight">\(\ell_2 = [9]\)</span>.</p></li>
+</ul>
+<p>De la même façon que précédemment, la liste <span class="math notranslate nohighlight">\(\ell_2\)</span> est constituée:</p>
+<ul class="simple">
+<li><p>d’un élément de tête : 9,</p></li>
+<li><p>et d’un reste : <span class="math notranslate nohighlight">\(\ell_3 = []\)</span>.</p></li>
+</ul>
+<p>La liste <span class="math notranslate nohighlight">\(\ell_3\)</span> étant vide, elle ne possède pas d’élement de tête, et ne peut donc pas être décomposée
+comme nous venons de le faire à trois reprises.</p>
+<p>Une liste <span class="math notranslate nohighlight">\(\ell\)</span> d’éléments d’un ensemble <span class="math notranslate nohighlight">\(E\)</span>, est:</p>
+<ul class="simple">
+<li><p>soit une liste vide;</p></li>
+<li><p>soit un couple <span class="math notranslate nohighlight">\((x,L)\)</span> formé d’un élément de tête <span class="math notranslate nohighlight">\(x\in E\)</span> et d’une liste <span class="math notranslate nohighlight">\(L\)</span> d’éléments de <span class="math notranslate nohighlight">\(E\)</span>:</p></li>
+</ul>
+<p>Cette définition est récursive.</p>
+</div>
+<div class="section" id="implementation-avec-des-listes-chainees">
+<h2>Implémentation avec des listes chainées<a class="headerlink" href="#implementation-avec-des-listes-chainees" title="Permalink to this headline">¶</a></h2>
+<p>Une liste peut être implémentée de différentes façons. Python utilise des <em>tableaux dynamiques redimensionnables</em> pour son type <code class="docutils literal notranslate"><span class="pre">list</span></code>. On va voir ici d’autres réalisations possibles à base de <strong>listes chainées</strong>.</p>
+<div class="section" id="la-base-une-cellule">
+<h3>La base: une cellule<a class="headerlink" href="#la-base-une-cellule" title="Permalink to this headline">¶</a></h3>
+<p>Dans cette réalisation concrète d’une liste, les éléments sont chainés entre eux.</p>
+<p><img alt="liste" src="../../_images/cellule.png" /></p>
+<p>Chaque élément, qu’on nomme ici <strong>cellule</strong>, contient une valeur et une <strong>référence</strong> (<em>qui peut être vue comme une adresse mémoire</em>) vers l’élément suivant.<br />
+On va représenter une cellule par une <strong>classe</strong> <code class="docutils literal notranslate"><span class="pre">Cell</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Une classe pour les listes chainées&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suiv</span> <span class="o">=</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Une cellule est initialisée avec une valeur et une référence vers la cellule suivante. Si on considère que la liste vide est réalisée avec l’instruction <code class="docutils literal notranslate"><span class="pre">None</span></code>, la construction de la liste ci-dessus est alors facile:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operations-sur-les-listes">
+<h3>Opérations sur les listes<a class="headerlink" href="#operations-sur-les-listes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="construire-une-liste">
+<h4>Construire une liste<a class="headerlink" href="#construire-une-liste" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut visualiser le résultat en copiant le code suivant dans Pythontutor.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Une classe pour les listes chainées&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suiv</span> <span class="o">=</span> <span class="n">s</span>
+
+<span class="n">list1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))))</span>
+</pre></div>
+</div>
+<p><img alt="list1" src="../../_images/cell1.png" /></p>
+</div>
+<div class="section" id="determiner-si-la-liste-est-vide">
+<h4>Déterminer si la liste est vide<a class="headerlink" href="#determiner-si-la-liste-est-vide" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">estvide</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">l</span> <span class="ow">is</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">estvide</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ajouter-ou-supprimer-la-tete">
+<h4>Ajouter ou supprimer la tête<a class="headerlink" href="#ajouter-ou-supprimer-la-tete" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ajoute_tete</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; renvoie une liste composée de l&#39;élément x et dont le reste est l&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Cell</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">supprime_tete</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;renvoie une liste formée du reste de l&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">l</span><span class="o">.</span><span class="n">suiv</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voici un exemple d’utilisation. Copier ce code dans Pythontutor.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Une classe pour les listes chainées&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suiv</span> <span class="o">=</span> <span class="n">s</span>
+
+<span class="k">def</span> <span class="nf">ajoute_tete</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; renvoie une liste composée de l&#39;élément x et dont le reste est l&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Cell</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">supprime_tete</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;renvoie une liste formée du reste de l&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">l</span><span class="o">.</span><span class="n">suiv</span>
+
+<span class="n">l1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">ajoute_tete</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="list2" src="../../_images/cell2.png" /></p>
+<p><strong>Attention</strong> aux effets de bords non souhaités. Dans l’exemple ci-dessus, si la valeur de <span class="math notranslate nohighlight">\(\ell_1\)</span> change, alors la liste <span class="math notranslate nohighlight">\(\ell_2\)</span> sera affectée aussi !! Si on veut éviter cela, il faudra travailler sur des copies de la liste <span class="math notranslate nohighlight">\(\ell\)</span> dans les fonctions.</p>
+</div>
+<div class="section" id="obtenir-la-longueur-de-la-liste">
+<h4>Obtenir la longueur de la liste<a class="headerlink" href="#obtenir-la-longueur-de-la-liste" title="Permalink to this headline">¶</a></h4>
+<p>Une première possibilité est coder une fonction récursive:</p>
+<ul class="simple">
+<li><p>si la liste est vide, sa longueur est nulle;</p></li>
+<li><p>sinon sa longueur vaut 1 plus la longueur de la liste suivante (<em>rappel: une liste est un élément suivi d’une liste, le reste</em>).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">longueur</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; renvoie la longueur d&#39;une liste l&quot;&quot;&quot;</span>
+    
+    <span class="k">if</span> <span class="n">l</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">longueur</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">suiv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))))</span>
+<span class="n">longueur</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Travail</strong><br />
+Coder une version itérative de la fonction longueur.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">longueur_iter</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Version itérative de la fonction &#39;longueur&#39; &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Supprimer l&#39;instruction pass et proposer votre code</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#from exos import q1, q2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># AUTO EVALUATION - A EXECUTER</span>
+
+<span class="c1">#q1.correction(longueur_iter)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="acceder-au-n-ieme-element">
+<h4>Accéder au n-ième élément<a class="headerlink" href="#acceder-au-n-ieme-element" title="Permalink to this headline">¶</a></h4>
+<p>On souhaite accéder (avoir la valeur) du n-ième élément d’une liste <code class="docutils literal notranslate"><span class="pre">lst</span></code> avec une fonction <code class="docutils literal notranslate"><span class="pre">nieme(n,</span> <span class="pre">lst)</span></code>. On procèdera encore de manière récursive:</p>
+<ul class="simple">
+<li><p>si <span class="math notranslate nohighlight">\(n=0\)</span>, on renvoie simplement la valeur <code class="docutils literal notranslate"><span class="pre">lst.val</span></code>;</p></li>
+<li><p>sinon, on cherche l’élément d’index <span class="math notranslate nohighlight">\(n-1\)</span> dans la liste suivante.</p></li>
+</ul>
+<p>Deux préconditions doivent être vérifiées: la liste ne noit pas être vide et l’index <span class="math notranslate nohighlight">\(n\)</span> ne doit pas être négatif.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nieme</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; renvoie le nième élément de la liste lst;</span>
+<span class="sd">    n: entier naturel,</span>
+<span class="sd">    lst: liste non vide</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">l</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Erreur: accès impossible&quot;</span>
+    <span class="c1"># Compléter avec votre code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># AUTO EVALUATION - A EXECUTER</span>
+<span class="c1">#q2.correction(nieme)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="concatener-deux-listes">
+<h4>Concaténer deux listes<a class="headerlink" href="#concatener-deux-listes" title="Permalink to this headline">¶</a></h4>
+<p>A voir en exercice</p>
+</div>
+</div>
+<div class="section" id="encapsulation-dans-une-classe">
+<h3>Encapsulation dans une classe<a class="headerlink" href="#encapsulation-dans-une-classe" title="Permalink to this headline">¶</a></h3>
+<p>Une pratique courante consiste à créer une classe <code class="docutils literal notranslate"><span class="pre">Liste</span></code>. Les instances auront un attribut <code class="docutils literal notranslate"><span class="pre">tete</span></code> qui indique la tête de la liste ou <code class="docutils literal notranslate"><span class="pre">None</span></code> si la liste est vide. Les méthodes seront bâties à partir des fonctions précédentes.</p>
+<p><strong>Un objet de type Liste</strong><br />
+<img alt="classeListe" src="../../_images/classeListe.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Liste</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Une classe fournissant des listes chainées&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="kc">None</span>
+        
+    <span class="k">def</span> <span class="nf">estvide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="ow">is</span> <span class="kc">None</span>
+    
+    <span class="k">def</span> <span class="nf">ajoute_tete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; ajoute l&#39;élément x à la liste courante&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span>  <span class="n">Cell</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">supprime_tete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;renvoie une liste formée du reste de la liste courante&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="o">.</span><span class="n">suiv</span>
+    
+    <span class="k">def</span> <span class="nf">taille</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; renvoie la longueur d&#39;une liste l&quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">longueur</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">l</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">longueur</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">suiv</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">longueur</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">acces_nieme</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; renvoie le n-ième élément de la liste courante, les </span>
+<span class="sd">            éléments étant indexés à partir de zéro.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">nieme</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lst</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Erreur: accès impossible&quot;</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">lst</span><span class="o">.</span><span class="n">val</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">nieme</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lst</span><span class="o">.</span><span class="n">suiv</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">nieme</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Travail</strong></p>
+<ol class="simple">
+<li><p>Utiliser cette classe pour construire une liste formée des éléments 27, 9, 3 (la tête est la cellule qui contient 27).</p></li>
+<li><p>Récupérer l’élément d’index <span class="math notranslate nohighlight">\(n=1\)</span>. Le résultat est-il conforme à celui attendu ?</p></li>
+<li><p>Vérifier vos résultats avec l’application pythontutor</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Questions 1 et 2</span>
+<span class="c1"># Votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Code à copier dans Pythontutor</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Une classe pour les listes chainées&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suiv</span> <span class="o">=</span> <span class="n">s</span>
+<span class="k">class</span> <span class="nc">Liste</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Une classe fournissant des listes chainées&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="kc">None</span>
+        
+    <span class="k">def</span> <span class="nf">estvide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="ow">is</span> <span class="kc">None</span>
+    
+    <span class="k">def</span> <span class="nf">ajoute_tete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; ajoute l&#39;élément x à la liste courante&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span>  <span class="n">Cell</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">supprime_tete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;renvoie une liste formée du reste de l&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="o">.</span><span class="n">suiv</span>
+    
+    <span class="k">def</span> <span class="nf">taille</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; renvoie la longueur d&#39;une liste l&quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">longueur</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">l</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">longueur</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">suiv</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">longueur</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">acces_nieme</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; renvoie le n-ième élément de la liste courante&quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">nieme</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">lst</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Erreur: accès impossible&quot;</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">lst</span><span class="o">.</span><span class="n">val</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">nieme</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lst</span><span class="o">.</span><span class="n">suiv</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">nieme</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rechercher-un-element-comparaison-dictionnaire-liste">
+<h2>Rechercher un élément: comparaison dictionnaire / liste<a class="headerlink" href="#rechercher-un-element-comparaison-dictionnaire-liste" title="Permalink to this headline">¶</a></h2>
+<p>Lors de la recherche d’un élément dans un dictionnaire, sa clé est d’abord passée à une fonction (<em>fonction de hashage</em>) qui calcule un index permettant sa localisation. La complexité de cette opération est constante (<span class="math notranslate nohighlight">\(O(1)\)</span>).<br />
+<img alt="hashtable" src="../../_images/hash-table2.png" />.<br />
+Lors de la recherche dans une liste, on doit parcourir <strong>séquentiellement</strong> celle-ci, jusqu’à trouver l’élément. Dans le pire des cas, la complexité de cette opération est en <span class="math notranslate nohighlight">\(O(n)\)</span>.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../LP5/map_programmes.html" title="previous page">MISE AU POINT DE PROGRAMMES</a>
+    <a class='right-next' id="next-link" href="Exercices_liste.html" title="next page">Exercices</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
