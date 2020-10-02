@@ -13,9 +13,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -23,12 +24,17 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Paradigmes - Exercices" href="paradigmes_exercices.html" />
@@ -65,51 +71,91 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
   <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
-  </li>
-  <li class="">
-    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
-  </li>
-  <li class="">
-    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
-  </li>
-  <li class="">
-    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
-  </li>
-  <li class="">
-    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
-  </li>
-  <li class="">
-    <a href="../SDD1/Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
-  </li>
-  <li class="">
-    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
-  </li>
-  <li class="">
-    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
-  </li>
-  <li class="">
-    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
-  </li>
-  <li class="active">
-    <a href="">PARADIGMES DE PROGRAMMATION</a>
-  </li>
-  <li class="">
-    <a href="paradigmes_exercices.html">Paradigmes - Exercices</a>
-  </li>
-  <li class="">
-    <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
-  </li>
-  <li class="">
-    <a href="../SDD3/liste.html">STRUCTURE DE DONNEES: LISTE</a>
-  </li>
-  <li class="">
-    <a href="../SDD3/Exercices_liste.html">Exercices</a>
-  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   NUMERIQUE &amp; SCIENCE INFORMATIQUE - Terminale
+  </a>
+ </li>
 </ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../accueil/serveur_nsi.html">
+   UTILISATION DU SERVEUR nsiboisdo.bdrd.fr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP2/Recursivite.html">
+   RECURSIVITE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP2/Activites_Recursivite.html">
+   Fiche d’activité 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD1/Structures_de_données.html">
+   Structures de données: implémentation et interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD1/Structures_de_données_1_Exercice.html">
+   Exercice: implémenter une file bornée avec un tableau
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD2/Vocabulaire_OOP.html">
+   Vocabulaire de la programmation objet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD2/Exercices_OOP.html">
+   Vocabulaire de la programmation objet - Manipuler des classes - Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP3/Modularite.html">
+   Méthodes de programmation modulaire
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   PARADIGMES DE PROGRAMMATION
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="paradigmes_exercices.html">
+   Paradigmes - Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP5/map_programmes.html">
+   MISE AU POINT DE PROGRAMMES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD3/liste.html">
+   STRUCTURE DE DONNEES: LISTE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD3/Exercices_liste.html">
+   Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD4/Arbres.html">
+   ARBRES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD4/Exercices_arbres.html">
+   Exercices - Arbres
+  </a>
+ </li>
+</ul>
+
 </nav>
 
  <!-- To handle the deprecated key -->
@@ -132,109 +178,138 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
         <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/src/LP4/paradigmes.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
-
-        <!-- Edit this page -->
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/LP4/paradigmes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-            <div class="dropdown-buttons">
-                
-                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/LP4/paradigmes.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
-                
-                
-                
-            </div>
-        </div>
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/LP4/paradigmes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/src/LP4/paradigmes.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
 </div>
 
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#introduction" class="nav-link">Introduction</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#programmation-imperative" class="nav-link">Programmation impérative</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#les-caracteristiques" class="nav-link">Les caractéristiques</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#exemple-de-probleme-resolu-dans-le-style-imperatif-avec-python" class="nav-link">Exemple de problème résolu dans le style impératif avec Python</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#programmation-fonctionnelle" class="nav-link">Programmation fonctionnelle</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#id1" class="nav-link">Les caractéristiques</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#exemple" class="nav-link">Exemple</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#programmation-orientee-objet" class="nav-link">Programmation orientée objet</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#id2" class="nav-link">Les caractéristiques</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#id3" class="nav-link">Exemple</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#choisir-un-paradigme" class="nav-link">Choisir un paradigme</a>
-        </li>
-    
-    </ul>
-</nav>
+    </div>
 
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programmation-imperative">
+   Programmation impérative
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-caracteristiques">
+     Les caractéristiques
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple-de-probleme-resolu-dans-le-style-imperatif-avec-python">
+     Exemple de problème résolu dans le style impératif avec Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programmation-fonctionnelle">
+   Programmation fonctionnelle
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Les caractéristiques
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple">
+     Exemple
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programmation-orientee-objet">
+   Programmation orientée objet
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Les caractéristiques
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Exemple
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choisir-un-paradigme">
+   Choisir un paradigme
+  </a>
+ </li>
+</ul>
 
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -275,7 +350,7 @@ Les fonctions peuvent exister mais n’ont pas le même sens qu’en mathématiq
 <p>Concevoir un programme qui cacule la somme des éléments d’un tableau (<strong>sans utiliser la fonction</strong> <code class="docutils literal notranslate"><span class="pre">sum</span></code> <strong>de Python évidemment !!</strong>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">sommei</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="c1"># A compléter</span>
@@ -315,7 +390,7 @@ Les fonctions peuvent exister mais n’ont pas le même sens qu’en mathématiq
 On doit se poser la question: <strong>qu’est-ce</strong> que la somme des éléments du tableau ? Réponse: c’est la somme de son premier terme et du reste du tableau. On pose par convention que la somme des éléments d’un tableau vide vaut 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sommef1</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sommef1</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="c1"># A compléter</span>
     <span class="k">pass</span>
 
@@ -333,7 +408,7 @@ On doit se poser la question: <strong>qu’est-ce</strong> que la somme des él�
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Decommenter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Decommenter</span>
 <span class="c1">#def sommef2(t):</span>
 <span class="c1">#    return 0 if t == [] else t[0] + sommef2(t[1:])</span>
 <span class="c1">#</span>
@@ -363,7 +438,7 @@ D’autres aspects importants caractérisant la POO peuvent être cités mais so
 <p>On résoud le même problème qu’aux deux paragraphes précédents.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Tableau</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Tableau</span><span class="p">:</span>
     <span class="c1"># A compléter</span>
     <span class="k">pass</span>
 
@@ -384,6 +459,25 @@ D’autres aspects importants caractérisant la POO peuvent être cités mais so
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/LP4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               

@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exercices - Arbres &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="ARBRES" href="Arbres.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   NUMERIQUE &amp; SCIENCE INFORMATIQUE - Terminale
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../accueil/serveur_nsi.html">
+   UTILISATION DU SERVEUR nsiboisdo.bdrd.fr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP2/Recursivite.html">
+   RECURSIVITE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP2/Activites_Recursivite.html">
+   Fiche d’activité 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD1/Structures_de_données.html">
+   Structures de données: implémentation et interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD1/Structures_de_données_1_Exercice.html">
+   Exercice: implémenter une file bornée avec un tableau
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD2/Vocabulaire_OOP.html">
+   Vocabulaire de la programmation objet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD2/Exercices_OOP.html">
+   Vocabulaire de la programmation objet - Manipuler des classes - Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP3/Modularite.html">
+   Méthodes de programmation modulaire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP4/paradigmes.html">
+   PARADIGMES DE PROGRAMMATION
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP4/paradigmes_exercices.html">
+   Paradigmes - Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP5/map_programmes.html">
+   MISE AU POINT DE PROGRAMMES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD3/liste.html">
+   STRUCTURE DE DONNEES: LISTE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD3/Exercices_liste.html">
+   Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Arbres.html">
+   ARBRES
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Exercices - Arbres
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/SDD4/Exercices_arbres.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/SDD4/Exercices_arbres.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/src/SDD4/Exercices_arbres.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#le-cours">
+   Le cours
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applications-directes">
+   Applications directes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-peigne-gauche">
+   Un peigne gauche
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="exercices-arbres">
+<h1>Exercices - Arbres<a class="headerlink" href="#exercices-arbres" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="le-cours">
+<h2>Le cours<a class="headerlink" href="#le-cours" title="Permalink to this headline">¶</a></h2>
+<p><img alt="arbre1" src="../../_images/exp59.png" /></p>
+<ol class="simple">
+<li><p>Quelles sont la taille et la hauteur de cet arbre ?</p></li>
+<li><p>Dans un parcours infixe, donner l’ordre des noeuds visités.</p></li>
+</ol>
+<p><strong>Données</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Noeud</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Une classe pour modéliser les noeuds d&#39;un arbre&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">fd</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gauche</span> <span class="o">=</span> <span class="n">fg</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">droit</span> <span class="o">=</span> <span class="n">fd</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arb1</span> <span class="o">=</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span>
+             <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span>
+             <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;6&#39;</span><span class="p">,</span> 
+                             <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span>
+                             <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;13&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))),</span>
+                  <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="applications-directes">
+<h2>Applications directes<a class="headerlink" href="#applications-directes" title="Permalink to this headline">¶</a></h2>
+<p>Soit l’arbre de la figure suivante.</p>
+<p><img alt="exp305" src="../../_images/exp305.png" /></p>
+<ol class="simple">
+<li><p>En utilisant la classe <code class="docutils literal notranslate"><span class="pre">Noeud</span></code> de l’exercice précédent, définir un objet <code class="docutils literal notranslate"><span class="pre">arb2</span></code> qui pourrait le décrire. <em>Pour éviter les ambiguités: G est le fils droit de D et F est le fils gauche de C</em></p></li>
+<li><p>Quelle est la hauteur de cet arbre?</p></li>
+<li><p>Donner les noeuds visités lors d’un parcours postfixe.</p></li>
+<li><p>Ecrire une fonction récursive <code class="docutils literal notranslate"><span class="pre">affiche</span></code>qui:</p>
+<ul class="simple">
+<li><p>affiche un point <code class="docutils literal notranslate"><span class="pre">.</span></code> et qui ne renvoie rien pour un arbre vide;</p></li>
+<li><p>affiche une parenthèse ouvrante <code class="docutils literal notranslate"> <span class="pre">(</span></code>, le sous arbre gauche, le sous arbre droit, la valeur et enfin une parenthèse fermante <code class="docutils literal notranslate"> <span class="pre">)</span></code>.</p></li>
+</ul>
+</li>
+</ol>
+<p>Par exemple pour l’arbre présenté ici, <code class="docutils literal notranslate"><span class="pre">affiche(arb2)</span></code> fournit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="p">(</span> <span class="p">(</span><span class="o">.</span> <span class="p">(</span><span class="o">..</span><span class="n">G</span> <span class="p">)</span><span class="n">D</span> <span class="p">)</span> <span class="p">(</span><span class="o">..</span><span class="n">E</span> <span class="p">)</span><span class="n">B</span> <span class="p">)</span> <span class="p">(</span> <span class="p">(</span><span class="o">..</span><span class="n">F</span> <span class="p">)</span><span class="o">.</span><span class="n">C</span> <span class="p">)</span><span class="n">A</span> <span class="p">)</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Dessiner l’arbre qui fournit <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">(.</span> <span class="pre">(..C</span> <span class="pre">)B</span> <span class="pre">)(..D</span> <span class="pre">)A</span> <span class="pre">)</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arb2</span> <span class="o">=</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span>
+            <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> 
+                  <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span> 
+                  <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span>
+            <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">affiche</span><span class="p">(</span><span class="n">arb</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Affiche un arbre binaire&quot;&quot;&quot;</span>
+    
+    <span class="k">if</span> <span class="n">arb</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; (&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">affiche</span><span class="p">(</span><span class="n">arb</span><span class="o">.</span><span class="n">gauche</span><span class="p">)</span>        
+        <span class="n">affiche</span><span class="p">(</span><span class="n">arb</span><span class="o">.</span><span class="n">droit</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">arb</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; )&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">affiche</span><span class="p">(</span><span class="n">arb2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ( ( (. (..G )D ) (..E )B ) ( (..F ).C )A )
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="un-peigne-gauche">
+<h2>Un peigne gauche<a class="headerlink" href="#un-peigne-gauche" title="Permalink to this headline">¶</a></h2>
+<p>Ecrire une fonction qui prend en paramètre un entier naturel <span class="math notranslate nohighlight">\(h\)</span> et qui renvoie un arbre de hauteur <span class="math notranslate nohighlight">\(h\)</span> où chaque noeud n’a <strong>pas de sous arbre droit</strong>. Vérifier le résultat avec la fonction <code class="docutils literal notranslate"><span class="pre">affiche</span></code> de l’exercice précédent.</p>
+<p><strong>Indication</strong>: deux méthodes sont acceptées: récursive ou itérative.</p>
+<p><strong>Méthode récursive</strong><br />
+peigne_recursif(h)</p>
+<p>un peigne vide a une hauteur nulle;<br />
+un peigne de hauteur h est un noeud dont:</p>
+<ul class="simple">
+<li><p>la valeur est h;</p></li>
+<li><p>le sous arbre gauche est un peigne de hauteur h-1;</p></li>
+<li><p>le sous arbre droit est vide</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">peigne</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Renvoie un peigne gauche de hauteur h;</span>
+<span class="sd">    h: entier naturel</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">noeud_courant</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">h</span>
+    <span class="c1">#i = 0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">noeud_courant</span> <span class="o">=</span> <span class="n">Noeud</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">noeud_courant</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">noeud_courant</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">peigne</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Noeud at 0x7f051c089510&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">affiche</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ( ( ( (..4 ).3 ).2 ).1 )
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from math import abs</span>
+
+<span class="k">def</span> <span class="nf">peignerec</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">acc</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Noeud</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">peignerec</span><span class="p">(</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">acc</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p2</span> <span class="o">=</span> <span class="n">peignerec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p2</span><span class="o">.</span><span class="n">gauche</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Noeud at 0x7f051c015210&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">affiche</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ( ( ( (..4 ).3 ).2 ).1 )
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/SDD4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Arbres.html" title="previous page">ARBRES</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

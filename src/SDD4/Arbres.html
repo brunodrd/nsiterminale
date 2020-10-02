@@ -1,0 +1,610 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>ARBRES &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercices - Arbres" href="Exercices_arbres.html" />
+    <link rel="prev" title="Exercices" href="../SDD3/Exercices_liste.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   NUMERIQUE &amp; SCIENCE INFORMATIQUE - Terminale
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../accueil/serveur_nsi.html">
+   UTILISATION DU SERVEUR nsiboisdo.bdrd.fr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP2/Recursivite.html">
+   RECURSIVITE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP2/Activites_Recursivite.html">
+   Fiche d’activité 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD1/Structures_de_données.html">
+   Structures de données: implémentation et interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD1/Structures_de_données_1_Exercice.html">
+   Exercice: implémenter une file bornée avec un tableau
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD2/Vocabulaire_OOP.html">
+   Vocabulaire de la programmation objet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD2/Exercices_OOP.html">
+   Vocabulaire de la programmation objet - Manipuler des classes - Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP3/Modularite.html">
+   Méthodes de programmation modulaire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP4/paradigmes.html">
+   PARADIGMES DE PROGRAMMATION
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP4/paradigmes_exercices.html">
+   Paradigmes - Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP5/map_programmes.html">
+   MISE AU POINT DE PROGRAMMES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD3/liste.html">
+   STRUCTURE DE DONNEES: LISTE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD3/Exercices_liste.html">
+   Exercices
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   ARBRES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Exercices_arbres.html">
+   Exercices - Arbres
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/SDD4/Arbres.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/SDD4/Arbres.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/src/SDD4/Arbres.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#structures-arborescentes">
+   Structures arborescentes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arbres-binaires">
+   Arbres binaires
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definitions">
+     Définitions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#encadrement-de-la-taille">
+     Encadrement de la taille
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#une-representation-possible-en-python">
+   Une représentation possible en python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#utilisation-d-une-classe">
+     Utilisation d’une classe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#taille-et-hauteur">
+     Taille et hauteur
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parcours-d-un-arbre-en-profondeur-d-abord">
+   Parcours d’un arbre en profondeur d’abord
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parcours-en-largeur-d-abord">
+   Parcours en largeur d’abord
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="arbres">
+<h1>ARBRES<a class="headerlink" href="#arbres" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="structures-arborescentes">
+<h2>Structures arborescentes<a class="headerlink" href="#structures-arborescentes" title="Permalink to this headline">¶</a></h2>
+<p>La structure de liste chaînée rencontrée précédemment est intéressante lorsqu’on a besoin d’un <strong>accès séquentiel</strong> aux éléments. En revanche, elle est peu adaptée à des accès arbitraires. Dans ce cas de figure, une structure <strong>arborescente</strong> peut être envisagée. Il s’agit d’une autre famille de structures chaînées qui permet de structurer les informations stockées de <strong>manière hiérarchique</strong>. Les applications sont très nombreuses; on peut citer par exemple:</p>
+<ul class="simple">
+<li><p>arborescence du système de fichier d’un ordinateur;</p></li>
+<li><p>expression arithmétique;</p></li>
+<li><p>structure des pages web;</p></li>
+<li><p>arbre généalogique;</p></li>
+<li><p>etc.</p></li>
+</ul>
+</div>
+<div class="section" id="arbres-binaires">
+<h2>Arbres binaires<a class="headerlink" href="#arbres-binaires" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="definitions">
+<h3>Définitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h3>
+<p>Un arbre est une structure arborescente particulière, composée de <strong>noeuds</strong>. Dans un arbre <strong>binaire</strong> chaque noeud présente au maximum 2 <em>branches</em>.</p>
+<p><img alt="arbre1" src="../../_images/graph2.png" /></p>
+<p>Un arbre qui ne comporte pas de noeud est un <strong>arbre vide</strong>.  Si l’arbre n’est pas vide, il comporte:</p>
+<ul class="simple">
+<li><p>un noeud particulier appelé <strong>racine</strong>;</p></li>
+<li><p>deux sous ensembles de noeuds appelés <strong>sous arbre gauche</strong> et <strong>sous arbre droit</strong>.</p></li>
+</ul>
+<p><em>Remarque</em>: la racine est reliée à la racine des sous arbres (sauf s’il est vide).</p>
+<p>Un noeud qui a deux sous arbres vides est <strong>une feuille</strong>.<br />
+Dans l’exemple ci-dessus:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code> est la racine;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">D</span></code>, <code class="docutils literal notranslate"><span class="pre">E</span></code> et <code class="docutils literal notranslate"><span class="pre">F</span></code> sont des feuilles.</p></li>
+</ul>
+<p>La <strong>taille</strong> <span class="math notranslate nohighlight">\(N\)</span> d’un arbre correspond au nombre de noeuds. Par exemple, la taille de l’arbre présenté en introduction est <span class="math notranslate nohighlight">\(N=6\)</span>.<br />
+La <strong>hauteur</strong> <span class="math notranslate nohighlight">\(h\)</span> d’un arbre correspond au <strong>nombre maximal de noeuds rencontrés en descendant de la racine à une feuille</strong>. Par exemple, l’arbre présenté en introduction a une hauteur <span class="math notranslate nohighlight">\(h=3\)</span>.</p>
+</div>
+<div class="section" id="encadrement-de-la-taille">
+<h3>Encadrement de la taille<a class="headerlink" href="#encadrement-de-la-taille" title="Permalink to this headline">¶</a></h3>
+<p>La taille d’un arbre vérifie une double inégalité:</p>
+<div class="math notranslate nohighlight">
+\[h \leq N \leq 2^{h} -1\]</div>
+<p>La borne inférieure correspond à un arbre dont chaque noeud ne présente qu’une branche, dans ce cas <span class="math notranslate nohighlight">\(N = h\)</span> (Fig. 1). La borne supérieure correspond à un arbre ou chaque niveau est complet, dans ce cas <span class="math notranslate nohighlight">\(N=2^{h}-1\)</span> (Fig. 2).</p>
+<p><img alt="peigne" src="../../_images/graph3.png" /> (Fig. 1) <img alt="complet" src="../../_images/graph4.png" /> (Fig. 2)</p>
+</div>
+</div>
+<div class="section" id="une-representation-possible-en-python">
+<h2>Une représentation possible en python<a class="headerlink" href="#une-representation-possible-en-python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="utilisation-d-une-classe">
+<h3>Utilisation d’une classe<a class="headerlink" href="#utilisation-d-une-classe" title="Permalink to this headline">¶</a></h3>
+<p>De la même façon qu’on a construit les listes chaînées avec des <em>cellules</em>, on va utiliser une <strong>classe Noeud</strong> pour décrire un arbre. Un noeud comporte une information ou <em>valeur</em>, une référence vers le sous arbre gauche et une référence vers le sous arbre droit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Noeud</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Une classe pour modéliser les noeuds d&#39;un arbre&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">fd</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gauche</span> <span class="o">=</span> <span class="n">fg</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">droit</span> <span class="o">=</span> <span class="n">fd</span>        
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ainsi, l’arbre donné en introduction peut être codé de la manière suivante:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arb1</span> <span class="o">=</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> 
+             <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="kc">None</span><span class="p">),</span> 
+             <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">arb1</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arb1</span><span class="o">.</span><span class="n">gauche</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arb1</span><span class="o">.</span><span class="n">gauche</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A
+&lt;__main__.Noeud object at 0x7f0806de3110&gt;
+B
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="taille-et-hauteur">
+<h3>Taille et hauteur<a class="headerlink" href="#taille-et-hauteur" title="Permalink to this headline">¶</a></h3>
+<p>La taille d’un arbre vide vaut 0. S’il n’est pas vide, sa taille est:</p>
+<p><strong>1 (racine) + taille sous arbre gauche + taille sous arbre droit</strong></p>
+<p>Une telle présentation incite à écrire une fonction récursive. Coder cette fonction.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">taille</span><span class="p">(</span><span class="n">arb</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Renvoie la taille de l&#39;arbre passé en paramètre&quot;&quot;&quot;</span>
+    <span class="c1"># Supprimer l&#39;instruction &#39;pass&#39; et compléter</span>
+    <span class="k">return</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">arb</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">taille</span><span class="p">(</span><span class="n">arb</span><span class="o">.</span><span class="n">gauche</span><span class="p">)</span> <span class="o">+</span> <span class="n">taille</span><span class="p">(</span><span class="n">arb</span><span class="o">.</span><span class="n">droit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">taille</span><span class="p">(</span><span class="n">arb1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La hauteur d’un arbre vide est nulle. Si l’arbre n’est pas vide, sa hauteur vaut:</p>
+<div class="math notranslate nohighlight">
+\[ 1 + \text{max}(hauteur(\text{sous arbre gauche}), hauteur(\text{sous arbre droit}))\]</div>
+<p>Coder une fonction récursive qui renvoie la hauteur d’un arbre passé en paramètre.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hauteur</span><span class="p">(</span><span class="n">arb</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Renvoie la hauteur de l&#39;arbre &#39;arb&#39;&quot;&quot;&quot;</span>
+    <span class="c1"># Supprimer l&#39;instruction &#39;pass&#39; et compléter</span>
+    <span class="k">return</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">arb</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">hauteur</span><span class="p">(</span><span class="n">arb</span><span class="o">.</span><span class="n">gauche</span><span class="p">),</span> <span class="n">hauteur</span><span class="p">(</span><span class="n">arb</span><span class="o">.</span><span class="n">droit</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hauteur</span><span class="p">(</span><span class="n">arb1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="parcours-d-un-arbre-en-profondeur-d-abord">
+<h2>Parcours d’un arbre en profondeur d’abord<a class="headerlink" href="#parcours-d-un-arbre-en-profondeur-d-abord" title="Permalink to this headline">¶</a></h2>
+<p>Dans quel ordre parcourir les noeuds d’un arbre? Il existe plusieurs possibilités:</p>
+<ul class="simple">
+<li><p>si on traite d’abord la racine, puis le sous arbre gauche, puis le sous arbre droit, l’ordre est dit <strong>préfixe</strong>;</p></li>
+<li><p>si on traite d’abord le sous arbre gauche, puis la racine, puis le sous arbre droit, l’ordre est dit <strong>infixe</strong>;</p></li>
+<li><p>si on traite d’abord le sous arbre gauche, puis le sous arbre droit, puis la racine, l’ordre est dit <strong>postfixe</strong> ou <strong>suffixe</strong>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parcours_prefixe</span><span class="p">(</span><span class="n">arb</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Parcours préfixe d&#39;un arbre&quot;&quot;&quot;</span>
+    <span class="c1"># Supprimer l&#39;instruction &#39;pass&#39; et compléter</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parcours_prefixe</span><span class="p">(</span><span class="n">arb1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parcours_infixe</span><span class="p">(</span><span class="n">arb</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Parcours préfixe d&#39;un arbre&quot;&quot;&quot;</span>
+    <span class="c1"># Supprimer l&#39;instruction &#39;pass&#39; et compléter</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parcours_infixe</span><span class="p">(</span><span class="n">arb1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ecrire la fonction qui renvoie le parcours postfixe d’un arbre.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+<span class="n">help</span><span class="p">(</span><span class="n">Queue</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function get in module queue:
+
+get(self, block=True, timeout=None)
+    Remove and return an item from the queue.
+    
+    If optional args &#39;block&#39; is true and &#39;timeout&#39; is None (the default),
+    block if necessary until an item is available. If &#39;timeout&#39; is
+    a non-negative number, it blocks at most &#39;timeout&#39; seconds and raises
+    the Empty exception if no item was available within that time.
+    Otherwise (&#39;block&#39; is false), return an item if one is immediately
+    available, else raise the Empty exception (&#39;timeout&#39; is ignored
+    in that case).
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="parcours-en-largeur-d-abord">
+<h2>Parcours en largeur d’abord<a class="headerlink" href="#parcours-en-largeur-d-abord" title="Permalink to this headline">¶</a></h2>
+<p>Ce parcours est moins trivial que le précédent. Il s’agit de parcourir l’arbre par niveau. On commence par la racine puis les racines de ses deux sous arbres et ainsi de suite. Une structure de données adaptée à ce problème est la file.</p>
+<p>Description d’un algorithme itératif<br />
+<em>On suppose l’arbre non vide</em>.</p>
+<ul class="simple">
+<li><p>on enfile l’arbre;</p></li>
+<li><p>tant que la file n’est pas vide:</p>
+<ul>
+<li><p>on défile un élément (en fait un arbre);</p></li>
+<li><p>on affiche la valeur de sa racine;</p></li>
+<li><p>on enfile ses deux sous arbres s’ils ne sont pas vides</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Travail personnel</strong><br />
+Coder une fonction <code class="docutils literal notranslate"><span class="pre">parcours_largeur</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+
+
+<span class="k">def</span> <span class="nf">parcours_largeur</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Affiche la valeur des noeuds trouvés lors d&#39;un parcours en largeur d&#39;un arbre;</span>
+<span class="sd">    a: arbre binaire</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">a</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="c1"># compléter</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parcours_largeur</span><span class="p">(</span><span class="n">arb1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/SDD4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../SDD3/Exercices_liste.html" title="previous page">Exercices</a>
+    <a class='right-next' id="next-link" href="Exercices_arbres.html" title="next page">Exercices - Arbres</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
