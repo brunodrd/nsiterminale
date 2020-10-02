@@ -13,9 +13,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -23,12 +24,17 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Exercice: implémenter une file bornée avec un tableau" href="Structures_de_données_1_Exercice.html" />
@@ -65,51 +71,91 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
   <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
-  </li>
-  <li class="">
-    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
-  </li>
-  <li class="">
-    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
-  </li>
-  <li class="">
-    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
-  </li>
-  <li class="active">
-    <a href="">Structures de données: implémentation et interface</a>
-  </li>
-  <li class="">
-    <a href="Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
-  </li>
-  <li class="">
-    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
-  </li>
-  <li class="">
-    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
-  </li>
-  <li class="">
-    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
-  </li>
-  <li class="">
-    <a href="../LP4/paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
-  </li>
-  <li class="">
-    <a href="../LP4/paradigmes_exercices.html">Paradigmes - Exercices</a>
-  </li>
-  <li class="">
-    <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
-  </li>
-  <li class="">
-    <a href="../SDD3/liste.html">STRUCTURE DE DONNEES: LISTE</a>
-  </li>
-  <li class="">
-    <a href="../SDD3/Exercices_liste.html">Exercices</a>
-  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   NUMERIQUE &amp; SCIENCE INFORMATIQUE - Terminale
+  </a>
+ </li>
 </ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../accueil/serveur_nsi.html">
+   UTILISATION DU SERVEUR nsiboisdo.bdrd.fr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP2/Recursivite.html">
+   RECURSIVITE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP2/Activites_Recursivite.html">
+   Fiche d’activité 1
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Structures de données: implémentation et interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Structures_de_données_1_Exercice.html">
+   Exercice: implémenter une file bornée avec un tableau
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD2/Vocabulaire_OOP.html">
+   Vocabulaire de la programmation objet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD2/Exercices_OOP.html">
+   Vocabulaire de la programmation objet - Manipuler des classes - Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP3/Modularite.html">
+   Méthodes de programmation modulaire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP4/paradigmes.html">
+   PARADIGMES DE PROGRAMMATION
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP4/paradigmes_exercices.html">
+   Paradigmes - Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../LP5/map_programmes.html">
+   MISE AU POINT DE PROGRAMMES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD3/liste.html">
+   STRUCTURE DE DONNEES: LISTE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD3/Exercices_liste.html">
+   Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD4/Arbres.html">
+   ARBRES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SDD4/Exercices_arbres.html">
+   Exercices - Arbres
+  </a>
+ </li>
+</ul>
+
 </nav>
 
  <!-- To handle the deprecated key -->
@@ -132,75 +178,97 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
         <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/src/SDD1/Structures_de_données.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
-
-        <!-- Edit this page -->
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/SDD1/Structures_de_données.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-            <div class="dropdown-buttons">
-                
-                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/SDD1/Structures_de_données.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
-                
-                
-                
-            </div>
-        </div>
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/SDD1/Structures_de_données.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/src/SDD1/Structures_de_données.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
 </div>
 
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#les-tableaux-le-retour" class="nav-link">Les tableaux (le retour)</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#une-premiere-structure-simple-la-pile" class="nav-link">Une première structure simple: la pile</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#une-deuxieme-structure-la-file" class="nav-link">Une deuxième structure: la file</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#vers-une-abstraction-des-structures-de-donnees" class="nav-link">Vers une abstraction des structures de données</a>
-        </li>
-    
-    </ul>
-</nav>
+    </div>
 
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-tableaux-le-retour">
+   Les tableaux (le retour)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#une-premiere-structure-simple-la-pile">
+   Une première structure simple: la pile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#une-deuxieme-structure-la-file">
+   Une deuxième structure: la file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vers-une-abstraction-des-structures-de-donnees">
+   Vers une abstraction des structures de données
+  </a>
+ </li>
+</ul>
 
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -217,7 +285,7 @@
 On peut ajouter ou retirer des éléments d’une <em>liste de python</em> avec les méthodes <code class="docutils literal notranslate"><span class="pre">append</span></code> et <code class="docutils literal notranslate"><span class="pre">pop</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
 <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
@@ -225,31 +293,31 @@ On peut ajouter ou retirer des éléments d’une <em>liste de python</em> avec 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 20, 30, 50, 70]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 20, 30, 50, 70]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>70
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>70
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 20, 30, 50]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 20, 30, 50]
 </pre></div>
 </div>
 </div>
@@ -257,13 +325,13 @@ On peut ajouter ou retirer des éléments d’une <em>liste de python</em> avec 
 <p>On peut éventuellement agrandir le tableau “par la gauche” avec la méthode <code class="docutils literal notranslate"><span class="pre">insert</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[-20, 10, 20, 30, 50]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-20, 10, 20, 30, 50]
 </pre></div>
 </div>
 </div>
@@ -272,12 +340,12 @@ On peut ajouter ou retirer des éléments d’une <em>liste de python</em> avec 
 Enfin, l’accès à la <strong>dernière valeur du tableau</strong> est très simple avec l’index <strong>-1</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>50
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
 </pre></div>
 </div>
 </div>
@@ -289,7 +357,7 @@ Enfin, l’accès à la <strong>dernière valeur du tableau</strong> est très s
 Une structure adaptée pour résoudre ce problème est: <strong>une pile</strong> (<em>stack</em> en anglais) . Voir une animation de son utilisation ci-dessous.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
 
 
 <span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;1SWr7q121gc&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">450</span><span class="p">)</span>
@@ -314,7 +382,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 <p>Enfin, une fonction <code class="docutils literal notranslate"><span class="pre">sommet</span></code> (en anglais <em>top</em>) permet de connaitre l’état de la pile; en fait le sommet est le seul élément accessible de la pile.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TAILLE</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TAILLE</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="c1">#la taille choisie est arbitraire</span>
 
 <span class="k">def</span> <span class="nf">creer_pile</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">TAILLE</span><span class="p">):</span>
@@ -356,7 +424,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 <p>Quelle valeur se trouve au sommet de la pile? Le vérifier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">()</span>
 <span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
@@ -369,7 +437,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
 5
 </pre></div>
 </div>
@@ -377,7 +445,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">|0|..|..|..|..|..|</span>
 <span class="sd">|1| 5|..|..|..|..|</span>
 <span class="sd">|2| 5|15|..|..|..|</span>
@@ -388,7 +456,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;\n|0|..|..|..|..|..|\n|1| 5|..|..|..|..|\n|2| 5|15|..|..|..|\n|3| 5|15|25|..|..|\n|2| 5|15|..|..|..|\n&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n|0|..|..|..|..|..|\n|1| 5|..|..|..|..|\n|2| 5|15|..|..|..|\n|3| 5|15|25|..|..|\n|2| 5|15|..|..|..|\n&#39;
 </pre></div>
 </div>
 </div>
@@ -396,7 +464,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 <p>On peut aussi réaliser une pile (<em>non bornée</em>) avec des <em>listes de python</em> et leurs méthodes <code class="docutils literal notranslate"><span class="pre">append</span></code> et <code class="docutils literal notranslate"><span class="pre">pop</span></code>. Compléter les fonctions <code class="docutils literal notranslate"><span class="pre">depiler</span></code> , <code class="docutils literal notranslate"><span class="pre">empiler</span></code> et <code class="docutils literal notranslate"><span class="pre">sommet</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_pile</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_pile</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[]</span>
 
 <span class="k">def</span> <span class="nf">est_pilevide</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
@@ -419,7 +487,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter et exécuter la cellule</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter et exécuter la cellule</span>
 <span class="c1">#p = creer_pile()</span>
 <span class="c1">#empiler(p, 5)</span>
 <span class="c1">#empiler(p, 15)</span>
@@ -441,7 +509,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 <p>Compléter le code suivant. <em>Coup de pouce</em>: utiliser les méthodes <code class="docutils literal notranslate"><span class="pre">append</span></code> , <code class="docutils literal notranslate"><span class="pre">pop</span></code> et <code class="docutils literal notranslate"><span class="pre">insert</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_file</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_file</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">[]</span>
 
 <span class="k">def</span> <span class="nf">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
@@ -461,7 +529,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 <p>Vérifier que l’on a bien une structure de file en exécutant la cellule suivante</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter et exécuter la cellule</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter et exécuter la cellule</span>
 <span class="c1">#f = creer_file()</span>
 <span class="c1">#enfiler(f, 5)</span>
 <span class="c1">#enfiler(f, 15)</span>
@@ -474,7 +542,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter, exécuter la cellule et analyser la sortie</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter, exécuter la cellule et analyser la sortie</span>
 <span class="c1">#defiler(f)</span>
 </pre></div>
 </div>
@@ -495,7 +563,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 <p>Compléter l’implémentation d’une file qui utilise deux piles, dans la cellule suivante.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_file</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_file</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">creer_pile</span><span class="p">(),</span> <span class="n">creer_pile</span><span class="p">())</span>
 
 <span class="k">def</span> <span class="nf">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
@@ -515,7 +583,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter et exécuter la cellule</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter et exécuter la cellule</span>
 <span class="c1">#f = creer_file()</span>
 <span class="c1">#enfiler(f, 5)</span>
 <span class="c1">#enfiler(f, 15)</span>
@@ -528,7 +596,7 @@ Il est évident qu’on ne peut pas dépiler une pile vide ou empiler une pile p
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter, exécuter la cellule et analyser la sortie</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Décommenter, exécuter la cellule et analyser la sortie</span>
 <span class="c1">#defiler(f)</span>
 </pre></div>
 </div>
@@ -574,6 +642,25 @@ D’un point de vue utilisateur (<em>c’est-à-dire le programmeur</em>), manip
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/SDD1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
