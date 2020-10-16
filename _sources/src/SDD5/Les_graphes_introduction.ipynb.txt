@@ -4,8 +4,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Introduction aux graphes\n",
-    "====================="
+    "INTRODUCTION AUX GRAPHES\n",
+    "=========================="
    ]
   },
   {
