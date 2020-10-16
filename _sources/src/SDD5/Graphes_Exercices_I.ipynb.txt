@@ -456,7 +456,7 @@
    "outputs": [],
    "source": [
     "# TESTS - A DECOMMENTER ET EXECUTER\n",
-    "#g = GrapheOr(['a', 'b', 'c', 'd'])\n",
+    "#g = GrapheOr2(['a', 'b', 'c', 'd'])\n",
     "#g.ajouter_arc('a', 'b')\n",
     "#g.ajouter_arc('a', 'd')\n",
     "#g.ajouter_arc('b', 'c')\n",
