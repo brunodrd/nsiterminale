@@ -1,0 +1,585 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Représentation d’un graphe &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Introduction aux graphes" href="Les_graphes_introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes_exercices.html">Paradigmes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/liste.html">STRUCTURE DE DONNEES: LISTE</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/Exercices_liste.html">Exercices</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Arbres.html">ARBRES</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Exercices_arbres.html">Exercices - Arbres</a>
+  </li>
+  <li class="">
+    <a href="Les_graphes_introduction.html">Introduction aux graphes</a>
+  </li>
+  <li class="active">
+    <a href="">Représentation d’un graphe</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/SDD5/Graphes_Exercices_I.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/SDD5/Graphes_Exercices_I.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#un-graphe-simple" class="nav-link">Un graphe simple</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#graphe-complet" class="nav-link">Graphe complet</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#retrouver-son-chemin" class="nav-link">Retrouver son chemin</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#modeliser-une-situation-par-un-graphe" class="nav-link">Modéliser une situation par un graphe</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#tournoi-de-football" class="nav-link">Tournoi de football</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#tournoi-de-tennis" class="nav-link">Tournoi de tennis</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#reunion-de-famille-niveau-de-difficulte-xxl" class="nav-link">Réunion de famille - niveau de difficulté XXL :)</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#codage" class="nav-link">Codage</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#questions-de-cours" class="nav-link">Questions de cours</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#implementation-en-python" class="nav-link">Implémentation en python</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#liste-d-adjacence" class="nav-link">Liste d’adjacence</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#matrice-d-adjacence" class="nav-link">Matrice d’adjacence</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#implementation-d-une-classe-graphe-oriente-par-matrice-d-adjacence" class="nav-link">Implémentation d’une classe graphe orienté par matrice d’adjacence</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="representation-d-un-graphe">
+<h1>Représentation d’un graphe<a class="headerlink" href="#representation-d-un-graphe" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="un-graphe-simple">
+<h2>Un graphe simple<a class="headerlink" href="#un-graphe-simple" title="Permalink to this headline">¶</a></h2>
+<p>On considère le graphe ci-dessous:</p>
+<p><img alt="exo1" src="../../_images/exo1.png" /></p>
+<ol class="simple">
+<li><p>Est-ce un graphe orienté ?</p></li>
+<li><p>Quels sont les voisins de 1 ?</p></li>
+<li><p>Construire sa matrice d’adjacence.</p></li>
+<li><p>Combien peut-on ajouter d’arêtes à ce graphe ?</p></li>
+</ol>
+</div>
+<div class="section" id="graphe-complet">
+<h2>Graphe complet<a class="headerlink" href="#graphe-complet" title="Permalink to this headline">¶</a></h2>
+<p>Un graphe est dit <strong>complet</strong> si tous ses sommets sont reliés. On considère les trois graphes complets suivant:</p>
+<p><img alt="exo2" src="../../_images/exo2.png" /></p>
+<ol class="simple">
+<li><p>Construire un graphe complet à 5 sommets.</p></li>
+<li><p>Construire les matrices d’adjacence des trois graphes ci-dessus.</p></li>
+<li><p>Combient d’arêtes comportent-ils ?</p></li>
+<li><p>En examinant les matrices d’adjacence, déterminer le nombre maximum d’arêtes d’un graphe comportant <span class="math notranslate nohighlight">\(n\)</span> sommets.</p></li>
+</ol>
+</div>
+<div class="section" id="retrouver-son-chemin">
+<h2>Retrouver son chemin<a class="headerlink" href="#retrouver-son-chemin" title="Permalink to this headline">¶</a></h2>
+<p><img alt="exo3" src="../../_images/exo3.png" /></p>
+<p>Un chemin est <strong>simple s’il n’emprunte pas deux fois le même arc</strong>. Un chemin simple reliant un sommet à lui même et contenant au moins un arc est appelé un <strong>cycle</strong>.</p>
+<ol class="simple">
+<li><p>Trouver trois chemins simples menant de A à C.</p></li>
+<li><p>Trouver deux cycles sur ce graphe.</p></li>
+</ol>
+</div>
+<div class="section" id="modeliser-une-situation-par-un-graphe">
+<h2>Modéliser une situation par un graphe<a class="headerlink" href="#modeliser-une-situation-par-un-graphe" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tournoi-de-football">
+<h3>Tournoi de football<a class="headerlink" href="#tournoi-de-football" title="Permalink to this headline">¶</a></h3>
+<p>On souhaite organiser un tournoi de football avec 4 équipes (numérotées de 1 à 4). Chaque équipe rencontre une seule fois toutes les autres.</p>
+<ol class="simple">
+<li><p>Représenter la situation sous la forme d’un graphe</p></li>
+<li><p>Combien d’arêtes possède-t-il ? En déduire le nombre de matchs au total pour ce tournoi</p></li>
+<li><p>En se référant à l’exercice 2, quelle propriété remarquable possède ce graphe?</p></li>
+</ol>
+</div>
+<div class="section" id="tournoi-de-tennis">
+<h3>Tournoi de tennis<a class="headerlink" href="#tournoi-de-tennis" title="Permalink to this headline">¶</a></h3>
+<p>Un club de tennis doit sélectionner deux joueurs parmi quatre pour représenter le club à un tournoi national. Les quatre joueurs sont notés A, B, C et D. Pour réaliser la séléction le club organise des matchs, chaque joueur rencontrant les trois autres.<br />
+Règlement:</p>
+<ul class="simple">
+<li><p>Tout match gagné donne un point;</p></li>
+<li><p>Tout match perdu enlève un point.</p></li>
+</ul>
+<p>Les joueurs sélectionnés sont les joueurs ayant obtenu le plus grand nombre de points. On donne le résultat sous la forme d’un graphe orienté:</p>
+<p><img alt="exo4" src="../../_images/exo4.png" /></p>
+<p>L’orientation des arcs est telle que <span class="math notranslate nohighlight">\(X\longrightarrow Y\)</span> signifie <span class="math notranslate nohighlight">\(X\)</span> a battu <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>Quels sont les deux joueurs sélectionnés ?</p>
+</div>
+<div class="section" id="reunion-de-famille-niveau-de-difficulte-xxl">
+<h3>Réunion de famille - niveau de difficulté XXL :)<a class="headerlink" href="#reunion-de-famille-niveau-de-difficulte-xxl" title="Permalink to this headline">¶</a></h3>
+<p>Michel est invité par <strong>A</strong>ndré à un dîner de famille. Dès son arrivée, il se présente à chacune des onze autres personnes qu’il trouve dans la maison. Les onze premières phrases qu’il entend <strong>successivement</strong> sont les suivantes:</p>
+<ul class="simple">
+<li><p><strong>B</strong>éatrice : “Bonjour ! Je suis la mère d’André.”</p></li>
+<li><p><strong>C</strong>arole : “Bienvenue ! Je suis la sœur du père d’André.”</p></li>
+<li><p><strong>D</strong>aniel : “Salut ! Je suis le fils unique de la sœur de la mère d’André.”</p></li>
+<li><p><strong>É</strong>mile : “Bonjour ! Je suis l’unique beau-frère du fils de Karl.”</p></li>
+<li><p><strong>F</strong>abienne : “Mère de deux filles, je suis aussi la grand-mère maternelle de Daniel.”</p></li>
+<li><p><strong>G</strong>aston : “Salut ! Je suis un des fils de Lucien et un des petits-fils de Fabienne.”</p></li>
+<li><p><strong>H</strong>onoré : “Je suis le grand-père paternel de Lucien.”</p></li>
+<li><p><strong>I</strong>rène : “Je suis l’unique belle-sœur de Lucien.”</p></li>
+<li><p><strong>J</strong>oseph : “Salut ! Je suis le neveu de Lucien et le petit fils de Karl.”</p></li>
+<li><p><strong>K</strong>arl: Mon petit-fils m’a parlé de vous.</p></li>
+<li><p><strong>L</strong>ucien : Bienvenue dans ma maison, je vous ai vu a l’instant parler avec mon père.</p></li>
+</ul>
+<p>Et la famille d’ajouter d’une seule voix : “<em>si vous ne trouvez pas les liens familiaux qui nous unissent, vous n’aurez pas à dîner !</em>”</p>
+<p><em>(d’après F. Droesbeke, les graphes par l’exemple, pp 17-18 ellipses)</em></p>
+<p>Aider Michel … en modélisant cette situation par un graphe.<br />
+Remarque: dans cet exercice, le beau-frère de X est le frère du mari/femme de X, et la belle-soeur la soeur du mari/femme de X.</p>
+</div>
+</div>
+<div class="section" id="codage">
+<h2>Codage<a class="headerlink" href="#codage" title="Permalink to this headline">¶</a></h2>
+<p>On considère le graphe ci-dessous ainsi que sa matrice d’adjacence.<br />
+<img alt="g1" src="../../_images/res_repres_1.png" /></p>
+<div class="section" id="questions-de-cours">
+<h3>Questions de cours<a class="headerlink" href="#questions-de-cours" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Est-ce un graphe orienté ou non orienté?</p></li>
+<li><p>Combien a-t-il de sommets? d’arêtes?</p></li>
+<li><p>Les sommets <strong>d</strong> et <strong>h</strong> sont-ils voisins?</p></li>
+</ol>
+</div>
+<div class="section" id="implementation-en-python">
+<h3>Implémentation en python<a class="headerlink" href="#implementation-en-python" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="liste-d-adjacence">
+<h4>Liste d’adjacence<a class="headerlink" href="#liste-d-adjacence" title="Permalink to this headline">¶</a></h4>
+<p>Une façon d’encoder un graphe sous Python est d’utiliser un dictionnaire contenant les listes des voisins de chaque sommet.
+Les clés seront les sommets du graphe et leur valeur sera la liste des sommets adjacents.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">sommets</span></code> qui prend un graphe en paramètre et qui renvoie la liste de ses sommets.</p></li>
+<li><p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">voisins</span></code> qui prend en paramètres un graphe et un sommet et qui renvoie la liste des vosins de ce sommet.</p></li>
+<li><p>Que réalise la fonction <code class="docutils literal notranslate"><span class="pre">lst_to_mat</span></code>? Expliquer notamment la portion de code située entre les lignes 9 et 12.</p></li>
+<li><p>Le résultat de l’appel <code class="docutils literal notranslate"><span class="pre">lst_to_mat(G)</span></code> est-il conforme aux données de l’énoncé?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sommets</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    à compléter</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">voisins</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    à compléter</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lst_to_mat</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    renvoie ...</span>
+<span class="sd">    g: graphe modélisé par un dictionnaire de listes d&#39;adjacences</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+    <span class="n">adj</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">lst_som</span> <span class="o">=</span> <span class="n">sommets</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> 
+    <span class="n">ind_som</span> <span class="o">=</span> <span class="p">{</span><span class="n">lst_som</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)}</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">lst_som</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">voisins</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">ind_som</span><span class="p">[</span><span class="n">s</span><span class="p">]][</span><span class="n">ind_som</span><span class="p">[</span><span class="n">v</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">adj</span>           
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A décommenter puis exécuter (utile pour la suite)</span>
+<span class="c1">#A = lst_to_mat(G)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matrice-d-adjacence">
+<h4>Matrice d’adjacence<a class="headerlink" href="#matrice-d-adjacence" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">adj_to_lst</span></code> qui prend en paramètre une liste (<em>de python</em>) de sommets <code class="docutils literal notranslate"><span class="pre">l</span></code> et une matrice d’adjacence <code class="docutils literal notranslate"><span class="pre">mat</span></code> (<em>liste de listes</em>) et qui renvoie un dictionnaire dont les items sont de la forme: <code class="docutils literal notranslate"><span class="pre">sommet:</span> <span class="pre">liste</span> <span class="pre">de</span> <span class="pre">voisins</span></code>.<br />
+<em>On peut s’inspirer de la fonction</em> <code class="docutils literal notranslate"><span class="pre">lst_to_mat</span></code> <em>et notamment l’utilisation d’un dictionnaire qui fait l’association index &lt;–&gt; nom de sommet</em>.</p></li>
+<li><p>Donner alors, sous forme de liste d’adjacence, une représentation du graphe dont la matrice d’adjacence est la suivante:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+0&amp;1&amp;0&amp;0&amp;0\\
+0&amp;0&amp;1&amp;1&amp;1\\
+0&amp;1&amp;0&amp;1&amp;0\\
+0&amp;0&amp;1&amp;0&amp;0\\
+1&amp;1&amp;0&amp;1&amp;0
+\end{pmatrix}
+\end{split}\]</div>
+<p>On notera les sommets: A, B, C, D et E.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">adj_to_lst</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">mat</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    à compléter</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+            
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TESTS QUESTION 1- A DECOMMENTER ET EXECUTER</span>
+<span class="c1">#rep = {&#39;a&#39;: [&#39;b&#39;, &#39;c&#39;],</span>
+<span class="c1"># &#39;b&#39;: [&#39;a&#39;, &#39;d&#39;, &#39;e&#39;],</span>
+<span class="c1"># &#39;c&#39;: [&#39;a&#39;, &#39;d&#39;],</span>
+<span class="c1"># &#39;d&#39;: [&#39;b&#39;, &#39;c&#39;, &#39;e&#39;],</span>
+<span class="c1"># &#39;e&#39;: [&#39;b&#39;, &#39;d&#39;, &#39;f&#39;, &#39;g&#39;],</span>
+<span class="c1"># &#39;f&#39;: [&#39;e&#39;, &#39;g&#39;],</span>
+<span class="c1"># &#39;g&#39;: [&#39;e&#39;, &#39;f&#39;, &#39;h&#39;],</span>
+<span class="c1"># &#39;h&#39;: [&#39;g&#39;]}</span>
+<span class="c1">#assert adj_to_lst([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;], A) == rep</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># QUESTION 2 - A DECOMMENTER, COMPLETER PUIS EXECUTER</span>
+
+<span class="c1">#l = []</span>
+<span class="c1">#mat = []</span>
+<span class="c1">#adj_to_lst(l, mat)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="implementation-d-une-classe-graphe-oriente-par-matrice-d-adjacence">
+<h4>Implémentation d’une classe graphe orienté par matrice d’adjacence<a class="headerlink" href="#implementation-d-une-classe-graphe-oriente-par-matrice-d-adjacence" title="Permalink to this headline">¶</a></h4>
+<p>On se propose d’encapsuler les opérations réalisables sur les graphes orientés dans une classe <code class="docutils literal notranslate"><span class="pre">GrapheOr</span></code>.  La construction repose sur l’utilisation d’une matrice d’adjacence.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GrapheOr</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Une classe pour représenter les graphes orientés.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sommets</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; sommets est la liste des sommets du graphe; ceux-ci</span>
+<span class="sd">            peuvent être des entiers ou des caractères.&quot;&quot;&quot;</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">sommets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ma</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">sommets</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sommets</span><span class="p">))]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Ajouter une méthode <code class="docutils literal notranslate"><span class="pre">ajouter_arc</span></code> qui prend deux paramètres <code class="docutils literal notranslate"><span class="pre">s1</span></code> et <code class="docutils literal notranslate"><span class="pre">s2</span></code> correspondant à deux sommets (on <strong>s’assurera de leur présence dans la liste de sommets</strong>) qui permet d’ajouter un arc entre <code class="docutils literal notranslate"><span class="pre">s1</span></code> et <code class="docutils literal notranslate"><span class="pre">s2</span></code>. Cette méthode ne renvoie rien.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Ajouter une méthode <code class="docutils literal notranslate"><span class="pre">arc</span></code> qui prend en paramètres deux sommets <code class="docutils literal notranslate"><span class="pre">s1</span></code> et <code class="docutils literal notranslate"><span class="pre">s2</span></code> et qui renvoie un booléen correspondant à la présence ou non d’un arc entre ces deux sommets.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Ajouter une méthode <code class="docutils literal notranslate"><span class="pre">voisins</span></code> qui prend en paramètre un sommet <code class="docutils literal notranslate"><span class="pre">s1</span></code> et qui renvoie la liste de ses voisins.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TESTER VOS METHODES ICI</span>
+
+<span class="c1">#g = GrapheOr([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;])</span>
+<span class="c1">#g.ajouter_arc(&#39;a&#39;, &#39;b&#39;)</span>
+<span class="c1">#g.ajouter_arc(&#39;a&#39;, &#39;d&#39;)</span>
+<span class="c1">#g.ajouter_arc(&#39;b&#39;, &#39;c&#39;)</span>
+<span class="c1">#g.ajouter_arc(&#39;d&#39;, &#39;a&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Implémenter une classe <code class="docutils literal notranslate"><span class="pre">GrapheOr2</span></code> qui utilise un dictionnaire de listes d’adjacence. L’interface restant rigoureusement la même.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TESTS - A DECOMMENTER ET EXECUTER</span>
+<span class="c1">#g = GrapheOr([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;])</span>
+<span class="c1">#g.ajouter_arc(&#39;a&#39;, &#39;b&#39;)</span>
+<span class="c1">#g.ajouter_arc(&#39;a&#39;, &#39;d&#39;)</span>
+<span class="c1">#g.ajouter_arc(&#39;b&#39;, &#39;c&#39;)</span>
+<span class="c1">#g.ajouter_arc(&#39;d&#39;, &#39;a&#39;)</span>
+<span class="c1">#assert g.voisins(&#39;a&#39;) == [&#39;b&#39;, &#39;d&#39;]</span>
+<span class="c1">#assert g.voisins(&#39;c&#39;) == []</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Les_graphes_introduction.html" title="previous page">Introduction aux graphes</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

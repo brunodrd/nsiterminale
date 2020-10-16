@@ -1,0 +1,503 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Représentation d'un graphe\n",
+    "======================="
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Un graphe simple"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "On considère le graphe ci-dessous:  \n",
+    "\n",
+    "![exo1](img/exo1.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1. Est-ce un graphe orienté ?\n",
+    "2. Quels sont les voisins de 1 ?\n",
+    "3. Construire sa matrice d’adjacence.\n",
+    "4. Combien peut-on ajouter d’arêtes à ce graphe ?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Graphe complet"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Un graphe est dit **complet** si tous ses sommets sont reliés. On considère les trois graphes complets suivant:  \n",
+    "\n",
+    "![exo2](img/exo2.png)  \n",
+    "\n",
+    "1. Construire un graphe complet à 5 sommets.\n",
+    "2. Construire les matrices d’adjacence des trois graphes ci-dessus.\n",
+    "3. Combient d’arêtes comportent-ils ?\n",
+    "4. En examinant les matrices d’adjacence, déterminer le nombre maximum d’arêtes d’un graphe comportant $n$ sommets."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Retrouver son chemin"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![exo3](img/exo3.png)  \n",
+    "\n",
+    "Un chemin est **simple s'il n'emprunte pas deux fois le même arc**. Un chemin simple reliant un sommet à lui même et contenant au moins un arc est appelé un **cycle**. \n",
+    "\n",
+    "1. Trouver trois chemins simples menant de A à C.\n",
+    "2. Trouver deux cycles sur ce graphe."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Modéliser une situation par un graphe"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Tournoi de football"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "On souhaite organiser un tournoi de football avec 4 équipes (numérotées de 1 à 4). Chaque équipe rencontre une seule fois toutes les autres.  \n",
+    "\n",
+    "1. Représenter la situation sous la forme d’un graphe\n",
+    "2. Combien d’arêtes possède-t-il ? En déduire le nombre de matchs au total pour ce tournoi\n",
+    "3. En se référant à l'exercice 2, quelle propriété remarquable possède ce graphe?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Tournoi de tennis"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Un club de tennis doit sélectionner deux joueurs parmi quatre pour représenter le club à un tournoi national. Les quatre joueurs sont notés A, B, C et D. Pour réaliser la séléction le club organise des matchs, chaque joueur rencontrant les trois autres.  \n",
+    "Règlement:  \n",
+    "\n",
+    "* Tout match gagné donne un point;\n",
+    "* Tout match perdu enlève un point.\n",
+    "\n",
+    "Les joueurs sélectionnés sont les joueurs ayant obtenu le plus grand nombre de points. On donne le résultat sous la forme d’un graphe orienté:  \n",
+    "\n",
+    "![exo4](img/exo4.png)\n",
+    "\n",
+    "L'orientation des arcs est telle que $X\\longrightarrow Y$ signifie $X$ a battu $Y$.  \n",
+    "\n",
+    "Quels sont les deux joueurs sélectionnés ?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Réunion de famille - niveau de difficulté XXL :)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Michel est invité par **A**ndré à un dîner de famille. Dès son arrivée, il se présente à chacune des onze autres personnes qu'il trouve dans la maison. Les onze premières phrases qu'il entend **successivement** sont les suivantes:  \n",
+    "\n",
+    "* **B**éatrice : \"Bonjour ! Je suis la mère d'André.\"\n",
+    "* **C**arole : \"Bienvenue ! Je suis la sœur du père d'André.\"\n",
+    "* **D**aniel : \"Salut ! Je suis le fils unique de la sœur de la mère d'André.\"\n",
+    "* **É**mile : \"Bonjour ! Je suis l'unique beau-frère du fils de Karl.\"\n",
+    "* **F**abienne : \"Mère de deux filles, je suis aussi la grand-mère maternelle de Daniel.\"\n",
+    "* **G**aston : \"Salut ! Je suis un des fils de Lucien et un des petits-fils de Fabienne.\"\n",
+    "* **H**onoré : \"Je suis le grand-père paternel de Lucien.\"\n",
+    "* **I**rène : \"Je suis l'unique belle-sœur de Lucien.\"\n",
+    "* **J**oseph : \"Salut ! Je suis le neveu de Lucien et le petit fils de Karl.\"\n",
+    "* **K**arl: Mon petit-fils m'a parlé de vous.\n",
+    "* **L**ucien : Bienvenue dans ma maison, je vous ai vu a l'instant parler avec mon père.\n",
+    "\n",
+    "Et la famille d'ajouter d'une seule voix : \"*si vous ne trouvez pas les liens familiaux qui nous unissent, vous n'aurez pas à dîner !*\"  \n",
+    "\n",
+    "*(d'après F. Droesbeke, les graphes par l'exemple, pp 17-18 ellipses)*"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Aider Michel ... en modélisant cette situation par un graphe.  \n",
+    "Remarque: dans cet exercice, le beau-frère de X est le frère du mari/femme de X, et la belle-soeur la soeur du mari/femme de X."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Codage"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "On considère le graphe ci-dessous ainsi que sa matrice d'adjacence.  \n",
+    "![g1](img/res_repres_1.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Questions de cours"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1. Est-ce un graphe orienté ou non orienté?\n",
+    "2. Combien a-t-il de sommets? d'arêtes?\n",
+    "3. Les sommets **d** et **h** sont-ils voisins?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Implémentation en python"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Liste d'adjacence"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Une façon d’encoder un graphe sous Python est d’utiliser un dictionnaire contenant les listes des voisins de chaque sommet.\n",
+    "Les clés seront les sommets du graphe et leur valeur sera la liste des sommets adjacents."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "G = {\n",
+    "    'a': ['b','c'],\n",
+    "    'b': ['a','d', 'e'],\n",
+    "    'c': ['a','d'],\n",
+    "    'd': ['b','c', 'e'],\n",
+    "    'e': ['b','d', 'f', 'g'],\n",
+    "    'f': ['e','g'],\n",
+    "    'g': ['e','f', 'h'],\n",
+    "    'h': ['g']\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1. Ecrire une fonction `sommets` qui prend un graphe en paramètre et qui renvoie la liste de ses sommets.\n",
+    "2. Ecrire une fonction `voisins` qui prend en paramètres un graphe et un sommet et qui renvoie la liste des vosins de ce sommet.\n",
+    "3. Que réalise la fonction `lst_to_mat`? Expliquer notamment la portion de code située entre les lignes 9 et 12.\n",
+    "4. Le résultat de l'appel `lst_to_mat(G)` est-il conforme aux données de l'énoncé?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def sommets(g):\n",
+    "    \"\"\"\n",
+    "    à compléter\n",
+    "    \"\"\"\n",
+    "    pass"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def voisins(g, u):\n",
+    "    \"\"\"\n",
+    "    à compléter\n",
+    "    \"\"\"\n",
+    "    pass"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def lst_to_mat(g):\n",
+    "    \"\"\"\n",
+    "    renvoie ...\n",
+    "    g: graphe modélisé par un dictionnaire de listes d'adjacences\n",
+    "    \"\"\"\n",
+    "    n = len(g)\n",
+    "    adj = [[0] * n for _ in range(n)]\n",
+    "    lst_som = sommets(g) \n",
+    "    ind_som = {lst_som[i]: i for i in range(n)}\n",
+    "    for s in lst_som:\n",
+    "        for v in voisins(g, s):\n",
+    "            adj[ind_som[s]][ind_som[v]] = 1\n",
+    "    return adj           \n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# A décommenter puis exécuter (utile pour la suite)\n",
+    "#A = lst_to_mat(G)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Matrice d'adjacence"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1. Ecrire une fonction `adj_to_lst` qui prend en paramètre une liste (*de python*) de sommets `l` et une matrice d'adjacence `mat` (*liste de listes*) et qui renvoie un dictionnaire dont les items sont de la forme: `sommet: liste de voisins`.  \n",
+    "*On peut s'inspirer de la fonction* `lst_to_mat` *et notamment l'utilisation d'un dictionnaire qui fait l'association index <--> nom de sommet*.\n",
+    "2. Donner alors, sous forme de liste d'adjacence, une représentation du graphe dont la matrice d'adjacence est la suivante:  \n",
+    "\n",
+    "$$\n",
+    "\\begin{pmatrix}\n",
+    "0&1&0&0&0\\\\\n",
+    "0&0&1&1&1\\\\\n",
+    "0&1&0&1&0\\\\\n",
+    "0&0&1&0&0\\\\\n",
+    "1&1&0&1&0\n",
+    "\\end{pmatrix}\n",
+    "$$\n",
+    "\n",
+    "On notera les sommets: A, B, C, D et E."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def adj_to_lst(l, mat):\n",
+    "    \"\"\"\n",
+    "    à compléter\n",
+    "    \"\"\"\n",
+    "    pass\n",
+    "            "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# TESTS QUESTION 1- A DECOMMENTER ET EXECUTER\n",
+    "#rep = {'a': ['b', 'c'],\n",
+    "# 'b': ['a', 'd', 'e'],\n",
+    "# 'c': ['a', 'd'],\n",
+    "# 'd': ['b', 'c', 'e'],\n",
+    "# 'e': ['b', 'd', 'f', 'g'],\n",
+    "# 'f': ['e', 'g'],\n",
+    "# 'g': ['e', 'f', 'h'],\n",
+    "# 'h': ['g']}\n",
+    "#assert adj_to_lst(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], A) == rep"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# QUESTION 2 - A DECOMMENTER, COMPLETER PUIS EXECUTER\n",
+    "\n",
+    "#l = []\n",
+    "#mat = []\n",
+    "#adj_to_lst(l, mat)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Implémentation d'une classe graphe orienté par matrice d'adjacence"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "On se propose d'encapsuler les opérations réalisables sur les graphes orientés dans une classe `GrapheOr`.  La construction repose sur l'utilisation d'une matrice d'adjacence."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class GrapheOr:\n",
+    "    \"\"\" Une classe pour représenter les graphes orientés.\"\"\"\n",
+    "    \n",
+    "    def __init__(self, sommets):\n",
+    "        \"\"\" sommets est la liste des sommets du graphe; ceux-ci\n",
+    "            peuvent être des entiers ou des caractères.\"\"\"\n",
+    "        \n",
+    "        self.s = sommets\n",
+    "        self.ma = [[0]*len(sommets) for _ in range(len(sommets))]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1. Ajouter une méthode `ajouter_arc` qui prend deux paramètres `s1` et `s2` correspondant à deux sommets (on **s'assurera de leur présence dans la liste de sommets**) qui permet d'ajouter un arc entre `s1` et `s2`. Cette méthode ne renvoie rien."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "2. Ajouter une méthode `arc` qui prend en paramètres deux sommets `s1` et `s2` et qui renvoie un booléen correspondant à la présence ou non d'un arc entre ces deux sommets."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "3. Ajouter une méthode `voisins` qui prend en paramètre un sommet `s1` et qui renvoie la liste de ses voisins."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# TESTER VOS METHODES ICI\n",
+    "\n",
+    "#g = GrapheOr(['a', 'b', 'c', 'd'])\n",
+    "#g.ajouter_arc('a', 'b')\n",
+    "#g.ajouter_arc('a', 'd')\n",
+    "#g.ajouter_arc('b', 'c')\n",
+    "#g.ajouter_arc('d', 'a')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "4. Implémenter une classe `GrapheOr2` qui utilise un dictionnaire de listes d'adjacence. L'interface restant rigoureusement la même."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# TESTS - A DECOMMENTER ET EXECUTER\n",
+    "#g = GrapheOr(['a', 'b', 'c', 'd'])\n",
+    "#g.ajouter_arc('a', 'b')\n",
+    "#g.ajouter_arc('a', 'd')\n",
+    "#g.ajouter_arc('b', 'c')\n",
+    "#g.ajouter_arc('d', 'a')\n",
+    "#assert g.voisins('a') == ['b', 'd']\n",
+    "#assert g.voisins('c') == []"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": true,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": true
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

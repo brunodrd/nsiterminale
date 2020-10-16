@@ -1,0 +1,415 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Introduction aux graphes\n",
+    "====================="
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Qu'est-ce qu'un graphe ?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Un graphe est un couple composé d'un ensemble de **sommets** ...  \n",
+    "![sommet](img/sommets_3.png)  \n",
+    "... et d'un ensemble d'**arêtes** qui représentent des relations entre ces sommets.  \n",
+    "![aretes](img/aretes_3.png)  \n",
+    "De façon plus formelle, un graphe est un couple $G=(S, A)$ composé:  \n",
+    "\n",
+    "* d'un ensemble fini de sommets $S$, parfois appelés noeuds;\n",
+    "* d'un ensemble fini d'arêtes $A$ reliants des sommets.  \n",
+    "\n",
+    "*Remarque*: la notation anglo-saxonne $G=(V, E)$ est souvent rencontrée, $V$ est mis pour *vertice* et $E$ pour *edge*."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## A quoi sert un graphe ?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Un graphe sert à représenter des relations entre des éléments**. Ses applications sont très nombreuses. Il est particulièrement adapté pour représenter des réseaux."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exemple d'un réseau social"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![goth](img/goth.png)  \n",
+    "Ici les sommets sont des personnes et la présence d'une arête indique un lien entre ces personnes."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exemple d'un réseau de bus"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![alterneo](img/alterneo_2.png)  \n",
+    "Ici les sommets sont des arrêts de bus et les arêtes représentent la relation \"*permet d'accéder à l'arrêt ...*\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exemple d'un réseau électrique"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![elc](img/elec.png)  \n",
+    "Ici les sommets sont des postes de transformation haute tension et les arêtes la relation \"*alimente ..*\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exemple de réseau informatique"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![informatique](img/informatique.png)  \n",
+    "Ici les sommets sont des machines et les arêtes la relation \"*est relié à ...*\"."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exercice d'application directe"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Soit un réseau social composé de 6 personnes (A, B, C, D, E et F). Donner un représentation de ce réseau, sachant que les relations entre les divers abonnés sont les suivantes:  \n",
+    "\n",
+    "* A est ami avec B, C et D\n",
+    "* B est ami avec A et D\n",
+    "* C est ami avec A, E et D\n",
+    "* D est ami avec tous les autres\n",
+    "* E est ami avec C, D et F\n",
+    "* F est ami avec E et D\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Quelques définitions"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Voisinage**  \n",
+    "Deux sommets $u$ et $v$ sont **adjacents** si ils sont reliés par une arête. L'ensemble des sommets adjacents à $u$ constitue les **voisins** de ce dernier.  \n",
+    "\n",
+    "**Chemin**  \n",
+    "Soient $u$ et $v$ deux sommets d'un graphe $G$. On dit qu'un **chemin** relie $u$ à $v$ si il existe une suite finie de sommets reliés deux à deux par une arête, menant de $u$ à $v$.  "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Application directe 1**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![application](img/image--014.png)    \n",
+    "Existe-t-il un chemin entre E et D ?  \n",
+    "D est-il un voisin de E?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Graphe non orientés / orientés**  \n",
+    "Dans tous les exemples précédents, le parcours des arêtes pouvait se faire dans les deux sens: on parle alors de graphe **non orientés**.  \n",
+    "Lorsque la modélisation nécessite un parcours d'arête dans un sens bien déterminé, on parle de **graphe orienté**. On utilise souvent le terme d'**arc** à la place d'arête.  \n",
+    "Encore une fois, on peut citer en exemple les réseaux sociaux. En effet, par exemple pour Facebook si A est ami avec B alors B est aussi ami avec A alors que sur Twitter A peut suivre B qui ne suit pas forcément A.  \n",
+    "Exemple de représentation   \n",
+    "![goriente](img/goriente.png)  \n",
+    "\n",
+    "Dans un graphe orienté, il est commode de traiter les voisins en terme de **successeur/prédécesseur**. Ainsi, A est le prédécesseur de C,  D est un successeur de B, etc.  \n",
+    "\n",
+    "**Application directe 2**\n",
+    "\n",
+    "Représenter le graphe modélisant le réseau routier urbain ayant les caractéristiques suivantes:  \n",
+    "\n",
+    "Carefours: A, B, C, D, E, F, G  \n",
+    "\n",
+    "* il existe une liaison à double sens entre A et C;\n",
+    "* il existe une liaison à sens unique B->A entre A et B;\n",
+    "* il existe une liaison à sens unique A->D entre A et D;\n",
+    "* il existe une liaison à sens unique B->F entre B et F;\n",
+    "* il existe une liaison à sens unique E->B entre B et E;\n",
+    "* il existe une liaison à double sens entre B et G;\n",
+    "* il existe une liaison à double sens entre D et G;\n",
+    "* il existe une liaison à double sens entre E et F."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Comment représenter un graphe?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "On distingue deux grands types de représentation:  \n",
+    "\n",
+    "* utilisation d'une matrice d'adjacence;\n",
+    "* utilisation(s) liste(s) de successeurs / prédécesseurs.\n",
+    "\n",
+    "Détaillons ces deux modes de représentation."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Représentation avec une matrice d'adjacence"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Il s'agit d'un tableau à doubles entrées. Ces dernières *représentent les sommets*. À chaque intersection ligne $i$ - colonne $j$ (ligne $i$ correspond au sommet $i$ et colonne $j$ correspond au sommet $j$), on place un **1** s'il existe une arête entre le sommet $i$ et le sommet $j$, et un **0** s'il n'existe pas d'arête entre le sommet $i$ et le sommet $j$."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Exemple"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![graphe](img/image--014.png)\n",
+    "\n",
+    "|   \t| A \t| B \t| C \t| D \t| E \t|\n",
+    "|---\t|---\t|---\t|---\t|---\t|---\t|\n",
+    "| A \t| 0 \t| 1 \t| 1 \t| 0 \t| 1 \t|\n",
+    "| B \t| 1 \t| 0 \t| 1 \t| 1 \t| 0 \t|\n",
+    "| C \t| 1 \t| 1 \t| 0 \t| 1 \t| 0 \t|\n",
+    "| D \t| 0 \t| 1 \t| 1 \t| 0 \t| 0 \t|\n",
+    "| E \t| 1 \t| 0 \t| 0 \t| 0 \t| 0 \t|  \n",
+    "\n",
+    "En pratique, on va ommettre l'écriture des sommets et écrire la matrice d'adjacence de la manière suivante:  \n",
+    "\n",
+    "$$\n",
+    "\\begin{pmatrix}\n",
+    "0&1&1&0&1\\\\\n",
+    "1&0&1&1&0\\\\\n",
+    "1&1&0&1&0\\\\\n",
+    "0&1&1&0&0\\\\\n",
+    "1&0&0&0&0\n",
+    "\\end{pmatrix}\n",
+    "$$"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Application directe 3"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Donner la matrice d'adjacence du graphe suivant:  \n",
+    "\n",
+    "![mat](img/image--008.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Cas des graphes orientés"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "On procède de la même manière en faisant attention au sens de parcours des arcs."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Application directe 4"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Donner la matrice d'adjacence du graphe orienté déjà rencontré précédemment:  \n",
+    "\n",
+    "![grapheorien](img/goriente.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Représentation par liste d'adjacence"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Il s'agit dans ce cas de représenter chaque sommet et à associer chacun d'eux à la liste de ses voisins dans le cas d'un graphe non orienté ou la liste de ses successeurs ou prédécesseurs dans le cas d'un graphe orienté."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Exemples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Le graphe non orienté de **l'application directe 3** peut être représenté par sa liste d'adjacence:  \n",
+    "\n",
+    "| Sommet \t|     \t| Voisins \t|\n",
+    "|:------:\t|-----\t|---------\t|\n",
+    "|    R   \t| --> \t| [U, T]  \t|\n",
+    "|    S   \t| --> \t| [V, U]  \t|\n",
+    "|    T   \t| --> \t| [R, V]  \t|\n",
+    "|    U   \t| --> \t| [R, S]  \t|\n",
+    "|    V   \t| --> \t| [S, T]  \t|\n",
+    "\n",
+    "Quant au graphe orienté de **l'application directe 4**, on peut le représenter par une liste de successeurs:  \n",
+    "\n",
+    "| Sommet \t|     \t| Succ   \t|\n",
+    "|:------:\t|-----\t|--------\t|\n",
+    "|    A   \t| --> \t| [B, C] \t|\n",
+    "|    B   \t| --> \t| [D, E] \t|\n",
+    "|    D   \t| --> \t| [ ]    \t|\n",
+    "|    C   \t| --> \t| [E]    \t|\n",
+    "|    E   \t| --> \t| [B, F] \t|\n",
+    "| F      \t| --> \t| [ ]    \t|"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Application directe 5"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Représenter le graphe de **l'application directe 1** par une liste d'adjacence et celui de **l'application directe 4** par une liste de prédécesseurs."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Choix du mode de représentation"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Le choix dépend du type de graphe (dense ou pas), des algorithmes. Par ailleurs, on montrera en séance d'exrcices qu'il est possible de passer d'une représentation à l'autre."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": true,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": true
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
