@@ -4,8 +4,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Représentation d'un graphe\n",
-    "======================="
+    "Exercices - Représentations d'un graphe\n",
+    "================================="
    ]
   },
   {
