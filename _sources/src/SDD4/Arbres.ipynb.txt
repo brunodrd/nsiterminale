@@ -1,0 +1,467 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "ARBRES\n",
+    "======="
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Structures arborescentes"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "La structure de liste chaînée rencontrée précédemment est intéressante lorsqu'on a besoin d'un **accès séquentiel** aux éléments. En revanche, elle est peu adaptée à des accès arbitraires. Dans ce cas de figure, une structure **arborescente** peut être envisagée. Il s'agit d'une autre famille de structures chaînées qui permet de structurer les informations stockées de **manière hiérarchique**. Les applications sont très nombreuses; on peut citer par exemple:  \n",
+    "\n",
+    "* arborescence du système de fichier d'un ordinateur;\n",
+    "* expression arithmétique;\n",
+    "* structure des pages web;\n",
+    "* arbre généalogique;\n",
+    "* etc."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Arbres binaires "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Définitions"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Un arbre est une structure arborescente particulière, composée de **noeuds**. Dans un arbre **binaire** chaque noeud présente au maximum 2 *branches*.  \n",
+    "\n",
+    "![arbre1](img/graph2.png)  \n",
+    "\n",
+    "Un arbre qui ne comporte pas de noeud est un **arbre vide**.  Si l'arbre n'est pas vide, il comporte:  \n",
+    "\n",
+    "* un noeud particulier appelé **racine**;\n",
+    "* deux sous ensembles de noeuds appelés **sous arbre gauche** et **sous arbre droit**.\n",
+    "\n",
+    "*Remarque*: la racine est reliée à la racine des sous arbres (sauf s'il est vide).  \n",
+    "\n",
+    "Un noeud qui a deux sous arbres vides est **une feuille**.  \n",
+    "Dans l'exemple ci-dessus:  \n",
+    "\n",
+    "* `A` est la racine;\n",
+    "* `D`, `E` et `F` sont des feuilles.  \n",
+    "\n",
+    "La **taille** $N$ d'un arbre correspond au nombre de noeuds. Par exemple, la taille de l'arbre présenté en introduction est $N=6$.  \n",
+    "La **hauteur** $h$ d'un arbre correspond au **nombre maximal de noeuds rencontrés en descendant de la racine à une feuille**. Par exemple, l'arbre présenté en introduction a une hauteur $h=3$."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Encadrement de la taille"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "La taille d'un arbre vérifie une double inégalité:  \n",
+    "\n",
+    "$$h \\leq N \\leq 2^{h} -1$$  \n",
+    "\n",
+    "La borne inférieure correspond à un arbre dont chaque noeud ne présente qu'une branche, dans ce cas $N = h$ (Fig. 1). La borne supérieure correspond à un arbre ou chaque niveau est complet, dans ce cas $N=2^{h}-1$ (Fig. 2).  \n",
+    "\n",
+    "![peigne](img/graph3.png) (Fig. 1) ![complet](img/graph4.png) (Fig. 2)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Une représentation possible en python"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Utilisation d'une classe"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "De la même façon qu'on a construit les listes chaînées avec des *cellules*, on va utiliser une **classe Noeud** pour décrire un arbre. Un noeud comporte une information ou *valeur*, une référence vers le sous arbre gauche et une référence vers le sous arbre droit."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Noeud:\n",
+    "    \"\"\" Une classe pour modéliser les noeuds d'un arbre\"\"\"\n",
+    "    \n",
+    "    def __init__(self, v, fg, fd):\n",
+    "        self.val = v\n",
+    "        self.gauche = fg\n",
+    "        self.droit = fd        "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ainsi, l'arbre donné en introduction peut être codé de la manière suivante:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "arb1 = Noeud('A', \n",
+    "             Noeud('B', Noeud('D', None, None), None), \n",
+    "             Noeud('C', Noeud('E', None, None), Noeud('F', None, None))\n",
+    "            )"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A\n",
+      "<__main__.Noeud object at 0x7f8b9839d070>\n",
+      "B\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(arb1.val)\n",
+    "print(arb1.gauche)\n",
+    "print(arb1.gauche.val)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Taille et hauteur"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "La taille d'un arbre vide vaut 0. S'il n'est pas vide, sa taille est:  \n",
+    "\n",
+    "**1 (racine) + taille sous arbre gauche + taille sous arbre droit**\n",
+    "\n",
+    "Une telle présentation incite à écrire une fonction récursive. Coder cette fonction."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def taille(arb):\n",
+    "    \"\"\" Renvoie la taille de l'arbre passé en paramètre\"\"\"\n",
+    "    # Supprimer l'instruction 'pass' et compléter\n",
+    "    return 0 if arb is None else 1 + taille(arb.gauche) + taille(arb.droit)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "assert taille(arb1) == 6"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "La hauteur d'un arbre vide est nulle. Si l'arbre n'est pas vide, sa hauteur vaut:  \n",
+    "\n",
+    "$$ 1 + \\text{max}(hauteur(\\text{sous arbre gauche}), hauteur(\\text{sous arbre droit}))$$  \n",
+    "\n",
+    "Coder une fonction récursive qui renvoie la hauteur d'un arbre passé en paramètre."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def hauteur(arb):\n",
+    "    \"\"\" Renvoie la hauteur de l'arbre 'arb'\"\"\"\n",
+    "    # Supprimer l'instruction 'pass' et compléter\n",
+    "    return 0 if arb is None else 1 + max(hauteur(arb.gauche), hauteur(arb.droit))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "3"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "hauteur(arb1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Parcours d'un arbre en profondeur d'abord"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Dans quel ordre parcourir les noeuds d'un arbre? Il existe plusieurs possibilités:  \n",
+    "\n",
+    "* si on traite d'abord la racine, puis le sous arbre gauche, puis le sous arbre droit, l'ordre est dit **préfixe**;\n",
+    "* si on traite d'abord le sous arbre gauche, puis la racine, puis le sous arbre droit, l'ordre est dit **infixe**;\n",
+    "* si on traite d'abord le sous arbre gauche, puis le sous arbre droit, puis la racine, l'ordre est dit **postfixe** ou **suffixe**.  \n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def parcours_prefixe(arb):\n",
+    "    \"\"\" Parcours préfixe d'un arbre\"\"\"\n",
+    "    # Supprimer l'instruction 'pass' et compléter\n",
+    "    pass"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A B D C E F "
+     ]
+    }
+   ],
+   "source": [
+    "parcours_prefixe(arb1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def parcours_infixe(arb):\n",
+    "    \"\"\" Parcours préfixe d'un arbre\"\"\"\n",
+    "    # Supprimer l'instruction 'pass' et compléter\n",
+    "    pass"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "D B A E C F "
+     ]
+    }
+   ],
+   "source": [
+    "parcours_infixe(arb1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ecrire la fonction qui renvoie le parcours postfixe d'un arbre."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on function get in module queue:\n",
+      "\n",
+      "get(self, block=True, timeout=None)\n",
+      "    Remove and return an item from the queue.\n",
+      "    \n",
+      "    If optional args 'block' is true and 'timeout' is None (the default),\n",
+      "    block if necessary until an item is available. If 'timeout' is\n",
+      "    a non-negative number, it blocks at most 'timeout' seconds and raises\n",
+      "    the Empty exception if no item was available within that time.\n",
+      "    Otherwise ('block' is false), return an item if one is immediately\n",
+      "    available, else raise the Empty exception ('timeout' is ignored\n",
+      "    in that case).\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "from queue import Queue\n",
+    "help(Queue.get)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Parcours en largeur d'abord"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ce parcours est moins trivial que le précédent. Il s'agit de parcourir l'arbre par niveau. On commence par la racine puis les racines de ses deux sous arbres et ainsi de suite. Une structure de données adaptée à ce problème est la file. \n",
+    "\n",
+    "Description d'un algorithme itératif  \n",
+    "*On suppose l'arbre non vide*.  \n",
+    "\n",
+    "* on enfile l'arbre;\n",
+    "* tant que la file n'est pas vide:  \n",
+    "\n",
+    "    - on défile un élément (en fait un arbre);\n",
+    "    - on affiche la valeur de sa racine;\n",
+    "    - on enfile ses deux sous arbres s'ils ne sont pas vides\n",
+    "\n",
+    "**Travail personnel**  \n",
+    "Coder une fonction `parcours_largeur`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from queue import Queue\n",
+    "\n",
+    "\n",
+    "def parcours_largeur(a):\n",
+    "    \"\"\" Affiche la valeur des noeuds trouvés lors d'un parcours en largeur d'un arbre;\n",
+    "    a: arbre binaire\n",
+    "    \"\"\"\n",
+    "    assert a is not None\n",
+    "    f = Queue()\n",
+    "    f.put(a)\n",
+    "    # compléter"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A B C D E F "
+     ]
+    }
+   ],
+   "source": [
+    "parcours_largeur(arb1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": true
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
