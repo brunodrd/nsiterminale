@@ -121,6 +121,12 @@
   <li class="">
     <a href="Graphes_Exercices_I.html">Exercices - Représentations d’un graphe</a>
   </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Algorithmes_graphes.html">ALGORITHMES SUR LES GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Exercices_algo_graphes_A2.html">Algorithmes des graphes - Exercices</a>
+  </li>
 </ul>
 </nav>
 
@@ -224,7 +230,17 @@
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#quelques-definitions" class="nav-link">Quelques définitions</a>
+            <a href="#quelques-definitions" class="nav-link">Quelques définitions</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#les-graphes-non-orientes" class="nav-link">Les graphes non orientés</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#les-graphes-orientes" class="nav-link">Les graphes orientés</a>
+        </li>
+    
+            </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
@@ -297,7 +313,7 @@ De façon plus formelle, un graphe est un couple <span class="math notranslate n
 <li><p>d’un ensemble fini de sommets <span class="math notranslate nohighlight">\(S\)</span>, parfois appelés noeuds;</p></li>
 <li><p>d’un ensemble fini d’arêtes <span class="math notranslate nohighlight">\(A\)</span> reliants des sommets.</p></li>
 </ul>
-<p><em>Remarque</em>: la notation anglo-saxonne <span class="math notranslate nohighlight">\(G=(V, E)\)</span> est souvent rencontrée, <span class="math notranslate nohighlight">\(V\)</span> est mis pour <em>vertice</em> et <span class="math notranslate nohighlight">\(E\)</span> pour <em>edge</em>.</p>
+<p><em>Remarque</em>: la notation anglo-saxonne <span class="math notranslate nohighlight">\(G=(V, E)\)</span> est souvent rencontrée, <span class="math notranslate nohighlight">\(V\)</span> est mis pour <em>vertices</em> et <span class="math notranslate nohighlight">\(E\)</span> pour <em>edges</em>.</p>
 </div>
 <div class="section" id="a-quoi-sert-un-graphe">
 <h2>A quoi sert un graphe ?<a class="headerlink" href="#a-quoi-sert-un-graphe" title="Permalink to this headline">¶</a></h2>
@@ -337,24 +353,39 @@ Ici les sommets sont des machines et les arêtes la relation “<em>est relié �
 </div>
 <div class="section" id="quelques-definitions">
 <h2>Quelques définitions<a class="headerlink" href="#quelques-definitions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="les-graphes-non-orientes">
+<h3>Les graphes non orientés<a class="headerlink" href="#les-graphes-non-orientes" title="Permalink to this headline">¶</a></h3>
+<p>Aucun sens n’est privilégié pour la liaison entre deux sommets.</p>
 <p><strong>Voisinage</strong><br />
 Deux sommets <span class="math notranslate nohighlight">\(u\)</span> et <span class="math notranslate nohighlight">\(v\)</span> sont <strong>adjacents</strong> si ils sont reliés par une arête. L’ensemble des sommets adjacents à <span class="math notranslate nohighlight">\(u\)</span> constitue les <strong>voisins</strong> de ce dernier.</p>
-<p><strong>Chemin</strong><br />
-Soient <span class="math notranslate nohighlight">\(u\)</span> et <span class="math notranslate nohighlight">\(v\)</span> deux sommets d’un graphe <span class="math notranslate nohighlight">\(G\)</span>. On dit qu’un <strong>chemin</strong> relie <span class="math notranslate nohighlight">\(u\)</span> à <span class="math notranslate nohighlight">\(v\)</span> si il existe une suite finie de sommets reliés deux à deux par une arête, menant de <span class="math notranslate nohighlight">\(u\)</span> à <span class="math notranslate nohighlight">\(v\)</span>.</p>
+<p><strong>Chaîne</strong><br />
+Une chaîne est une suite finie d’arêtes consécutives.</p>
+<p><strong>Cycle</strong><br />
+Un cycle est une chaîne dont le sommet de départ est identique au sommet d’arrivée.</p>
 <p><strong>Application directe 1</strong></p>
 <p><img alt="application" src="../../_images/image--014.png" /><br />
-Existe-t-il un chemin entre E et D ?<br />
+Citer:</p>
+<ul class="simple">
+<li><p>une chaîne,</p></li>
+<li><p>un cycle</p></li>
+</ul>
+<p>appartenant au graphe ci-dessus.<br />
 D est-il un voisin de E?</p>
-<p><strong>Graphe non orientés / orientés</strong><br />
-Dans tous les exemples précédents, le parcours des arêtes pouvait se faire dans les deux sens: on parle alors de graphe <strong>non orientés</strong>.<br />
-Lorsque la modélisation nécessite un parcours d’arête dans un sens bien déterminé, on parle de <strong>graphe orienté</strong>. On utilise souvent le terme d’<strong>arc</strong> à la place d’arête.<br />
-Encore une fois, on peut citer en exemple les réseaux sociaux. En effet, par exemple pour Facebook si A est ami avec B alors B est aussi ami avec A alors que sur Twitter A peut suivre B qui ne suit pas forcément A.<br />
-Exemple de représentation<br />
+</div>
+<div class="section" id="les-graphes-orientes">
+<h3>Les graphes orientés<a class="headerlink" href="#les-graphes-orientes" title="Permalink to this headline">¶</a></h3>
+<p>Lorsque la modélisation nécessite un sens bien déterminé pour aller d’un sommet à un autre, on parle de <strong>graphe orienté</strong>. La liaison entre deux sommets est alors appelée <strong>arc</strong>.<br />
+Encore une fois, on peut citer en exemple les réseaux sociaux. En effet, par exemple pour Facebook si A est ami avec B alors B est aussi ami avec A alors que sur Twitter A peut suivre B qui ne suit pas forcément A.</p>
+<p><strong>Chemin</strong><br />
+Un chemin est une suite finie d’arcs consécutifs sur un graphe orienté.</p>
+<p>Exemple de représentation d’une graphe orienté<br />
 <img alt="goriente" src="../../_images/goriente.png" /></p>
 <p>Dans un graphe orienté, il est commode de traiter les voisins en terme de <strong>successeur/prédécesseur</strong>. Ainsi, A est le prédécesseur de C,  D est un successeur de B, etc.</p>
+<p><strong>Voisinage</strong><br />
+Un sommet <span class="math notranslate nohighlight">\(v\)</span> est <strong>adjacent</strong> à un sommet <span class="math notranslate nohighlight">\(u\)</span> si il existe un arc allant de <span class="math notranslate nohighlight">\(u\)</span> à <span class="math notranslate nohighlight">\(v\)</span>. On dit encore que <span class="math notranslate nohighlight">\(v\)</span> est un <strong>voisin</strong> de <span class="math notranslate nohighlight">\(u\)</span>.</p>
 <p><strong>Application directe 2</strong></p>
 <p>Représenter le graphe modélisant le réseau routier urbain ayant les caractéristiques suivantes:</p>
-<p>Carefours: A, B, C, D, E, F, G</p>
+<p>Intersections: A, B, C, D, E, F, G</p>
 <ul class="simple">
 <li><p>il existe une liaison à double sens entre A et C;</p></li>
 <li><p>il existe une liaison à sens unique B-&gt;A entre A et B;</p></li>
@@ -365,6 +396,7 @@ Exemple de représentation<br />
 <li><p>il existe une liaison à double sens entre D et G;</p></li>
 <li><p>il existe une liaison à double sens entre E et F.</p></li>
 </ul>
+</div>
 </div>
 <div class="section" id="comment-representer-un-graphe">
 <h2>Comment représenter un graphe?<a class="headerlink" href="#comment-representer-un-graphe" title="Permalink to this headline">¶</a></h2>

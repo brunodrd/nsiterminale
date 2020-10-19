@@ -1,0 +1,430 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Algorithmes des graphes - Exercices\n",
+    "=============================="
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "*Données valables pour toute la fiche - cellules de code à exécuter*"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![exo1](img/exo1.png) ![exo2](img/exo2.png)  \n",
+    "![exo3](img/exo3.png)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from graphes import Graphe, GrapheOr2\n",
+    "\n",
+    "\n",
+    "g1 = Graphe(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'])\n",
+    "g1.ajouter_arete('A', 'B')\n",
+    "g1.ajouter_arete('B', 'C')\n",
+    "g1.ajouter_arete('C', 'E')\n",
+    "g1.ajouter_arete('E', 'I')\n",
+    "g1.ajouter_arete('I', 'H')\n",
+    "g1.ajouter_arete('H', 'F')\n",
+    "g1.ajouter_arete('F', 'A')\n",
+    "g1.ajouter_arete('G', 'B')\n",
+    "g1.ajouter_arete('G', 'F')\n",
+    "g1.ajouter_arete('G', 'I')\n",
+    "g1.ajouter_arete('D', 'B')\n",
+    "g1.ajouter_arete('D', 'I')\n",
+    "\n",
+    "g2 = GrapheOr2([0, 1, 2, 3])\n",
+    "g2.ajouter_arc(0, 1)\n",
+    "g2.ajouter_arc(1, 2)\n",
+    "g2.ajouter_arc(0, 3)\n",
+    "g2.ajouter_arc(3, 1)\n",
+    "\n",
+    "g3 = GrapheOr2(['A', 'B', 'C', 'D'])\n",
+    "g3.ajouter_arc('A', 'B')\n",
+    "g3.ajouter_arc('A', 'D')\n",
+    "g3.ajouter_arc('B', 'C')\n",
+    "g3.ajouter_arc('D', 'C')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from queue import Queue\n",
+    "\n",
+    "\n",
+    "def parcours_l(g, s):\n",
+    "    \"\"\"\n",
+    "    \"\"\"\n",
+    "    F = Queue()\n",
+    "    dist = dict()\n",
+    "    pred = dict()\n",
+    "    for u in g.sommets():\n",
+    "        dist[u] = float('inf')\n",
+    "        pred[u] = None\n",
+    "    dist[s] = 0\n",
+    "    F.put(s)\n",
+    "    # A compléter\n",
+    "    while not F.empty():\n",
+    "        u = F.get()\n",
+    "        for v in g.voisins(u):\n",
+    "            if dist[v] == float('inf'):\n",
+    "                dist[v] = dist[u] + 1\n",
+    "                pred[v] = u\n",
+    "                F.put(v)\n",
+    "    return dist, pred"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Appliquer un algorithme *"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1. Appliquer l'algorithme de parcours en largeur sur le graphe g1, à partir du sommet H. Noter à chaque fois les sommets rencontrés ainsi que leur distance.\n",
+    "2. Appliquer l'algorithme de parcours en profondeur sur le graphe g2. Ce graphe comporte-t-il un cycle ?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Afficher un chemin **"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Construire le chemin allant d'un sommet origine `orig` à un sommet `s` est facile à partir d'un dictionnaire des prédécesseurs `pred`. En effet, `pred[s]` permet de retrouver son père, `pred[pred[s]]` son grand père et ainsi de suite jusqu'à `orig` où on s'arrête (son père est `None`).  \n",
+    "Dans la version de l'algorithme de parcours en largeur du cours, `pred` est construit au fur et à mesure de l'exploration du graphe. Pour le parcours en profondeur, on modifie légèrement le code en transformant le dictionnaire `deja_vu` en `pred`. Voir le code ci-après."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def parcours_p(g, pred, orig, s):\n",
+    "    \"\"\"\n",
+    "    parcours récursivement, en profondeur, le graphe g, depuis le sommet s.\n",
+    "    g: graphe\n",
+    "    orig, s: sommets\n",
+    "    pred: dictionnaire dont la clé est un sommet et la valeur est son prédécesseur (père)\n",
+    "    \"\"\"\n",
+    "    pred[s] = orig\n",
+    "    for v in g.voisins(s):\n",
+    "        if v not in pred:\n",
+    "            parcours_p(g, pred, s, v)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1. Compléter la fonction `affiche_chemin` ci-après, qui prend en paramètres un graphe, un sommet de départ `u` , un sommet d'arrivée `v` et qui renvoie un le chemin menant de `u` à `v` sous la forme d'une liste *python*."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def affiche_chemin(g, u, v):\n",
+    "    \"\"\"\n",
+    "    g: graphe\n",
+    "    u, v: sommets de départ et d'arrivée respectivement\n",
+    "    \"\"\"\n",
+    "    pred = dict()\n",
+    "    parcours_p(g, pred, None, u)\n",
+    "    if v not in pred:\n",
+    "        return None\n",
+    "    chemin = [] # contient le chemin existant entre u et v\n",
+    "    s_fin = v # sommet d'arrivée\n",
+    "    # A compléter à partir d'ici"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "2. Afficher le chemin menant de 'A' à 'I'. Quelle est la longueur (*nombre d'arête*) de ce chemin?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Test de la fonction affiche_chemin\n",
+    "#affiche_chemin(g1, 'A', 'I')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "3. Le chemin trouvé précédemment est-il le plus court? Justifier la réponse en utilisant un parcours en largeur."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Réponses"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Détection de cycle dans un graphe orienté ***"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Première idée"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Une première idée consiste à modifier légèrement la fonction de parcours en profondeur de manière à renvoyer un booléen qui sera à `True` si on tombe sur un sommet déjà visité."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def parcours_p2(g, s, deja_vu):\n",
+    "    \"\"\"\n",
+    "    parcours récursivement, en profondeur, le graphe G, depuis le sommet s.\n",
+    "    g: graphe\n",
+    "    s: sommet\n",
+    "    deja_vu: dictionnaire de booléen caractérisant le statut d'un sommet\n",
+    "            (déjà visité ou non).\n",
+    "    \"\"\"\n",
+    "    if deja_vu[s]:\n",
+    "        return True\n",
+    "    deja_vu[s] = True\n",
+    "    for v in g.voisins(s):\n",
+    "        if parcours_p2(g, v, deja_vu):\n",
+    "            return True\n",
+    "    return False"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "On écrit une fonction de détection de cycle."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def detect_cycle(g, s):\n",
+    "    d = dict()\n",
+    "    # à l'origine aucun sommet n'est visité\n",
+    "    for v in g.sommets():\n",
+    "        d[v] = None\n",
+    "    return parcours_p2(g, s, d)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "detect_cycle(g2, 3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "detect_cycle(g3, 'A')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Donner une explication à ces résultats."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Une solution"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "En fait, il faut distinguer les sommets *déjà vus*: ceux dont l'exploration est en cours et ceux dont l'exploration est terminée.  Une façon commune de réaliser la distinction entre les sommets est de les \"colorier\":  \n",
+    "\n",
+    "* un sommet non exploré est *BLANC*;\n",
+    "* un sommet en cours d'exploration est *GRIS*;\n",
+    "* un sommet dont l'exploration est terminée est *NOIR*.\n",
+    "\n",
+    "On va modifier quelque peu la fonction parcours en profondeur: le dictionnaire `deja_vu` sera renommé en `couleur`. Lors de la visite d'un sommet `s`:  \n",
+    "\n",
+    "* si `couleur[s]` est GRIS, on a découvert un cycle (*on renvoie* `True`);\n",
+    "* si `couleur[s]` est NOIR, l'exploration est terminée, il n'y a pas de cycle (*on renvoie* `False`);\n",
+    "\n",
+    "Si on passe ces deux tests, `s` est forcément BLANC, on va donc:  \n",
+    "\n",
+    "* le colorier en GRIS;\n",
+    "* visiter récursivement tous ses voisins;\n",
+    "* le colorier en NOIR lorsque tous ses voisins auront été explorés et indiquer qu'aucun cycle n'a été trouvé\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Coder la fonction `parcours_p` selon l'algorithme qui vient d'être exposé. Puis tester avec la fonction `detect_cycle` proposée."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def parcours_p(g, s, couleur):\n",
+    "    \"\"\"\n",
+    "    à compléter\n",
+    "    \"\"\"\n",
+    "    # à compléter\n",
+    "    pass"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def detect_cycle(g, s):\n",
+    "    coul = dict()\n",
+    "    # à l'origine aucun sommet n'est visité et sont tous BLANCS\n",
+    "    for v in g.sommets():\n",
+    "        coul[v] = 'BLANC'\n",
+    "    return parcours_p(g, s, coul)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# TESTS - A EXECUTER\n",
+    "#assert detect_cycle(g2, 3) == False\n",
+    "#assert detect_cycle(g3, 'A') == False\n",
+    "#print(\"Tout semble OK\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": true,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {
+    "height": "calc(100% - 180px)",
+    "left": "10px",
+    "top": "150px",
+    "width": "205.675px"
+   },
+   "toc_section_display": true,
+   "toc_window_display": true
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

@@ -28,7 +28,7 @@
     "* d'un ensemble fini de sommets $S$, parfois appelés noeuds;\n",
     "* d'un ensemble fini d'arêtes $A$ reliants des sommets.  \n",
     "\n",
-    "*Remarque*: la notation anglo-saxonne $G=(V, E)$ est souvent rencontrée, $V$ est mis pour *vertice* et $E$ pour *edge*."
+    "*Remarque*: la notation anglo-saxonne $G=(V, E)$ est souvent rencontrée, $V$ est mis pour *vertices* et $E$ pour *edges*."
    ]
   },
   {
@@ -137,11 +137,23 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "### Les graphes non orientés"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Aucun sens n'est privilégié pour la liaison entre deux sommets.  \n",
+    "\n",
     "**Voisinage**  \n",
     "Deux sommets $u$ et $v$ sont **adjacents** si ils sont reliés par une arête. L'ensemble des sommets adjacents à $u$ constitue les **voisins** de ce dernier.  \n",
     "\n",
-    "**Chemin**  \n",
-    "Soient $u$ et $v$ deux sommets d'un graphe $G$. On dit qu'un **chemin** relie $u$ à $v$ si il existe une suite finie de sommets reliés deux à deux par une arête, menant de $u$ à $v$.  "
+    "**Chaîne**  \n",
+    "Une chaîne est une suite finie d'arêtes consécutives.  \n",
+    "\n",
+    "**Cycle**  \n",
+    "Un cycle est une chaîne dont le sommet de départ est identique au sommet d'arrivée."
    ]
   },
   {
@@ -156,7 +168,12 @@
    "metadata": {},
    "source": [
     "![application](img/image--014.png)    \n",
-    "Existe-t-il un chemin entre E et D ?  \n",
+    "Citer:  \n",
+    "\n",
+    "* une chaîne,\n",
+    "* un cycle\n",
+    "\n",
+    "appartenant au graphe ci-dessus.  \n",
     "D est-il un voisin de E?"
    ]
   },
@@ -164,20 +181,32 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**Graphe non orientés / orientés**  \n",
-    "Dans tous les exemples précédents, le parcours des arêtes pouvait se faire dans les deux sens: on parle alors de graphe **non orientés**.  \n",
-    "Lorsque la modélisation nécessite un parcours d'arête dans un sens bien déterminé, on parle de **graphe orienté**. On utilise souvent le terme d'**arc** à la place d'arête.  \n",
+    "### Les graphes orientés"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Lorsque la modélisation nécessite un sens bien déterminé pour aller d'un sommet à un autre, on parle de **graphe orienté**. La liaison entre deux sommets est alors appelée **arc**.  \n",
     "Encore une fois, on peut citer en exemple les réseaux sociaux. En effet, par exemple pour Facebook si A est ami avec B alors B est aussi ami avec A alors que sur Twitter A peut suivre B qui ne suit pas forcément A.  \n",
-    "Exemple de représentation   \n",
+    "\n",
+    "**Chemin**  \n",
+    "Un chemin est une suite finie d'arcs consécutifs sur un graphe orienté.  \n",
+    "\n",
+    "Exemple de représentation d'une graphe orienté   \n",
     "![goriente](img/goriente.png)  \n",
     "\n",
     "Dans un graphe orienté, il est commode de traiter les voisins en terme de **successeur/prédécesseur**. Ainsi, A est le prédécesseur de C,  D est un successeur de B, etc.  \n",
+    "\n",
+    "**Voisinage**  \n",
+    "Un sommet $v$ est **adjacent** à un sommet $u$ si il existe un arc allant de $u$ à $v$. On dit encore que $v$ est un **voisin** de $u$. \n",
     "\n",
     "**Application directe 2**\n",
     "\n",
     "Représenter le graphe modélisant le réseau routier urbain ayant les caractéristiques suivantes:  \n",
     "\n",
-    "Carefours: A, B, C, D, E, F, G  \n",
+    "Intersections: A, B, C, D, E, F, G  \n",
     "\n",
     "* il existe une liaison à double sens entre A et C;\n",
     "* il existe une liaison à sens unique B->A entre A et B;\n",

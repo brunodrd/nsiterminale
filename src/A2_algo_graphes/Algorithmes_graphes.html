@@ -1,0 +1,548 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>ALGORITHMES SUR LES GRAPHES &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Algorithmes des graphes - Exercices" href="Exercices_algo_graphes_A2.html" />
+    <link rel="prev" title="Exercices - Représentations d’un graphe" href="../SDD5/Graphes_Exercices_I.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes_exercices.html">Paradigmes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/liste.html">STRUCTURE DE DONNEES: LISTE</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/Exercices_liste.html">Exercices</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Arbres.html">ARBRES</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Exercices_arbres.html">Exercices - Arbres</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Les_graphes_introduction.html">INTRODUCTION AUX GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Graphes_Exercices_I.html">Exercices - Représentations d’un graphe</a>
+  </li>
+  <li class="active">
+    <a href="">ALGORITHMES SUR LES GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="Exercices_algo_graphes_A2.html">Algorithmes des graphes - Exercices</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/A2_algo_graphes/Algorithmes_graphes.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/A2_algo_graphes/Algorithmes_graphes.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#parcours-en-profondeur-d-abord" class="nav-link">Parcours en profondeur d’abord</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#reperes-historiques" class="nav-link">Repères historiques</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#le-parcours-en-profondeur" class="nav-link">Le parcours en profondeur</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#parcours-en-largeur-d-abord" class="nav-link">Parcours en largeur d’abord</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#applications" class="nav-link">Applications</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#detection-de-cycle-dans-un-graphe-non-oriente" class="nav-link">Détection de cycle dans un graphe non orienté</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#references" class="nav-link">Références</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="algorithmes-sur-les-graphes">
+<h1>ALGORITHMES SUR LES GRAPHES<a class="headerlink" href="#algorithmes-sur-les-graphes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="parcours-en-profondeur-d-abord">
+<h2>Parcours en profondeur d’abord<a class="headerlink" href="#parcours-en-profondeur-d-abord" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reperes-historiques">
+<h3>Repères historiques<a class="headerlink" href="#reperes-historiques" title="Permalink to this headline">¶</a></h3>
+<p>Le premier algorithme de parcours de graphe est à rapprocher de l’exploration d’un labyrinthe. Il a une origine historique qui remonte à l’antiquité: <a class="reference external" href="https://fr.wikipedia.org/wiki/Minotaure">Thésée et le Minotaure</a>. D’après <a class="reference external" href="https://images.math.cnrs.fr/Labyrinthes-et-fil-d-Ariane.html">l’Ingénieur Trémeaux</a>, pour sortir d’un labyrinthe avec un fil d’Ariane, il faut:</p>
+<ul class="simple">
+<li><p>ne pas prendre deux fois un couloir dans le même sens, et …</p></li>
+<li><p>devant un couloir déjà visité, rembobiner un peu la pelote de fil jusqu’au premier carrefour où débobiner devient possible.</p></li>
+</ul>
+<p><img alt="g1" src="../../_images/g01.png" /><br />
+<img alt="g2" src="../../_images/g02.png" /><br />
+<img alt="g3" src="../../_images/g03.png" /></p>
+</div>
+<div class="section" id="le-parcours-en-profondeur">
+<h3>Le parcours en profondeur<a class="headerlink" href="#le-parcours-en-profondeur" title="Permalink to this headline">¶</a></h3>
+<p>Les deux idées avancées au paragraphe précédent sont à la base d’un algorithme fondamental pour le parcours des graphes: le <strong>parcours en profondeur d’abord</strong> ou Depth-first search (DFS) en anglais. Il s’applique à n’importe quel graphe et permet de trouver tous les sommets joignables depuis un sommet de départ. En d’autres termes, il permet de dire s’il existe un chemin entre deux sommets.</p>
+<p>Dans sa forme la plus classique, il s’agit d’un algorithme récursif très simple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">------------------------------------</span>
+<span class="n">Algorithme</span> <span class="n">parcours_p</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">deja_vu</span><span class="p">)</span>
+<span class="o">------------------------------------</span>
+<span class="n">Entrées</span>
+    <span class="n">g</span><span class="p">:</span> <span class="n">graphe</span>
+    <span class="n">s</span><span class="p">:</span> <span class="n">sommet</span>
+    <span class="n">deja_vu</span><span class="p">:</span> <span class="n">dictionnaire</span> <span class="n">de</span> <span class="n">booléen</span> <span class="n">caractérisant</span> <span class="n">le</span> <span class="n">statut</span> <span class="n">d</span><span class="s1">&#39;un sommet.</span>
+<span class="n">Début</span>
+    <span class="n">marquer</span> <span class="n">s</span> <span class="n">comme</span> <span class="s1">&#39;visité&#39;</span>
+    <span class="n">Pour</span> <span class="n">chaque</span> <span class="n">sommet</span> <span class="n">v</span> <span class="n">adjacent</span> <span class="n">à</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">Si</span> <span class="n">v</span> <span class="n">n</span><span class="s1">&#39;est pas marqué:</span>
+            <span class="n">parcours_p</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">deja_vu</span><span class="p">)</span>
+        <span class="n">Fin</span> <span class="n">Si</span>
+    <span class="n">Fin</span> <span class="n">Pour</span>
+<span class="n">Fin</span>
+</pre></div>
+</div>
+<p><strong>Travail 1</strong>: Implémenter cet algorithme en python.<br />
+<em>On utilisera l’interface de la classe</em> <code class="docutils literal notranslate"><span class="pre">GrapheOr2</span></code> <em>du chapitre précédent, notamment pour avoir les voisins d’un sommet</em> <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parcours_p</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">deja_vu</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    parcours récursivement, en profondeur, le graphe G, depuis le sommet s.</span>
+<span class="sd">    G: graphe</span>
+<span class="sd">    s: sommet</span>
+<span class="sd">    deja_vu: dictionnaire de booléen caractérisant le statut d&#39;un sommet</span>
+<span class="sd">            (déjà visité ou non).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># A compléter</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut aisément utiliser la fonction <code class="docutils literal notranslate"><span class="pre">parcours_p</span></code> pour savoir s’il existe un chemin entre deux sommets donnés.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">existe_chemin</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    renvoie un booléen correspondant à l&#39;existence ou non d&#39;un chemin entre s1 et s2.</span>
+<span class="sd">    g: graphe</span>
+<span class="sd">    s1, s2: sommets</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">deja_vu</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">parcours_p</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">deja_vu</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s2</span> <span class="ow">in</span> <span class="n">deja_vu</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Travail 2</strong><br />
+Soit le graphe suivant</p>
+<p><img alt="graphe1" src="../../_images/graphe1_b.png" /></p>
+<p>Existe-t-il un chemin entre D et C? entre A et E? entre E et G? Pour répondre à ces questions, on demande:</p>
+<ul class="simple">
+<li><p>de construire le graphe avec la classe <code class="docutils literal notranslate"><span class="pre">GrapheOr2</span></code> du chapitre précédent;</p></li>
+<li><p>d’appeler la fonction <code class="docutils literal notranslate"><span class="pre">existe_chemin</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graphes</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="c1"># A compléter</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Réponses</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="parcours-en-largeur-d-abord">
+<h2>Parcours en largeur d’abord<a class="headerlink" href="#parcours-en-largeur-d-abord" title="Permalink to this headline">¶</a></h2>
+<p>Le parcours en profondeur permet de trouver un chemin entre deux sommets <span class="math notranslate nohighlight">\(u\)</span> et <span class="math notranslate nohighlight">\(v\)</span> (<em>s’il existe</em>) mais ne garantit pas que celui-ci soit le plus court. Si on a besoin de la distance entre deux sommets, il faut utiliser un <strong>parcours en largeur d’abord</strong> (en anglais <em>Breadth-first search</em> ou BFS).</p>
+<p>Etant donné un graphe <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">=</span> <span class="pre">(S,</span> <span class="pre">A)</span></code>, l’algorithme du parcours en largeur permet de découvrir tous les sommets accessibles depuis un sommet de départ <code class="docutils literal notranslate"><span class="pre">s</span></code>. Dans sa forme la plus générale, il permet en outre, de trouver la distance d’un sommet avec <code class="docutils literal notranslate"><span class="pre">s</span></code> et de déterminer les relations ancêtre-descendant.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------</span>
+<span class="n">Algorithme</span> <span class="n">parcours_l</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="o">---------------------------</span>
+<span class="n">Entrées</span><span class="p">:</span>
+    <span class="n">g</span><span class="p">:</span> <span class="n">graphe</span>
+    <span class="n">s</span><span class="p">:</span> <span class="n">sommet</span> <span class="n">de</span> <span class="n">départ</span>
+<span class="n">Variables</span><span class="p">:</span>
+    <span class="n">dist</span><span class="p">,</span> <span class="n">pred</span><span class="p">:</span> <span class="n">dictionnaire</span>
+    <span class="n">F</span><span class="p">:</span> <span class="n">file</span>
+    
+<span class="n">Début</span>
+    <span class="n">Initialiser</span> <span class="n">une</span> <span class="n">file</span> <span class="n">vide</span> <span class="n">F</span>
+    <span class="n">Pour</span> <span class="n">chaque</span> <span class="n">sommets</span> <span class="n">u</span> <span class="n">de</span> <span class="n">g</span><span class="p">:</span>
+        <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">infini</span>
+        <span class="n">u</span> <span class="n">n</span><span class="s1">&#39;a aucun prédécesseur</span>
+    <span class="n">Fin</span> <span class="n">Pour</span>
+
+    <span class="n">dist</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Enfiler</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="n">Tant</span> <span class="n">que</span> <span class="n">F</span> <span class="n">n</span><span class="s1">&#39;est pas vide:</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">Defiler</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+        <span class="n">Pour</span> <span class="n">chaque</span> <span class="n">voisin</span> <span class="n">v</span> <span class="n">de</span> <span class="n">u</span><span class="p">:</span>
+            <span class="n">Si</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="n">infini</span><span class="p">:</span>
+                <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">pred</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span>
+                <span class="n">Enfiler</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+            <span class="n">Fin</span> <span class="n">Si</span>
+        <span class="n">Fin</span> <span class="n">Pour</span>
+    <span class="n">Fin</span> <span class="n">Tant</span> <span class="n">que</span>
+<span class="n">Fin</span>
+</pre></div>
+</div>
+<p>Déroulement de l’agorithme sur le graphe ci-après où le sommet de départ est ‘s’:</p>
+<p><img alt="cormen" src="../../_images/cormen_b2.png" /></p>
+<p><strong>Travail 2</strong> Dérouler cet algorithme à la main sur le graphe ci-après:</p>
+<p><img alt="graphe_3" src="../../_images/graphe3.png" /></p>
+<p><strong>Travail 3</strong> Compléter l’implémentation en python de cet algorithme</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+
+
+<span class="k">def</span> <span class="nf">parcours_l</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">sommets</span><span class="p">():</span>
+        <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+        <span class="n">pred</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">dist</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">F</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="c1"># A compléter à partir d&#39;ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tester votre fonction sur le Graphe 1</span>
+<span class="n">g1</span> <span class="o">=</span> <span class="n">Graphe</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">])</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="detection-de-cycle-dans-un-graphe-non-oriente">
+<h3>Détection de cycle dans un graphe non orienté<a class="headerlink" href="#detection-de-cycle-dans-un-graphe-non-oriente" title="Permalink to this headline">¶</a></h3>
+<p>Le parcours en profondeur permet de détecter la présence de cycle dans un graphe. On étudie ici le cas d’un graphe non orienté, le cas d’un graphe orienté sera traité en exercice.</p>
+<p>Le graphe comporte un cycle si on traite un sommet voisin <strong>qui a déjà été rencontré et qui n’est pas le parent du sommet</strong> en cours d’exploration.  On reprend le code du parcours en profondeur en:</p>
+<ul class="simple">
+<li><p>y ajoutant un dictionnaire <code class="docutils literal notranslate"><span class="pre">parent</span></code> qui garde une trace du parent de chaque sommet;</p></li>
+<li><p>renvoyant <code class="docutils literal notranslate"><span class="pre">True</span></code> si un cycle a été détecté, <code class="docutils literal notranslate"><span class="pre">False</span></code> sinon.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parcours_p2</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">deja_vu</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    renvoie un booléen suivant qu&#39;un cycle ait été détecté ou non dans le graphe g.</span>
+<span class="sd">    deja_vu: dictionnaire de sommets déjà rencontrés</span>
+<span class="sd">    parent: dictionnaire qui stocke le parent (valeur) d&#39;un sommet (clé) </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">deja_vu</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">voisins</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>        
+        <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">deja_vu</span><span class="p">:</span>
+            <span class="n">parent</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
+            <span class="k">if</span> <span class="n">parcours_p2</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">deja_vu</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">parent</span><span class="p">[</span><span class="n">s</span><span class="p">]:</span> <span class="c1"># Qu&#39;en est-il d&#39;un sommet déjà rencontré? si c&#39;est le parent, on passe ...</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Un fonction <code class="docutils literal notranslate"><span class="pre">detection_cycle</span></code> permet de mener une recherche à partir de n’importe quel sommet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">detection_cycle</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>    
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">sommets</span><span class="p">():</span>
+        <span class="n">deja_vu</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">parent</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">parcours_p2</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">deja_vu</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exemples</strong></p>
+<p><img alt="graphe3" src="../../_images/graphe3.png" /><img alt="graphe2" src="../../_images/graphe2.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Graphe 1</span>
+<span class="n">g1</span> <span class="o">=</span> <span class="n">Graphe</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">])</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+
+<span class="c1">#Graphe2</span>
+<span class="n">g2</span> <span class="o">=</span> <span class="n">Graphe</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;K&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">])</span>
+<span class="n">g2</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="n">g2</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">)</span>
+<span class="n">g2</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;K&#39;</span><span class="p">)</span>
+<span class="n">g2</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">)</span>
+<span class="n">g2</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="n">g2</span><span class="o">.</span><span class="n">ajouter_arete</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les graphes <code class="docutils literal notranslate"><span class="pre">g1</span></code> et <code class="docutils literal notranslate"><span class="pre">g2</span></code> comportent-ils des cycles ? Appliquer “à la main” l’algorithme de détection sur g1. Vérifier le résultat dans une cellule Jupyter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Réponses</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>Références<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Numérique et sciences informatiques - Balabonski, Conchon &amp; al. - éd. ellipses</p></li>
+<li><p>Algorithmique - CLRS - éd. Dunod</p></li>
+<li><p>Site de David Roche : https://pixees.fr/informatiquelycee/n_site/nsi_term_algo_graphe.html</p></li>
+</ul>
+<br />
+<br />
+<p><img alt="licence" src="../../_images/licence.png" /></p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../SDD5/Graphes_Exercices_I.html" title="previous page">Exercices - Représentations d’un graphe</a>
+    <a class='right-next' id="next-link" href="Exercices_algo_graphes_A2.html" title="next page">Algorithmes des graphes - Exercices</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

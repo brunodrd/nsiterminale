@@ -1,0 +1,468 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "ALGORITHMES SUR LES GRAPHES\n",
+    "============================="
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Parcours en profondeur d'abord"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Repères historiques"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Le premier algorithme de parcours de graphe est à rapprocher de l'exploration d'un labyrinthe. Il a une origine historique qui remonte à l'antiquité: [Thésée et le Minotaure](https://fr.wikipedia.org/wiki/Minotaure). D'après [l'Ingénieur Trémeaux](https://images.math.cnrs.fr/Labyrinthes-et-fil-d-Ariane.html), pour sortir d'un labyrinthe avec un fil d'Ariane, il faut:  \n",
+    "\n",
+    "* ne pas prendre deux fois un couloir dans le même sens, et ...\n",
+    "* devant un couloir déjà visité, rembobiner un peu la pelote de fil jusqu’au premier carrefour où débobiner devient possible.  \n",
+    "\n",
+    "![g1](img/g01.png)  \n",
+    "![g2](img/g02.png)  \n",
+    "![g3](img/g03.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Le parcours en profondeur"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Les deux idées avancées au paragraphe précédent sont à la base d'un algorithme fondamental pour le parcours des graphes: le **parcours en profondeur d'abord** ou Depth-first search (DFS) en anglais. Il s'applique à n'importe quel graphe et permet de trouver tous les sommets joignables depuis un sommet de départ. En d'autres termes, il permet de dire s'il existe un chemin entre deux sommets.  \n",
+    "\n",
+    "Dans sa forme la plus classique, il s'agit d'un algorithme récursif très simple:\n",
+    "\n",
+    "```\n",
+    "------------------------------------\n",
+    "Algorithme parcours_p(g, s, deja_vu)\n",
+    "------------------------------------\n",
+    "Entrées\n",
+    "    g: graphe\n",
+    "    s: sommet\n",
+    "    deja_vu: dictionnaire de booléen caractérisant le statut d'un sommet.\n",
+    "Début\n",
+    "    marquer s comme 'visité'\n",
+    "    Pour chaque sommet v adjacent à s:\n",
+    "        Si v n'est pas marqué:\n",
+    "            parcours_p(g, v, deja_vu)\n",
+    "        Fin Si\n",
+    "    Fin Pour\n",
+    "Fin\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Travail 1**: Implémenter cet algorithme en python.  \n",
+    "*On utilisera l'interface de la classe* `GrapheOr2` *du chapitre précédent, notamment pour avoir les voisins d'un sommet* `s`. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def parcours_p(g, s, deja_vu):\n",
+    "    \"\"\"\n",
+    "    parcours récursivement, en profondeur, le graphe G, depuis le sommet s.\n",
+    "    G: graphe\n",
+    "    s: sommet\n",
+    "    deja_vu: dictionnaire de booléen caractérisant le statut d'un sommet\n",
+    "            (déjà visité ou non).\n",
+    "    \"\"\"\n",
+    "    # A compléter\n",
+    "    pass"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "On peut aisément utiliser la fonction `parcours_p` pour savoir s'il existe un chemin entre deux sommets donnés."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def existe_chemin(g, s1, s2):\n",
+    "    \"\"\"\n",
+    "    renvoie un booléen correspondant à l'existence ou non d'un chemin entre s1 et s2.\n",
+    "    g: graphe\n",
+    "    s1, s2: sommets\n",
+    "    \"\"\"\n",
+    "    deja_vu = dict()\n",
+    "    parcours_p(g, s1, deja_vu)\n",
+    "    return s2 in deja_vu"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Travail 2**  \n",
+    "Soit le graphe suivant  \n",
+    "\n",
+    "![graphe1](img/graphe1_b.png)\n",
+    "\n",
+    "Existe-t-il un chemin entre D et C? entre A et E? entre E et G? Pour répondre à ces questions, on demande:  \n",
+    "\n",
+    "* de construire le graphe avec la classe `GrapheOr2` du chapitre précédent;\n",
+    "* d'appeler la fonction `existe_chemin`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from graphes import *\n",
+    "\n",
+    "\n",
+    "# A compléter"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Réponses"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Parcours en largeur d'abord"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Le parcours en profondeur permet de trouver un chemin entre deux sommets $u$ et $v$ (*s'il existe*) mais ne garantit pas que celui-ci soit le plus court. Si on a besoin de la distance entre deux sommets, il faut utiliser un **parcours en largeur d'abord** (en anglais *Breadth-first search* ou BFS).  \n",
+    "\n",
+    "Etant donné un graphe `g = (S, A)`, l'algorithme du parcours en largeur permet de découvrir tous les sommets accessibles depuis un sommet de départ `s`. Dans sa forme la plus générale, il permet en outre, de trouver la distance d'un sommet avec `s` et de déterminer les relations ancêtre-descendant."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "```\n",
+    "---------------------------\n",
+    "Algorithme parcours_l(g, s)\n",
+    "---------------------------\n",
+    "Entrées:\n",
+    "    g: graphe\n",
+    "    s: sommet de départ\n",
+    "Variables:\n",
+    "    dist, pred: dictionnaire\n",
+    "    F: file\n",
+    "    \n",
+    "Début\n",
+    "    Initialiser une file vide F\n",
+    "    Pour chaque sommets u de g:\n",
+    "        dist[u] = infini\n",
+    "        u n'a aucun prédécesseur\n",
+    "    Fin Pour\n",
+    "\n",
+    "    dist[s] = 0\n",
+    "    Enfiler(F, s)\n",
+    "    Tant que F n'est pas vide:\n",
+    "        u = Defiler(F)\n",
+    "        Pour chaque voisin v de u:\n",
+    "            Si dist[v] == infini:\n",
+    "                dist[v] = dist[u] + 1\n",
+    "                pred[v] = u\n",
+    "                Enfiler(F, v)\n",
+    "            Fin Si\n",
+    "        Fin Pour\n",
+    "    Fin Tant que\n",
+    "Fin\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Déroulement de l'agorithme sur le graphe ci-après où le sommet de départ est 's':  \n",
+    "\n",
+    "![cormen](img/cormen_b2.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Travail 2** Dérouler cet algorithme à la main sur le graphe ci-après:  \n",
+    "\n",
+    "![graphe_3](img/graphe3.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Travail 3** Compléter l'implémentation en python de cet algorithme"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from queue import Queue\n",
+    "\n",
+    "\n",
+    "def parcours_l(g, s):\n",
+    "    \"\"\"\n",
+    "    \"\"\"\n",
+    "    F = Queue()\n",
+    "    dist = dict()\n",
+    "    pred = dict()\n",
+    "    for u in g.sommets():\n",
+    "        dist[u] = float('inf')\n",
+    "        pred[u] = None\n",
+    "    dist[s] = 0\n",
+    "    F.put(s)\n",
+    "    # A compléter à partir d'ici"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Tester votre fonction sur le Graphe 1\n",
+    "g1 = Graphe(['A', 'B', 'C', 'D', 'E', 'F', 'G'])\n",
+    "g1.ajouter_arete('A', 'B')\n",
+    "g1.ajouter_arete('B', 'C')\n",
+    "g1.ajouter_arete('C', 'E')\n",
+    "g1.ajouter_arete('E', 'B')\n",
+    "g1.ajouter_arete('A', 'D')\n",
+    "g1.ajouter_arete('D', 'E')\n",
+    "g1.ajouter_arete('C', 'F')\n",
+    "g1.ajouter_arete('G', 'C')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Applications"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Détection de cycle dans un graphe non orienté"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Le parcours en profondeur permet de détecter la présence de cycle dans un graphe. On étudie ici le cas d'un graphe non orienté, le cas d'un graphe orienté sera traité en exercice.  \n",
+    "\n",
+    "Le graphe comporte un cycle si on traite un sommet voisin **qui a déjà été rencontré et qui n'est pas le parent du sommet** en cours d'exploration.  On reprend le code du parcours en profondeur en:\n",
+    "\n",
+    "* y ajoutant un dictionnaire `parent` qui garde une trace du parent de chaque sommet;\n",
+    "* renvoyant `True` si un cycle a été détecté, `False` sinon."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def parcours_p2(g, s, deja_vu, parent):\n",
+    "    \"\"\"\n",
+    "    renvoie un booléen suivant qu'un cycle ait été détecté ou non dans le graphe g.\n",
+    "    deja_vu: dictionnaire de sommets déjà rencontrés\n",
+    "    parent: dictionnaire qui stocke le parent (valeur) d'un sommet (clé) \n",
+    "    \"\"\"\n",
+    "    deja_vu[s] = True\n",
+    "    for v in g.voisins(s):        \n",
+    "        if v not in deja_vu:\n",
+    "            parent[v] = s\n",
+    "            if parcours_p2(g, v, deja_vu, parent):\n",
+    "                return True\n",
+    "        elif v != parent[s]: # Qu'en est-il d'un sommet déjà rencontré? si c'est le parent, on passe ...\n",
+    "            return True\n",
+    "    return False"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Un fonction `detection_cycle` permet de mener une recherche à partir de n'importe quel sommet."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def detection_cycle(g):    \n",
+    "    for s in g.sommets():\n",
+    "        deja_vu = dict()\n",
+    "        parent = dict()\n",
+    "        if parcours_p2(g, s, deja_vu, parent):\n",
+    "            return True\n",
+    "    return False"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Exemples**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![graphe3](img/graphe3.png)![graphe2](img/graphe2.png)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Graphe 1\n",
+    "g1 = Graphe(['A', 'B', 'C', 'D', 'E', 'F', 'G'])\n",
+    "g1.ajouter_arete('A', 'B')\n",
+    "g1.ajouter_arete('B', 'C')\n",
+    "g1.ajouter_arete('C', 'E')\n",
+    "g1.ajouter_arete('E', 'B')\n",
+    "g1.ajouter_arete('A', 'D')\n",
+    "g1.ajouter_arete('D', 'E')\n",
+    "g1.ajouter_arete('C', 'F')\n",
+    "g1.ajouter_arete('G', 'C')\n",
+    "\n",
+    "#Graphe2\n",
+    "g2 = Graphe(['A', 'B', 'C', 'D', 'E', 'K', 'G'])\n",
+    "g2.ajouter_arete('A', 'B')\n",
+    "g2.ajouter_arete('A', 'G')\n",
+    "g2.ajouter_arete('A', 'K')\n",
+    "g2.ajouter_arete('B', 'E')\n",
+    "g2.ajouter_arete('B', 'C')\n",
+    "g2.ajouter_arete('A', 'D')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Les graphes `g1` et `g2` comportent-ils des cycles ? Appliquer \"à la main\" l'algorithme de détection sur g1. Vérifier le résultat dans une cellule Jupyter."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Réponses"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Références"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "* Numérique et sciences informatiques - Balabonski, Conchon & al. - éd. ellipses\n",
+    "* Algorithmique - CLRS - éd. Dunod\n",
+    "* Site de David Roche : https://pixees.fr/informatiquelycee/n_site/nsi_term_algo_graphe.html"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<br />\n",
+    "<br />\n",
+    "\n",
+    "![licence](img/licence.png)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": true,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": true
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
