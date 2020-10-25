@@ -1,0 +1,279 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "ALGORITHMES SUR LES ABR\n",
+    "========================="
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Définition et représentation des arbres binaires de recherche en python"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Un arbre binaire de recherche (en abrégé **ABR**) est un arbre binaire dont les noeuds contiennent des valeurs comparables. **Pour tout noeud d'un ABR toutes les valeurs situées dans le sous arbre gauche sont inférieures à celle du noeud.** De la même façon, **toutes les valeurs situées dans le sous arbre droit sont supérieures à celle du noeud.**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Exemples d'ABR  \n",
+    "![abr01](img/abr_01.png) ![abr02](img/abr_02.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Un ABR étant un arbre binaire, on peut le représenter comme précédemment avec une classe `Noeud` avec une contrainte sur la valeur des noeuds: **ils doivent être comparables**.  \n",
+    "Avec la classe `Noeud` du chapitre précédent, les deux ABR ci-dessus sont modélisés de la façon suivante:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Noeud:\n",
+    "    \"\"\" Une classe pour modéliser les noeuds d'un arbre\"\"\"\n",
+    "    \n",
+    "    def __init__(self, v, fg=None, fd=None):\n",
+    "        self.val = v\n",
+    "        self.gauche = fg\n",
+    "        self.droit = fd     "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "abr1 = Noeud(20,\n",
+    "            Noeud(10, Noeud(5), Noeud(15)), \n",
+    "            Noeud(25, Noeud(21), Noeud(26))\n",
+    "            )\n",
+    "\n",
+    "abr2 = Noeud(7,\n",
+    "            Noeud(5, Noeud(2), Noeud(6)),\n",
+    "            Noeud(10, Noeud(8), Noeud(12, Noeud(11), Noeud(13)))\n",
+    "            )"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "*Remarque*: dans la méthode `__init__`, `fg` et `fd` ont une valeur par défaut égale à `None`, cela permet juste une écriture plus compacte lors de la création d'une instance en évitant de réécrire `None` lorsqu'un noeud n'a pas de fils."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Recherche dans un ABR"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Chercher une valeur dans un ABR revient à **la comparer à la valeur de la racine** puis, si elle est différente, à poursuivre la recherche dans **un seul** des sous arbres.  "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "La recherche d'une valeur ou *clé* $x$ dans un arbre binaire de recherche `arb` peut être menée avec l'algorithme ci-dessous qui renvoie le noeud où la valeur est présente ou `None` si la recherche n'aboutit pas.  \n",
+    "\n",
+    "```\n",
+    "Algorithme recherche(x, arbre)\n",
+    "----------------------------\n",
+    "si arbre est vide\n",
+    "    renvoyer Faux\n",
+    "si x < arbre.val\n",
+    "    renvoyer recherche(x, arbre.gauche)\n",
+    "sinon si x > arbre.val\n",
+    "    renvoyer recherche(x, arbre.droit)\n",
+    "sinon\n",
+    "    renvoyer Vrai\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Implémenter cet algorithme en python."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def rechercher(x, arbre):\n",
+    "    \"\"\" \n",
+    "    recherche une valeur x dans un ABR;\n",
+    "    renvoie un booléen correspondant à la presence ou non de x dans arbre\n",
+    "    x: élément comparable avec les valeurs présentes dans l'arbre\n",
+    "    arbre: arbre binaire de recherche\n",
+    "    \"\"\"\n",
+    "    if arbre is None:\n",
+    "        return False\n",
+    "    if x < arbre.val:\n",
+    "        return rechercher(x, arbre.gauche)\n",
+    "    elif x > arbre.val:\n",
+    "        return rechercher(x, arbre.droit)\n",
+    "    else:\n",
+    "        return True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Tout semble OK\n"
+     ]
+    }
+   ],
+   "source": [
+    "# A DECOMMENTER ET EXECUTER\n",
+    "assert rechercher(10, abr2) == True\n",
+    "assert rechercher(35, abr2) == False\n",
+    "print(\"Tout semble OK\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Efficacité de la recherche**  \n",
+    "\n",
+    "Dans le cas idéal, **si l'arbre est équilibré**, chaque appel de `rechercher(x, arbre)` élimine la moitié des éléments. Cette recherche est alors à rapprocher de la recherche dichotomique vue en 1re, dont la complexité est **logarithmique**.  \n",
+    "Dans le pire des cas, si l'arbre est *filiforme*, la recherche est peu efficace et sa complexité est alors linéaire."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Insertion dans un ABR"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Comme précédemment, on va privilégier une méthode récursive pour insérer une valeur $x$ dans un arbre tout en gardant **la structure d'arbre binaire de recherche**.  \n",
+    "Le cas de base est simple: si **l'arbre est vide**, il suffit de renvoyer un noeud ayant $x$ comme valeur.\n",
+    "Sinon (*cas récursif*), on compare $x$ à la valeur du noeud:\n",
+    "\n",
+    "```\n",
+    "si x < arbre.val\n",
+    "    \"placer\" x dans le sous arbre gauche\n",
+    "sinon\n",
+    "    \"placer\" x dans le sous arbre droit\n",
+    "```\n",
+    "\n",
+    "Attention à l'interprétation de ` \"placer\" x` lors de l'implémentation et notamment au type renvoyé.  \n",
+    "\n",
+    "Implémenter cette fonction en python."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def inserer(x, arbre):\n",
+    "    \"\"\"\n",
+    "    insère x dans un ABR tout en gardant la structure d'ABR;\n",
+    "    x: élément comparable avec les valeurs présentes dans l'arbre\n",
+    "    arbre: arbre binaire de recherche\n",
+    "    \"\"\"\n",
+    "    if arbre is None:\n",
+    "        return Noeud(x)\n",
+    "    elif x < arbre.val:\n",
+    "        return Noeud()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Efficacité de l'insertion**  \n",
+    "\n",
+    "Cette fonction présente une complexité temporelle identique à celle qui effectuait la recherche. Cette complexité va dépendre de la forme de l'arbre."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Travail à effectuer**  \n",
+    "\n",
+    "Comme pour les listes chaînées, proposer une classe `ABR` dont l'interface propose les méthodes `rechercher` et `ajouter`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": true,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": true
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

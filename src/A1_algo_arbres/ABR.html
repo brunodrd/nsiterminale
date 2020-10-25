@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>ALGORITHMES SUR LES ABR &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="INTRODUCTION AUX GRAPHES" href="../SDD5/Les_graphes_introduction.html" />
+    <link rel="prev" title="Exercices - Arbres" href="../SDD4/Exercices_arbres.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes_exercices.html">Paradigmes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/liste.html">STRUCTURE DE DONNEES: LISTE</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/Exercices_liste.html">Exercices</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Arbres.html">ARBRES</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Exercices_arbres.html">Exercices - Arbres</a>
+  </li>
+  <li class="active">
+    <a href="">ALGORITHMES SUR LES ABR</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Les_graphes_introduction.html">INTRODUCTION AUX GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Graphes_Exercices_I.html">Exercices - Représentations d’un graphe</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Algorithmes_graphes.html">ALGORITHMES SUR LES GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Exercices_algo_graphes_A2.html">Algorithmes des graphes - Exercices</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/A1_algo_arbres/ABR.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/A1_algo_arbres/ABR.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#definition-et-representation-des-arbres-binaires-de-recherche-en-python" class="nav-link">Définition et représentation des arbres binaires de recherche en python</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#recherche-dans-un-abr" class="nav-link">Recherche dans un ABR</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#insertion-dans-un-abr" class="nav-link">Insertion dans un ABR</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="algorithmes-sur-les-abr">
+<h1>ALGORITHMES SUR LES ABR<a class="headerlink" href="#algorithmes-sur-les-abr" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="definition-et-representation-des-arbres-binaires-de-recherche-en-python">
+<h2>Définition et représentation des arbres binaires de recherche en python<a class="headerlink" href="#definition-et-representation-des-arbres-binaires-de-recherche-en-python" title="Permalink to this headline">¶</a></h2>
+<p>Un arbre binaire de recherche (en abrégé <strong>ABR</strong>) est un arbre binaire dont les noeuds contiennent des valeurs comparables. <strong>Pour tout noeud d’un ABR toutes les valeurs situées dans le sous arbre gauche sont inférieures à celle du noeud.</strong> De la même façon, <strong>toutes les valeurs situées dans le sous arbre droit sont supérieures à celle du noeud.</strong></p>
+<p>Exemples d’ABR<br />
+<img alt="abr01" src="../../_images/abr_01.png" /> <img alt="abr02" src="../../_images/abr_02.png" /></p>
+<p>Un ABR étant un arbre binaire, on peut le représenter comme précédemment avec une classe <code class="docutils literal notranslate"><span class="pre">Noeud</span></code> avec une contrainte sur la valeur des noeuds: <strong>ils doivent être comparables</strong>.<br />
+Avec la classe <code class="docutils literal notranslate"><span class="pre">Noeud</span></code> du chapitre précédent, les deux ABR ci-dessus sont modélisés de la façon suivante:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Noeud</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Une classe pour modéliser les noeuds d&#39;un arbre&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gauche</span> <span class="o">=</span> <span class="n">fg</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">droit</span> <span class="o">=</span> <span class="n">fd</span>     
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abr1</span> <span class="o">=</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span>
+            <span class="n">Noeud</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">15</span><span class="p">)),</span> 
+            <span class="n">Noeud</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>
+            <span class="p">)</span>
+
+<span class="n">abr2</span> <span class="o">=</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span>
+            <span class="n">Noeud</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">6</span><span class="p">)),</span>
+            <span class="n">Noeud</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">13</span><span class="p">)))</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Remarque</em>: dans la méthode <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, <code class="docutils literal notranslate"><span class="pre">fg</span></code> et <code class="docutils literal notranslate"><span class="pre">fd</span></code> ont une valeur par défaut égale à <code class="docutils literal notranslate"><span class="pre">None</span></code>, cela permet juste une écriture plus compacte lors de la création d’une instance en évitant de réécrire <code class="docutils literal notranslate"><span class="pre">None</span></code> lorsqu’un noeud n’a pas de fils.</p>
+</div>
+<div class="section" id="recherche-dans-un-abr">
+<h2>Recherche dans un ABR<a class="headerlink" href="#recherche-dans-un-abr" title="Permalink to this headline">¶</a></h2>
+<p>Chercher une valeur dans un ABR revient à <strong>la comparer à la valeur de la racine</strong> puis, si elle est différente, à poursuivre la recherche dans <strong>un seul</strong> des sous arbres.</p>
+<p>La recherche d’une valeur ou <em>clé</em> <span class="math notranslate nohighlight">\(x\)</span> dans un arbre binaire de recherche <code class="docutils literal notranslate"><span class="pre">arb</span></code> peut être menée avec l’algorithme ci-dessous qui renvoie le noeud où la valeur est présente ou <code class="docutils literal notranslate"><span class="pre">None</span></code> si la recherche n’aboutit pas.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Algorithme</span> <span class="n">recherche</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">arbre</span><span class="p">)</span>
+<span class="o">----------------------------</span>
+<span class="n">si</span> <span class="n">arbre</span> <span class="n">est</span> <span class="n">vide</span>
+    <span class="n">renvoyer</span> <span class="n">Faux</span>
+<span class="n">si</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">arbre</span><span class="o">.</span><span class="n">val</span>
+    <span class="n">renvoyer</span> <span class="n">recherche</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">arbre</span><span class="o">.</span><span class="n">gauche</span><span class="p">)</span>
+<span class="n">sinon</span> <span class="n">si</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">arbre</span><span class="o">.</span><span class="n">val</span>
+    <span class="n">renvoyer</span> <span class="n">recherche</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">arbre</span><span class="o">.</span><span class="n">droit</span><span class="p">)</span>
+<span class="n">sinon</span>
+    <span class="n">renvoyer</span> <span class="n">Vrai</span>
+</pre></div>
+</div>
+<p>Implémenter cet algorithme en python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rechercher</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">arbre</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    recherche une valeur x dans un ABR;</span>
+<span class="sd">    renvoie un booléen correspondant à la presence ou non de x dans arbre</span>
+<span class="sd">    x: élément comparable avec les valeurs présentes dans l&#39;arbre</span>
+<span class="sd">    arbre: arbre binaire de recherche</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">arbre</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">arbre</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">rechercher</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">arbre</span><span class="o">.</span><span class="n">gauche</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">arbre</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">rechercher</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">arbre</span><span class="o">.</span><span class="n">droit</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A DECOMMENTER ET EXECUTER</span>
+<span class="k">assert</span> <span class="n">rechercher</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">abr2</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">rechercher</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="n">abr2</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tout semble OK&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Tout semble OK
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Efficacité de la recherche</strong></p>
+<p>Dans le cas idéal, <strong>si l’arbre est équilibré</strong>, chaque appel de <code class="docutils literal notranslate"><span class="pre">rechercher(x,</span> <span class="pre">arbre)</span></code> élimine la moitié des éléments. Cette recherche est alors à rapprocher de la recherche dichotomique vue en 1re, dont la complexité est <strong>logarithmique</strong>.<br />
+Dans le pire des cas, si l’arbre est <em>filiforme</em>, la recherche est peu efficace et sa complexité est alors linéaire.</p>
+</div>
+<div class="section" id="insertion-dans-un-abr">
+<h2>Insertion dans un ABR<a class="headerlink" href="#insertion-dans-un-abr" title="Permalink to this headline">¶</a></h2>
+<p>Comme précédemment, on va privilégier une méthode récursive pour insérer une valeur <span class="math notranslate nohighlight">\(x\)</span> dans un arbre tout en gardant <strong>la structure d’arbre binaire de recherche</strong>.<br />
+Le cas de base est simple: si <strong>l’arbre est vide</strong>, il suffit de renvoyer un noeud ayant <span class="math notranslate nohighlight">\(x\)</span> comme valeur.
+Sinon (<em>cas récursif</em>), on compare <span class="math notranslate nohighlight">\(x\)</span> à la valeur du noeud:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">si</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">arbre</span><span class="o">.</span><span class="n">val</span>
+    <span class="s2">&quot;placer&quot;</span> <span class="n">x</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">sous</span> <span class="n">arbre</span> <span class="n">gauche</span>
+<span class="n">sinon</span>
+    <span class="s2">&quot;placer&quot;</span> <span class="n">x</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">sous</span> <span class="n">arbre</span> <span class="n">droit</span>
+</pre></div>
+</div>
+<p>Attention à l’interprétation de <code class="docutils literal notranslate"> <span class="pre">&quot;placer&quot;</span> <span class="pre">x</span></code> lors de l’implémentation et notamment au type renvoyé.</p>
+<p>Implémenter cette fonction en python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inserer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">arbre</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    insère x dans un ABR tout en gardant la structure d&#39;ABR;</span>
+<span class="sd">    x: élément comparable avec les valeurs présentes dans l&#39;arbre</span>
+<span class="sd">    arbre: arbre binaire de recherche</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">arbre</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Noeud</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">arbre</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Noeud</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Efficacité de l’insertion</strong></p>
+<p>Cette fonction présente une complexité temporelle identique à celle qui effectuait la recherche. Cette complexité va dépendre de la forme de l’arbre.</p>
+<p><strong>Travail à effectuer</strong></p>
+<p>Comme pour les listes chaînées, proposer une classe <code class="docutils literal notranslate"><span class="pre">ABR</span></code> dont l’interface propose les méthodes <code class="docutils literal notranslate"><span class="pre">rechercher</span></code> et <code class="docutils literal notranslate"><span class="pre">ajouter</span></code>.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../SDD4/Exercices_arbres.html" title="previous page">Exercices - Arbres</a>
+    <a class='right-next' id="next-link" href="../SDD5/Les_graphes_introduction.html" title="next page">INTRODUCTION AUX GRAPHES</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
