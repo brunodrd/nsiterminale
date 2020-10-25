@@ -200,7 +200,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -210,10 +210,7 @@
     "    x: élément comparable avec les valeurs présentes dans l'arbre\n",
     "    arbre: arbre binaire de recherche\n",
     "    \"\"\"\n",
-    "    if arbre is None:\n",
-    "        return Noeud(x)\n",
-    "    elif x < arbre.val:\n",
-    "        return Noeud()"
+    "    pass"
    ]
   },
   {
