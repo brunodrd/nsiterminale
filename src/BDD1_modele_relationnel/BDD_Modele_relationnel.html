@@ -1,0 +1,744 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>LE MODELE RELATIONNEL &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Algorithmes des graphes - Exercices" href="../A2_algo_graphes/Exercices_algo_graphes_A2.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes_exercices.html">Paradigmes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/liste.html">STRUCTURE DE DONNEES: LISTE</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/Exercices_liste.html">Exercices</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Arbres.html">ARBRES</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Exercices_arbres.html">Exercices - Arbres</a>
+  </li>
+  <li class="">
+    <a href="../A1_algo_arbres/ABR.html">ALGORITHMES SUR LES ABR</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Les_graphes_introduction.html">INTRODUCTION AUX GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Graphes_Exercices_I.html">Exercices - Représentations d’un graphe</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Algorithmes_graphes.html">ALGORITHMES SUR LES GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Exercices_algo_graphes_A2.html">Algorithmes des graphes - Exercices</a>
+  </li>
+  <li class="active">
+    <a href="">LE MODELE RELATIONNEL</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/BDD1_modele_relationnel/BDD_Modele_relationnel.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/BDD1_modele_relationnel/BDD_Modele_relationnel.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#introduction" class="nav-link">Introduction</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#le-modele-relationnel-les-concepts" class="nav-link">Le modèle relationnel - les concepts</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#le-vocabulaire" class="nav-link">Le vocabulaire</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#relation-n-uplet-attribut-schema" class="nav-link">Relation, n-uplet, attribut, schéma</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#application-1" class="nav-link">Application 1</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#cle-primaire" class="nav-link">Clé primaire</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#aplication-2" class="nav-link">Aplication 2</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#cle-etrangere" class="nav-link">Clé étrangère</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#application-3" class="nav-link">Application 3</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#les-contraintes-d-integrite" class="nav-link">Les contraintes d’intégrité</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#contrainte-de-domaine" class="nav-link">Contrainte de domaine</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#contrainte-d-integrite-des-relations" class="nav-link">Contrainte d’intégrité des relations</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#contrainte-d-integrite-referentielle" class="nav-link">Contrainte d’intégrité référentielle</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="le-modele-relationnel">
+<h1>LE MODELE RELATIONNEL<a class="headerlink" href="#le-modele-relationnel" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Comme on l’a vu dans l’activité introductive, l’utilisation de structures de données plates souffre de nombreux inconvénients (redondance, mise à jour et recherche difficiles, performances médiocres lorsque le fichier devient volumineux, etc.).<br />
+Plus généralement, pour toute application sérieuse, on se tourne vers une <strong>base de données</strong>. On définit une base de données comme une collection de données structurées (<em>de manière logique</em>) stockées sur un support persistent.</p>
+<p>Modéliser les données nécessitera trois grandes étapes:</p>
+<ul class="simple">
+<li><p>trouver les objets ou acteurs du problème ainsi les associations existant entre eux -<em>cette étape n’est pas abordée en terminale</em>-;</p></li>
+<li><p>modéliser les objets / acteurs comme des relations;</p></li>
+<li><p>définir les contraintes.</p></li>
+</ul>
+<p>Enfin, pour gérer la base de données on aura un besoin d’un logiciel appelé <strong>Sytème de Gestion de Base de Données</strong> ou <strong>SGBD</strong>. Ce point ne sera pas abordé exceptionnellement cette année.</p>
+</div>
+<div class="section" id="le-modele-relationnel-les-concepts">
+<h2>Le modèle relationnel - les concepts<a class="headerlink" href="#le-modele-relationnel-les-concepts" title="Permalink to this headline">¶</a></h2>
+<p>Parmi les <em>modèles</em> permettant de structurer de manière logique les données, un des plus populaires est le <strong>modèle relationnel</strong> développé en 1970 par l’américain <a class="reference external" href="https://fr.wikipedia.org/wiki/Edgar_Frank_Codd">Edgar Frank Codd</a>.</p>
+<div class="section" id="le-vocabulaire">
+<h3>Le vocabulaire<a class="headerlink" href="#le-vocabulaire" title="Permalink to this headline">¶</a></h3>
+<p>Pour Philippe Rigaux, Professeur au CNAM, le <strong>modèle relationnel</strong> est:</p>
+<blockquote>
+<div><p><em>un ensemble de résultats scientifiques, qui ont en commun de s’appuyer sur une représentation tabulaire des données</em>.</p>
+</div></blockquote>
+<p>L’expression <em>modèle relationnel</em> vient de la notion de <strong>relation</strong> en mathématique.</p>
+<div class="section" id="relation-n-uplet-attribut-schema">
+<h4>Relation, n-uplet, attribut, schéma<a class="headerlink" href="#relation-n-uplet-attribut-schema" title="Permalink to this headline">¶</a></h4>
+<p>Dans une première approche, une relation peut être vue comme <strong>un tableau à deux dimensions</strong> (on dit aussi <em>table</em>) et est repérée par un nom.<br />
+<img alt="table1" src="../../_images/vocabulaire_relation_3.png" /></p>
+<p>Une relation est un ensemble fini de <strong>n-uplets</strong> (<em>lignes</em>). Chaque composante d’un n-uplet est un <strong>attribut</strong>. L’ensemble des valeurs possibles que peut prendre un attribut est son <strong>domaine</strong>. Le domaine peut être vu comme le <em>type</em> en informatique.</p>
+<p>Chaque relation est conforme à un <strong>schéma</strong>. Il s’agit d’un <strong>ensemble ordonné de couple attribut-domaine</strong>, distinct deux-à-deux, qui caractérise un n-uplet.  Par exemple, le <strong>schéma de la relation</strong> <code class="docutils literal notranslate"><span class="pre">Logement</span></code> de l’exemple ci-dessus est:</p>
+<p><em>Logement</em> ((id, <code class="docutils literal notranslate"><span class="pre">str</span></code>), (nom, <code class="docutils literal notranslate"><span class="pre">str</span></code>), (capacité, <code class="docutils literal notranslate"><span class="pre">int</span></code>), (type, <code class="docutils literal notranslate"><span class="pre">str</span></code>), (lieu, <code class="docutils literal notranslate"><span class="pre">str</span></code>))</p>
+<p>Une base de données est un ensemble de relations.</p>
+</div>
+<div class="section" id="application-1">
+<h4>Application 1<a class="headerlink" href="#application-1" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Ouvrir la base de données <code class="docutils literal notranslate"><span class="pre">livres_2.sqlite</span></code> dans DB Browser for SQLite.</p></li>
+<li><p>Combien de relation comporte cette base?</p></li>
+<li><p>Donner les attributs ainsi que leur domaine, présents dans la relation <code class="docutils literal notranslate"><span class="pre">auteur</span></code>.</p></li>
+<li><p>Donner le schéma de la relation <code class="docutils literal notranslate"><span class="pre">livre</span></code>.</p></li>
+<li><p>combien de n-uplets comporte la table <code class="docutils literal notranslate"><span class="pre">usager</span></code>?</p></li>
+</ol>
+</div>
+<div class="section" id="cle-primaire">
+<h4>Clé primaire<a class="headerlink" href="#cle-primaire" title="Permalink to this headline">¶</a></h4>
+<p>Si un ensemble d’attributs <span class="math notranslate nohighlight">\(\mathcal{K}\)</span> permet d’identifier un unique n-uplet alors c’est <strong>une clé</strong>. Si cet ensemble est minimal on dit que c’est <strong>une clé primaire</strong>.<br />
+Dans la relation <code class="docutils literal notranslate"><span class="pre">livre</span></code> de l’application 1, l’attribut <code class="docutils literal notranslate"><span class="pre">isbn</span></code> constitue une clé primaire.</p>
+<p><img alt="tablelivre" src="../../_images/table_livre.png" /></p>
+<p>Très souvent, on sera amené à ajouter une clé <em>artificielle</em> qui servira de clé primaire et qui sera un identifiant entier auto-incrémenté.</p>
+</div>
+<div class="section" id="aplication-2">
+<h4>Aplication 2<a class="headerlink" href="#aplication-2" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>L’attribut <code class="docutils literal notranslate"><span class="pre">annee</span></code> peut-il être une clé primaire?</p></li>
+<li><p>L’ensemble <code class="docutils literal notranslate"><span class="pre">titre,</span> <span class="pre">editeur</span></code> peut-il être une clé primaire?</p></li>
+</ol>
+</div>
+<div class="section" id="cle-etrangere">
+<h4>Clé étrangère<a class="headerlink" href="#cle-etrangere" title="Permalink to this headline">¶</a></h4>
+<p>Considérons une relation <code class="docutils literal notranslate"><span class="pre">INFO_LIVRES</span></code> ci-après. Un rapide examen permet de constater que beaucoup d’informations sont dupliquées.</p>
+<p><strong>Relation INFO_LIVRES</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>titre</p></th>
+<th class="head"><p>nom</p></th>
+<th class="head"><p>prenom</p></th>
+<th class="head"><p>date_nai</p></th>
+<th class="head"><p>langue_ecriture</p></th>
+<th class="head"><p>ann_publi</p></th>
+<th class="head"><p>note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1984</p></td>
+<td><p>Orwell</p></td>
+<td><p>George</p></td>
+<td><p>1903</p></td>
+<td><p>anglais</p></td>
+<td><p>1949</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Dune</p></td>
+<td><p>Herbert</p></td>
+<td><p>Frank</p></td>
+<td><p>1920</p></td>
+<td><p>anglais</p></td>
+<td><p>1965</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Fondation</p></td>
+<td><p>Asimov</p></td>
+<td><p>Isaac</p></td>
+<td><p>1920</p></td>
+<td><p>anglais</p></td>
+<td><p>1951</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Le meilleur des mondes</p></td>
+<td><p>Huxley</p></td>
+<td><p>Aldous</p></td>
+<td><p>1894</p></td>
+<td><p>anglais</p></td>
+<td><p>1931</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Fahrenheit 451</p></td>
+<td><p>Bradbury</p></td>
+<td><p>Ray</p></td>
+<td><p>1920</p></td>
+<td><p>anglais</p></td>
+<td><p>1953</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Ubik</p></td>
+<td><p>K.Dick</p></td>
+<td><p>Philip</p></td>
+<td><p>1928</p></td>
+<td><p>anglais</p></td>
+<td><p>1969</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Chroniques martiennes</p></td>
+<td><p>Bradbury</p></td>
+<td><p>Ray</p></td>
+<td><p>1920</p></td>
+<td><p>anglais</p></td>
+<td><p>1950</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>La nuit des temps</p></td>
+<td><p>Barjavel</p></td>
+<td><p>René</p></td>
+<td><p>1911</p></td>
+<td><p>français</p></td>
+<td><p>1968</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Blade Runner</p></td>
+<td><p>K.Dick</p></td>
+<td><p>Philip</p></td>
+<td><p>1928</p></td>
+<td><p>anglais</p></td>
+<td><p>1968</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Les Robots</p></td>
+<td><p>Asimov</p></td>
+<td><p>Isaac</p></td>
+<td><p>1920</p></td>
+<td><p>anglais</p></td>
+<td><p>1950</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>La Planète des singes</p></td>
+<td><p>Boulle</p></td>
+<td><p>Pierre</p></td>
+<td><p>1912</p></td>
+<td><p>français</p></td>
+<td><p>1963</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Ravage</p></td>
+<td><p>Barjavel</p></td>
+<td><p>René</p></td>
+<td><p>1911</p></td>
+<td><p>français</p></td>
+<td><p>1943</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Le Maître du Haut Château</p></td>
+<td><p>K.Dick</p></td>
+<td><p>Philip</p></td>
+<td><p>1928</p></td>
+<td><p>anglais</p></td>
+<td><p>1962</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Le monde des Ā</p></td>
+<td><p>Van Vogt</p></td>
+<td><p>Alfred Elton</p></td>
+<td><p>1912</p></td>
+<td><p>anglais</p></td>
+<td><p>1945</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>La Fin de l’éternité</p></td>
+<td><p>Asimov</p></td>
+<td><p>Isaac</p></td>
+<td><p>1920</p></td>
+<td><p>anglais</p></td>
+<td><p>1955</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>De la Terre à la Lune</p></td>
+<td><p>Verne</p></td>
+<td><p>Jules</p></td>
+<td><p>1828</p></td>
+<td><p>français</p></td>
+<td><p>1865</p></td>
+<td><p>10</p></td>
+</tr>
+</tbody>
+</table>
+<p>Dans l’activité d’introduction sur les <em>insuffisances des structures de données plates</em> on a vu qu’une solution au problème de redondance était la séparation des données en plusieurs tables. On parvient alors à <strong>reconstruire toute l’information avec un ou des attributs jouant le rôle de lien</strong>.</p>
+<p>Ici, on sépare les informations dans deux tables <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code> et <code class="docutils literal notranslate"><span class="pre">AUTEURS</span></code>.</p>
+<p><strong>Relation AUTEURS</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>nom</p></th>
+<th class="head"><p>prenom</p></th>
+<th class="head"><p>ann_naissance</p></th>
+<th class="head"><p>langue_ecriture</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Orwell</p></td>
+<td><p>George</p></td>
+<td><p>1903</p></td>
+<td><p>anglais</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Herbert</p></td>
+<td><p>Frank</p></td>
+<td><p>1920</p></td>
+<td><p>anglais</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Asimov</p></td>
+<td><p>Isaac</p></td>
+<td><p>1920</p></td>
+<td><p>anglais</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Huxley</p></td>
+<td><p>Aldous</p></td>
+<td><p>1894</p></td>
+<td><p>anglais</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Bradbury</p></td>
+<td><p>Ray</p></td>
+<td><p>1920</p></td>
+<td><p>anglais</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>K.Dick</p></td>
+<td><p>Philip</p></td>
+<td><p>1928</p></td>
+<td><p>anglais</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Barjavel</p></td>
+<td><p>René</p></td>
+<td><p>1911</p></td>
+<td><p>français</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Boulle</p></td>
+<td><p>Pierre</p></td>
+<td><p>1912</p></td>
+<td><p>français</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Van Vogt</p></td>
+<td><p>Alfred Elton</p></td>
+<td><p>1912</p></td>
+<td><p>anglais</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Verne</p></td>
+<td><p>Jules</p></td>
+<td><p>1828</p></td>
+<td><p>français</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relation LIVRES</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>titre</p></th>
+<th class="head"><p>id_auteur</p></th>
+<th class="head"><p>ann_publi</p></th>
+<th class="head"><p>note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1984</p></td>
+<td><p>1</p></td>
+<td><p>1949</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Dune</p></td>
+<td><p>2</p></td>
+<td><p>1965</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Fondation</p></td>
+<td><p>3</p></td>
+<td><p>1951</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Le meilleur des mondes</p></td>
+<td><p>4</p></td>
+<td><p>1931</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Fahrenheit 451</p></td>
+<td><p>5</p></td>
+<td><p>1953</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Ubik</p></td>
+<td><p>6</p></td>
+<td><p>1969</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Chroniques martiennes</p></td>
+<td><p>5</p></td>
+<td><p>1950</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>La nuit des temps</p></td>
+<td><p>7</p></td>
+<td><p>1968</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Blade Runner</p></td>
+<td><p>6</p></td>
+<td><p>1968</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Les Robots</p></td>
+<td><p>3</p></td>
+<td><p>1950</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>La Planète des singes</p></td>
+<td><p>8</p></td>
+<td><p>1963</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Ravage</p></td>
+<td><p>7</p></td>
+<td><p>1943</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Le Maître du Haut Château</p></td>
+<td><p>6</p></td>
+<td><p>1962</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Le monde des Ā</p></td>
+<td><p>9</p></td>
+<td><p>1945</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>La Fin de l’éternité</p></td>
+<td><p>3</p></td>
+<td><p>1955</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>De la Terre à la Lune</p></td>
+<td><p>10</p></td>
+<td><p>1865</p></td>
+<td><p>10</p></td>
+</tr>
+</tbody>
+</table>
+<p>Dans cet exemple, la relation <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code> possède un attribut <code class="docutils literal notranslate"><span class="pre">id_auteur</span></code> qui correspond à l’attribut <code class="docutils literal notranslate"><span class="pre">id</span></code> de la relation <code class="docutils literal notranslate"><span class="pre">AUTEURS</span></code>.<br />
+Cet attribut de la relation <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code> qui fait référence à la clé primaire d’une autre relation est appelée <strong>clé étrangère</strong>.</p>
+<p>Dans le schéma d’une relation, <strong>la clé primaire est souvent soulignée</strong> et les éventuelles <strong>clés étangères sont précédées du signe</strong> <code class="docutils literal notranslate"><span class="pre">#</span></code>.</p>
+</div>
+<div class="section" id="application-3">
+<h4>Application 3<a class="headerlink" href="#application-3" title="Permalink to this headline">¶</a></h4>
+<p>Ecrire le schéma des relations <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code> et <code class="docutils literal notranslate"><span class="pre">AUTEURS</span></code>.</p>
+</div>
+</div>
+<div class="section" id="les-contraintes-d-integrite">
+<h3>Les contraintes d’intégrité<a class="headerlink" href="#les-contraintes-d-integrite" title="Permalink to this headline">¶</a></h3>
+<p>Un contrainte d’intégrité est une <strong>propriété logique, vérifiée à chaque instant et qui garantit la cohérence des données</strong>.</p>
+<div class="section" id="contrainte-de-domaine">
+<h4>Contrainte de domaine<a class="headerlink" href="#contrainte-de-domaine" title="Permalink to this headline">¶</a></h4>
+<p>Les contraintes de domaine sont utiles pour contrôler le type de données stockées. Cela est intégré au modèle relationnel. Par exemple, dans la table <code class="docutils literal notranslate"><span class="pre">Logement</span></code> évoquée plus haut, une entrée comme <code class="docutils literal notranslate"><span class="pre">10</span></code> pour l’attribut <code class="docutils literal notranslate"><span class="pre">id</span></code> sera refusée car le domaine de cet attribut est une chaîne de caractère.</p>
+</div>
+<div class="section" id="contrainte-d-integrite-des-relations">
+<h4>Contrainte d’intégrité des relations<a class="headerlink" href="#contrainte-d-integrite-des-relations" title="Permalink to this headline">¶</a></h4>
+<p>Cette contrainte permet d’assurer que chaque relation a bien une clé primaire unique et bien définie. Deux n-uplets ne peuvent avoir les mêmes valeurs pour l’ensemble des attributs.</p>
+<p>Par exemple, dans la relation <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code>, choisir <code class="docutils literal notranslate"><span class="pre">titre</span></code> comme clé n’est pas une bonne idée (<em>on peut avoir deux livres avec le même titre</em>). On lui préfère une clé artificielle <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
+</div>
+<div class="section" id="contrainte-d-integrite-referentielle">
+<h4>Contrainte d’intégrité référentielle<a class="headerlink" href="#contrainte-d-integrite-referentielle" title="Permalink to this headline">¶</a></h4>
+<p>Cette contrainte permet d’assurer que chaque valeur d’une clé étrangère doit correspondre une valeur de clé primaire associée.<br />
+Par exemple, dans la relation <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code> possède une clé étrangère <code class="docutils literal notranslate"><span class="pre">id_auteur</span></code>. Pour qu’une valeur de <code class="docutils literal notranslate"><span class="pre">id_auteur</span></code> soit acceptée, il faut que cette valeur apparaisse dans la clé primaire de <code class="docutils literal notranslate"><span class="pre">AUTEURS</span></code></p>
+<p><strong>Liens intéressants pour manipuler les tables en markdown</strong></p>
+<p><a class="reference external" href="https://www.convertcsv.com/html-table-to-csv.htm">convertion HTML vers csv</a><br />
+<a class="reference external" href="https://donatstudios.com/CsvToMarkdownTable">convertion csv vers markdown</a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../A2_algo_graphes/Exercices_algo_graphes_A2.html" title="previous page">Algorithmes des graphes - Exercices</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

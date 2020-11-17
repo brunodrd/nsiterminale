@@ -130,6 +130,9 @@
   <li class="">
     <a href="../A2_algo_graphes/Exercices_algo_graphes_A2.html">Algorithmes des graphes - Exercices</a>
   </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/BDD_Modele_relationnel.html">LE MODELE RELATIONNEL</a>
+  </li>
 </ul>
 </nav>
 
@@ -342,7 +345,25 @@ Sinon (<em>cas récursif</em>), on compare <span class="math notranslate nohighl
 <span class="sd">    x: élément comparable avec les valeurs présentes dans l&#39;arbre</span>
 <span class="sd">    arbre: arbre binaire de recherche</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span>
+    <span class="k">if</span> <span class="n">arbre</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Noeud</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">arbre</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Noeud</span><span class="p">(</span><span class="n">arbre</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">inserer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">arbre</span><span class="o">.</span><span class="n">gauche</span><span class="p">),</span> <span class="n">arbre</span><span class="o">.</span><span class="n">droit</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Noeud</span><span class="p">(</span><span class="n">arbre</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">arbre</span><span class="o">.</span><span class="n">gauche</span><span class="p">,</span> <span class="n">inserer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">arbre</span><span class="o">.</span><span class="n">droit</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abr</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">abr</span> <span class="o">=</span> <span class="n">inserer</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">abr</span><span class="p">)</span>
+<span class="n">abr</span> <span class="o">=</span> <span class="n">inserer</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">abr</span><span class="p">)</span>
+<span class="n">abr</span> <span class="o">=</span> <span class="n">inserer</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">abr</span><span class="p">)</span>
+<span class="n">abr</span> <span class="o">=</span> <span class="n">inserer</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">abr</span><span class="p">)</span>
+<span class="n">abr</span> <span class="o">=</span> <span class="n">inserer</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="n">abr</span><span class="p">)</span>
+<span class="n">abr</span> <span class="o">=</span> <span class="n">inserer</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">abr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -351,6 +372,34 @@ Sinon (<em>cas récursif</em>), on compare <span class="math notranslate nohighl
 <p>Cette fonction présente une complexité temporelle identique à celle qui effectuait la recherche. Cette complexité va dépendre de la forme de l’arbre.</p>
 <p><strong>Travail à effectuer</strong></p>
 <p>Comme pour les listes chaînées, proposer une classe <code class="docutils literal notranslate"><span class="pre">ABR</span></code> dont l’interface propose les méthodes <code class="docutils literal notranslate"><span class="pre">rechercher</span></code> et <code class="docutils literal notranslate"><span class="pre">ajouter</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ABR</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Une classe pour les ABR&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">racine</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="k">def</span> <span class="nf">ajouter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">racine</span> <span class="o">=</span> <span class="n">inserer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">racine</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">chercher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">rechercher</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">racine</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abr</span> <span class="o">=</span> <span class="n">ABR</span><span class="p">()</span>
+<span class="n">abr</span><span class="o">.</span><span class="n">ajouter</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">abr</span><span class="o">.</span><span class="n">ajouter</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">abr</span><span class="o">.</span><span class="n">ajouter</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 

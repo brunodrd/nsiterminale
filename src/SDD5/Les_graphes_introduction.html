@@ -130,6 +130,9 @@
   <li class="">
     <a href="../A2_algo_graphes/Exercices_algo_graphes_A2.html">Algorithmes des graphes - Exercices</a>
   </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/BDD_Modele_relationnel.html">LE MODELE RELATIONNEL</a>
+  </li>
 </ul>
 </nav>
 
@@ -314,7 +317,7 @@
 De façon plus formelle, un graphe est un couple <span class="math notranslate nohighlight">\(G=(S, A)\)</span> composé:</p>
 <ul class="simple">
 <li><p>d’un ensemble fini de sommets <span class="math notranslate nohighlight">\(S\)</span>, parfois appelés noeuds;</p></li>
-<li><p>d’un ensemble fini d’arêtes <span class="math notranslate nohighlight">\(A\)</span> reliants des sommets.</p></li>
+<li><p>d’un ensemble fini d’arêtes <span class="math notranslate nohighlight">\(A\)</span> reliant des sommets.</p></li>
 </ul>
 <p><em>Remarque</em>: la notation anglo-saxonne <span class="math notranslate nohighlight">\(G=(V, E)\)</span> est souvent rencontrée, <span class="math notranslate nohighlight">\(V\)</span> est mis pour <em>vertices</em> et <span class="math notranslate nohighlight">\(E\)</span> pour <em>edges</em>.</p>
 </div>
@@ -411,7 +414,7 @@ Un sommet <span class="math notranslate nohighlight">\(v\)</span> est <strong>ad
 <p>Détaillons ces deux modes de représentation.</p>
 <div class="section" id="representation-avec-une-matrice-d-adjacence">
 <h3>Représentation avec une matrice d’adjacence<a class="headerlink" href="#representation-avec-une-matrice-d-adjacence" title="Permalink to this headline">¶</a></h3>
-<p>Il s’agit d’un tableau à doubles entrées. Ces dernières <em>représentent les sommets</em>. À chaque intersection ligne <span class="math notranslate nohighlight">\(i\)</span> - colonne <span class="math notranslate nohighlight">\(j\)</span> (ligne <span class="math notranslate nohighlight">\(i\)</span> correspond au sommet <span class="math notranslate nohighlight">\(i\)</span> et colonne <span class="math notranslate nohighlight">\(j\)</span> correspond au sommet <span class="math notranslate nohighlight">\(j\)</span>), on place un <strong>1</strong> s’il existe une arête entre le sommet <span class="math notranslate nohighlight">\(i\)</span> et le sommet <span class="math notranslate nohighlight">\(j\)</span>, et un <strong>0</strong> s’il n’existe pas d’arête entre le sommet <span class="math notranslate nohighlight">\(i\)</span> et le sommet <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>Il s’agit d’un tableau à double entrées. Ces dernières <em>représentent les sommets</em>. À chaque intersection ligne <span class="math notranslate nohighlight">\(i\)</span> - colonne <span class="math notranslate nohighlight">\(j\)</span> (ligne <span class="math notranslate nohighlight">\(i\)</span> correspond au sommet <span class="math notranslate nohighlight">\(i\)</span> et colonne <span class="math notranslate nohighlight">\(j\)</span> correspond au sommet <span class="math notranslate nohighlight">\(j\)</span>), on place un <strong>1</strong> s’il existe une arête entre le sommet <span class="math notranslate nohighlight">\(i\)</span> et le sommet <span class="math notranslate nohighlight">\(j\)</span>, et un <strong>0</strong> s’il n’existe pas d’arête entre le sommet <span class="math notranslate nohighlight">\(i\)</span> et le sommet <span class="math notranslate nohighlight">\(j\)</span>.</p>
 <div class="section" id="exemple">
 <h4>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">¶</a></h4>
 <p><img alt="graphe" src="../../_images/image--014.png" /></p>
