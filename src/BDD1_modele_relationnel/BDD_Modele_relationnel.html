@@ -31,6 +31,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Fiche de révision: modèle relationnel" href="Fiche_de_revision.html" />
     <link rel="prev" title="Algorithmes des graphes - Exercices" href="../A2_algo_graphes/Exercices_algo_graphes_A2.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -131,6 +132,9 @@
   </li>
   <li class="active">
     <a href="">LE MODELE RELATIONNEL</a>
+  </li>
+  <li class="">
+    <a href="Fiche_de_revision.html">Fiche de révision: modèle relationnel</a>
   </li>
 </ul>
 </nav>
@@ -245,7 +249,7 @@
             <a href="#les-contraintes-d-integrite" class="nav-link">Les contraintes d’intégrité</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h4">
-            <a href="#contrainte-de-domaine" class="nav-link">Contrainte de domaine</a>
+            <a href="#contrainte-d-integrite-de-domaine" class="nav-link">Contrainte d’intégrité de domaine</a>
         </li>
     
         <li class="nav-item toc-entry toc-h4">
@@ -678,7 +682,8 @@ Dans la relation <code class="docutils literal notranslate"><span class="pre">li
 </tbody>
 </table>
 <p>Dans cet exemple, la relation <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code> possède un attribut <code class="docutils literal notranslate"><span class="pre">id_auteur</span></code> qui correspond à l’attribut <code class="docutils literal notranslate"><span class="pre">id</span></code> de la relation <code class="docutils literal notranslate"><span class="pre">AUTEURS</span></code>.<br />
-Cet attribut de la relation <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code> qui fait référence à la clé primaire d’une autre relation est appelée <strong>clé étrangère</strong>.</p>
+Cet attribut <code class="docutils literal notranslate"><span class="pre">id_auteur</span></code> de la relation <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code> qui fait référence à la clé primaire d’une autre relation est appelée <strong>clé étrangère</strong>.<br />
+Conséquence immédiate: on ne peut pas supprimer un auteur s’il est référencé dans la table <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code> et on ne peut pas ajouter un livre si l’auteur n’existe pas dans <code class="docutils literal notranslate"><span class="pre">AUTEURS</span></code>.</p>
 <p>Dans le schéma d’une relation, <strong>la clé primaire est souvent soulignée</strong> et les éventuelles <strong>clés étangères sont précédées du signe</strong> <code class="docutils literal notranslate"><span class="pre">#</span></code>.</p>
 </div>
 <div class="section" id="application-3">
@@ -689,25 +694,25 @@ Cet attribut de la relation <code class="docutils literal notranslate"><span cla
 <div class="section" id="les-contraintes-d-integrite">
 <h3>Les contraintes d’intégrité<a class="headerlink" href="#les-contraintes-d-integrite" title="Permalink to this headline">¶</a></h3>
 <p>Un contrainte d’intégrité est une <strong>propriété logique, vérifiée à chaque instant et qui garantit la cohérence des données</strong>.</p>
-<div class="section" id="contrainte-de-domaine">
-<h4>Contrainte de domaine<a class="headerlink" href="#contrainte-de-domaine" title="Permalink to this headline">¶</a></h4>
-<p>Les contraintes de domaine sont utiles pour contrôler le type de données stockées. Cela est intégré au modèle relationnel. Par exemple, dans la table <code class="docutils literal notranslate"><span class="pre">Logement</span></code> évoquée plus haut, une entrée comme <code class="docutils literal notranslate"><span class="pre">10</span></code> pour l’attribut <code class="docutils literal notranslate"><span class="pre">id</span></code> sera refusée car le domaine de cet attribut est une chaîne de caractère.</p>
+<div class="section" id="contrainte-d-integrite-de-domaine">
+<h4>Contrainte d’intégrité de domaine<a class="headerlink" href="#contrainte-d-integrite-de-domaine" title="Permalink to this headline">¶</a></h4>
+<p>Les contraintes de domaine sont utiles pour <strong>contrôler le type de données stockées</strong>. Cela est intégré au modèle relationnel. Par exemple, dans la table <code class="docutils literal notranslate"><span class="pre">Logement</span></code> évoquée plus haut, une entrée comme <code class="docutils literal notranslate"><span class="pre">10</span></code> pour l’attribut <code class="docutils literal notranslate"><span class="pre">id</span></code> sera refusée car le domaine de cet attribut est une chaîne de caractère.</p>
 </div>
 <div class="section" id="contrainte-d-integrite-des-relations">
 <h4>Contrainte d’intégrité des relations<a class="headerlink" href="#contrainte-d-integrite-des-relations" title="Permalink to this headline">¶</a></h4>
-<p>Cette contrainte permet d’assurer que chaque relation a bien une clé primaire unique et bien définie. Deux n-uplets ne peuvent avoir les mêmes valeurs pour l’ensemble des attributs.</p>
-<p>Par exemple, dans la relation <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code>, choisir <code class="docutils literal notranslate"><span class="pre">titre</span></code> comme clé n’est pas une bonne idée (<em>on peut avoir deux livres avec le même titre</em>). On lui préfère une clé artificielle <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
+<p>Cette contrainte permet d’assurer que <strong>chaque relation a bien une clé primaire unique et bien définie</strong>. Deux n-uplets ne peuvent avoir les mêmes valeurs pour l’ensemble des attributs.</p>
+<p>Par exemple dans la relation <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code>, choisir <code class="docutils literal notranslate"><span class="pre">titre</span></code> comme clé primaire n’est pas une bonne idée (<em>on peut imaginer avoir deux livres avec le même titre</em>). On lui préfèrera une clé primaire artificielle <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
 </div>
 <div class="section" id="contrainte-d-integrite-referentielle">
 <h4>Contrainte d’intégrité référentielle<a class="headerlink" href="#contrainte-d-integrite-referentielle" title="Permalink to this headline">¶</a></h4>
-<p>Cette contrainte permet d’assurer que chaque valeur d’une clé étrangère doit correspondre une valeur de clé primaire associée.<br />
-Par exemple, dans la relation <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code> possède une clé étrangère <code class="docutils literal notranslate"><span class="pre">id_auteur</span></code>. Pour qu’une valeur de <code class="docutils literal notranslate"><span class="pre">id_auteur</span></code> soit acceptée, il faut que cette valeur apparaisse dans la clé primaire de <code class="docutils literal notranslate"><span class="pre">AUTEURS</span></code></p>
+<p>Cette contrainte permet d’assurer que <strong>chaque valeur d’une clé étrangère doit correspondre à une valeur de clé primaire dans une autre relation</strong>.<br />
+Par exemple, la relation <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code> possède une clé étrangère <code class="docutils literal notranslate"><span class="pre">id_auteur</span></code>. Pour qu’une valeur de <code class="docutils literal notranslate"><span class="pre">id_auteur</span></code> soit acceptée, il faut que cette valeur apparaisse dans la clé primaire de <code class="docutils literal notranslate"><span class="pre">AUTEURS</span></code></p>
 <hr class="docutils" />
 <p><img alt="licence" src="../../_images/licence1.png" /></p>
 <p><strong>Références</strong></p>
-<p>Spécialité NSI - Terminale - pages 285 - 294; Balabonski &amp; al; ellipses<br />
-Site David Roche https://pixees.fr/informatiquelycee/n_site/nsi_term_bd_rela.html</p>
-<p><strong>Liens intéressants pour manipuler les tables en markdown</strong></p>
+<p>Spécialité NSI Terminale; pages 285 - 294; Balabonski &amp; al; ellipses<br />
+<a class="reference external" href="https://pixees.fr/informatiquelycee/n_site/nsi_term_bd_rela.html">Site David Roche</a> pour les exemples de relations.</p>
+<p><strong>Liens intéressants pour manipuler les tables en markdown</strong>, procurant un gain de temps appréciable</p>
 <p><a class="reference external" href="https://www.convertcsv.com/html-table-to-csv.htm">convertion HTML vers csv</a><br />
 <a class="reference external" href="https://donatstudios.com/CsvToMarkdownTable">convertion csv vers markdown</a></p>
 </div>
@@ -725,6 +730,7 @@ Site David Roche https://pixees.fr/informatiquelycee/n_site/nsi_term_bd_rela.htm
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../A2_algo_graphes/Exercices_algo_graphes_A2.html" title="previous page">Algorithmes des graphes - Exercices</a>
+    <a class='right-next' id="next-link" href="Fiche_de_revision.html" title="next page">Fiche de révision: modèle relationnel</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

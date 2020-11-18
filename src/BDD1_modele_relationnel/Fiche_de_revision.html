@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Paradigmes - Exercices &#8212; Spécialité NSI Terminale</title>
+    <title>Fiche de révision: modèle relationnel &#8212; Spécialité NSI Terminale</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -31,8 +31,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="MISE AU POINT DE PROGRAMMES" href="../LP5/map_programmes.html" />
-    <link rel="prev" title="PARADIGMES DE PROGRAMMATION" href="paradigmes.html" />
+    <link rel="prev" title="LE MODELE RELATIONNEL" href="BDD_Modele_relationnel.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -95,10 +94,10 @@
     <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
   </li>
   <li class="">
-    <a href="paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
+    <a href="../LP4/paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
   </li>
-  <li class="active">
-    <a href="">Paradigmes - Exercices</a>
+  <li class="">
+    <a href="../LP4/paradigmes_exercices.html">Paradigmes - Exercices</a>
   </li>
   <li class="">
     <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
@@ -131,10 +130,10 @@
     <a href="../A2_algo_graphes/Exercices_algo_graphes_A2.html">Algorithmes des graphes - Exercices</a>
   </li>
   <li class="">
-    <a href="../BDD1_modele_relationnel/BDD_Modele_relationnel.html">LE MODELE RELATIONNEL</a>
+    <a href="BDD_Modele_relationnel.html">LE MODELE RELATIONNEL</a>
   </li>
-  <li class="">
-    <a href="../BDD1_modele_relationnel/Fiche_de_revision.html">Fiche de révision: modèle relationnel</a>
+  <li class="active">
+    <a href="">Fiche de révision: modèle relationnel</a>
   </li>
 </ul>
 </nav>
@@ -173,7 +172,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/src/LP4/paradigmes_exercices.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <a class="dropdown-buttons" href="../../_sources/src/BDD1_modele_relationnel/Fiche_de_revision.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -192,7 +191,7 @@
             <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
             <div class="dropdown-buttons">
                 
-                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/LP4/paradigmes_exercices.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/BDD1_modele_relationnel/Fiche_de_revision.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
                 
                 
                 
@@ -201,30 +200,9 @@
         
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#savoir-distinguer-les-paradigmes" class="nav-link">Savoir distinguer les paradigmes</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#les-fonctions-first-class-citizens" class="nav-link">Les fonctions: first class citizens ***</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#exemple-1" class="nav-link">Exemple 1</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#exemple-2" class="nav-link">Exemple 2</a>
-        </li>
-    
-            </ul>
-        </li>
     
     </ul>
 </nav>
@@ -237,44 +215,35 @@
         
               <div>
                 
-  <div class="section" id="paradigmes-exercices">
-<h1>Paradigmes - Exercices<a class="headerlink" href="#paradigmes-exercices" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="savoir-distinguer-les-paradigmes">
-<h2>Savoir distinguer les paradigmes<a class="headerlink" href="#savoir-distinguer-les-paradigmes" title="Permalink to this headline">¶</a></h2>
-<p>En s’inspirant du cours, proposer un code python donnant le maximum d’un tableau (<em>objet de type</em> <code class="docutils literal notranslate"><span class="pre">list</span></code>), dans:</p>
+  <div class="section" id="fiche-de-revision-modele-relationnel">
+<h1>Fiche de révision: modèle relationnel<a class="headerlink" href="#fiche-de-revision-modele-relationnel" title="Permalink to this headline">¶</a></h1>
+<p><strong>Ce qu’il faut savoir</strong></p>
 <ul class="simple">
-<li><p>le paradigme impératif;</p></li>
-<li><p>le paradigme objet;</p></li>
-<li><p>le paradigme fonctionnel</p></li>
+<li><p>La notion de relation est au coeur des bases de données relationnelles. Une relation peut être vue comme un tableau à 2 dimensions, composé de n-uplets (lignes) et d’attributs (colonnes).<br />
+<img alt="vocabulaire" src="../../_images/vocabulaire_relation_3.png" /></p></li>
 </ul>
-</div>
-<div class="section" id="les-fonctions-first-class-citizens">
-<h2>Les fonctions: first class citizens ***<a class="headerlink" href="#les-fonctions-first-class-citizens" title="Permalink to this headline">¶</a></h2>
-<p>Les fonctions sont des <strong>valeurs</strong> comme les autres. Elles peuvent être <strong>passées en arguments</strong>, <strong>renvoyées comme résultat</strong> ou encore <strong>stockées comme des données</strong>.</p>
-<div class="section" id="exemple-1">
-<h3>Exemple 1<a class="headerlink" href="#exemple-1" title="Permalink to this headline">¶</a></h3>
-<p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">applique_deux_fois</span></code> qui prend une fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> en paramètre et qui applique deux fois de suite la fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> à son argument <code class="docutils literal notranslate"><span class="pre">x</span></code> avant de le renvoyer (<em>cette opération est notée</em> <span class="math notranslate nohighlight">\((f\circ f)(x)\)</span> <em>en mathématique</em>).<br />
-Tester votre fonction sur la fonction suivante:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="exemple-2">
-<h3>Exemple 2<a class="headerlink" href="#exemple-2" title="Permalink to this headline">¶</a></h3>
-<p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">temps_execution</span></code> qui prend en paramètres une fonction <code class="docutils literal notranslate"><span class="pre">f</span></code> et une valeur <code class="docutils literal notranslate"><span class="pre">x</span></code> et qui renvoie un p-uplet formé du résultat de <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> et du temps mis par ce calcul.<br />
-Tester votre fonction sur <code class="docutils literal notranslate"><span class="pre">h(5000)</span></code> avec <code class="docutils literal notranslate"><span class="pre">h</span></code> définie de la manière suivante:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Fonction complètement inutile&quot;&quot;&quot;</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-            <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">k</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Pour chaque attribut d’une relation, il est nécessaire de définir un domaine. <strong>Le
+domaine d’un attribut donné correspond à un ensemble fini ou infini de valeurs admissibles</strong>.</p>
+<ul class="simple">
+<li><p>Une clef primaire est un attribut dont la valeur permet d’identifier de manière unique un n-uplet de la relation. Autrement dit, si un attribut est considéré comme clef primaire, on ne doit pas trouver dans toute la relation 2 fois la même valeur pour cet attribut.</p></li>
+<li><p>Une clé étrangère d’une relation A est un attribut  devant apparaître comme clé primaire dans une relation B afin d’établir un lien entre A et B.</p></li>
+</ul>
+<ul class="simple">
+<li><p>On appelle schéma relationnel l’ensemble des relations présentes dans une base de données.</p></li>
+<li><p>Dans le schéma relationnel on doit trouver:</p>
+<ul>
+<li><p>Les noms des différentes relations;</p></li>
+<li><p>pour chaque relation, la liste des attributs avec leur domaine respectif;</p></li>
+<li><p>pour chaque relation, la <strong>clé primaire soulignée</strong> et éventuellement la <strong>clé étrangère précédée d’un #</strong></p></li>
+</ul>
+</li>
+<li><p>Exemples:<br />
+AUTEURS (<u>(id: int)</u>, (nom: str), (prenom : str), (ann_naissance: int), (langue_ecriture: str))<br />
+LIVRES(<u>(id: int)</u>, (titre : str), (#id_auteur: int), (ann_publi: int), (note: int))</p></li>
+</ul>
+<hr class="docutils" />
+<p><img alt="licence" src="../../_images/licence1.png" /></p>
+<p>Extrait et adapté de la fiche élaborée par <a class="reference external" href="https://pixees.fr/informatiquelycee/n_site/fiches/T/02_base%20de%20donn%C3%A9es_base%20de%20donn%C3%A9es%20relationnelle.pdf">David Roche sur son site</a></p>
 </div>
 
 
@@ -286,8 +255,7 @@ Tester votre fonction sur <code class="docutils literal notranslate"><span class
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="paradigmes.html" title="previous page">PARADIGMES DE PROGRAMMATION</a>
-    <a class='right-next' id="next-link" href="../LP5/map_programmes.html" title="next page">MISE AU POINT DE PROGRAMMES</a>
+    <a class='left-prev' id="prev-link" href="BDD_Modele_relationnel.html" title="previous page">LE MODELE RELATIONNEL</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
