@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Modèle relationnel - Exercices &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Fiche de révision: modèle relationnel" href="Fiche_de_revision.html" />
+    <link rel="prev" title="LE MODELE RELATIONNEL" href="BDD_Modele_relationnel.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes_exercices.html">Paradigmes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/liste.html">STRUCTURE DE DONNEES: LISTE</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/Exercices_liste.html">Exercices</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Arbres.html">ARBRES</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Exercices_arbres.html">Exercices - Arbres</a>
+  </li>
+  <li class="">
+    <a href="../A1_algo_arbres/ABR.html">ALGORITHMES SUR LES ABR</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Les_graphes_introduction.html">INTRODUCTION AUX GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Graphes_Exercices_I.html">Exercices - Représentations d’un graphe</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Algorithmes_graphes.html">ALGORITHMES SUR LES GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Exercices_algo_graphes_A2.html">Algorithmes des graphes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="BDD_Modele_relationnel.html">LE MODELE RELATIONNEL</a>
+  </li>
+  <li class="active">
+    <a href="">Modèle relationnel - Exercices</a>
+  </li>
+  <li class="">
+    <a href="Fiche_de_revision.html">Fiche de révision: modèle relationnel</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/BDD1_modele_relationnel/BDD-Exercices.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/BDD1_modele_relationnel/BDD-Exercices.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#relation-livres" class="nav-link">Relation livres</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#relation-films" class="nav-link">Relation films</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#exercices-du-livre-nsi-terminale-ellipses" class="nav-link">Exercices du livre NSI Terminale - ellipses</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="modele-relationnel-exercices">
+<h1>Modèle relationnel - Exercices<a class="headerlink" href="#modele-relationnel-exercices" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="relation-livres">
+<h2>Relation livres<a class="headerlink" href="#relation-livres" title="Permalink to this headline">¶</a></h2>
+<p>Soit la relation <code class="docutils literal notranslate"><span class="pre">LIVRES</span></code> suivante:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>titre</p></th>
+<th class="head"><p>auteur</p></th>
+<th class="head"><p>ann_publi</p></th>
+<th class="head"><p>note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1984</p></td>
+<td><p>Orwell</p></td>
+<td><p>1949</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Dune</p></td>
+<td><p>Herbert</p></td>
+<td><p>1965</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Fondation</p></td>
+<td><p>Asimov</p></td>
+<td><p>1951</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Le meilleur des mondes</p></td>
+<td><p>Huxley</p></td>
+<td><p>1931</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Fahrenheit 451</p></td>
+<td><p>Bradbury</p></td>
+<td><p>1953</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Ubik</p></td>
+<td><p>K. Dick</p></td>
+<td><p>1969</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Chroniques martiennes</p></td>
+<td><p>Bradbury</p></td>
+<td><p>1950</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>La nuit des temps</p></td>
+<td><p>Barjavel</p></td>
+<td><p>1968</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Blade Runner</p></td>
+<td><p>K. Dick</p></td>
+<td><p>1968</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Les Robots</p></td>
+<td><p>Asimov</p></td>
+<td><p>1950</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>La Planète des singes</p></td>
+<td><p>Boulle</p></td>
+<td><p>1963</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Ravage</p></td>
+<td><p>Barjavel</p></td>
+<td><p>1943</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Le Maître du Haut Château</p></td>
+<td><p>K. Dick</p></td>
+<td><p>1962</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Le monde des non-A</p></td>
+<td><p>Van Vogt</p></td>
+<td><p>1945</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>La Fin de l’éternité</p></td>
+<td><p>Asimov</p></td>
+<td><p>1955</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>De la Terre à la Lune</p></td>
+<td><p>Verne</p></td>
+<td><p>1865</p></td>
+<td><p>10</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>On justifiera toutes les réponses</em></p>
+<ol class="simple">
+<li><p>L’attribut “note” peut-il jouer le rôle de clé primaire ?</p></li>
+<li><p>L’attribut “ann_publi” peut-il jouer le rôle de clé primaire ?</p></li>
+<li><p>L’attribut “auteur” peut-il jouer le rôle de clé primaire ?</p></li>
+<li><p>L’attribut “titre” peut-il jouer le rôle de clé primaire ?</p></li>
+</ol>
+</div>
+<div class="section" id="relation-films">
+<h2>Relation films<a class="headerlink" href="#relation-films" title="Permalink to this headline">¶</a></h2>
+<p>En partant de la relation FILMS ci-dessous, créez une relation REALISATEURS (attributs de la relation REALISATEURS : id, nom, prenom et ann_naissance, vous trouverez toutes les informations nécessaires sur le Web). Modifiez ensuite la relation FILMS afin d’établir un lien entre les relations FILMS et REALISATEURS. Vous préciserez l’attribut qui jouera le rôle de clef étrangère.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>titre</p></th>
+<th class="head"><p>realisateur</p></th>
+<th class="head"><p>ann_sortie</p></th>
+<th class="head"><p>note_sur_10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Alien, le huitième passager</p></td>
+<td><p>Scott</p></td>
+<td><p>1979</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Dune</p></td>
+<td><p>Lynch</p></td>
+<td><p>1985</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2001 : l’odyssée de l’espace</p></td>
+<td><p>Kubrick</p></td>
+<td><p>1968</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Blade Runner</p></td>
+<td><p>Scott</p></td>
+<td><p>1982</p></td>
+<td><p>10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="exercices-du-livre-nsi-terminale-ellipses">
+<h2>Exercices du livre NSI Terminale - ellipses<a class="headerlink" href="#exercices-du-livre-nsi-terminale-ellipses" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercice 140</strong></p>
+<p>On souhaite modéliser un annuaire téléphonique simple dans lequel chaque personne (<em>identifiée par son nom et son prénom</em>) est associée à son numéro de téléphone. Proposer une modélisation relationnelle de cet annuaire.</p>
+<p><strong>Exercice 141</strong></p>
+<p>Donner la modélisation relationnelle d’un bulletin scolaire. Cette dernière doit permettre de mentionner:</p>
+<ul class="simple">
+<li><p>des élèves, possédants un numéro d’identification alphanumérique unique;</p></li>
+<li><p>un ensemble de matières fixées, mais qui ne sont pas données;</p></li>
+<li><p>au plus une note sur 20, par matière et par élève.</p></li>
+</ul>
+<p>On prendra soin de préciser toutes les contraintes utilisateurs qui ne peuvent êtres inscrites dans les schémas des relations.</p>
+<p><strong>Exercice 142</strong></p>
+<p>On considère la solution donnée pour l’exercice 140. Dire si chacun des ensembles est une relation valide pour le schéma <em>Annuaire</em>.</p>
+<ol class="simple">
+<li><p>{}</p></li>
+<li><p>{( ‘Titi ‘ , ‘Toto’, ‘ 0123456789 ‘ )}</p></li>
+<li><p>{(‘Titi’, ‘Toto’, ‘ 0123456789 ‘ ), (‘Doe’, ‘John’, ‘ 0123456789 ‘)}</p></li>
+<li><p>{( ‘Titi ‘, ‘Toto’, ‘ 0123456789 ‘ ), ( ‘Titi ‘ , ‘Toto’, ‘ 987654343210 ‘ )}</p></li>
+<li><p>{( ‘Titi ‘ , ‘Toto’, ‘ 0123456789 ‘ ), (‘Doe’, ‘ John’ )}</p></li>
+<li><p>{(‘Titi’, ‘Toto’, 42)}</p></li>
+</ol>
+<p><strong>Exercice 143</strong></p>
+<p>On considère la solution donnée pour l’exercice 141. Dire si chacun des ensembles est une relation valide pour le schéma de la base de données du bulletin de notes.</p>
+<p>Proposition 1.</p>
+<ul class="simple">
+<li><p>Eleve = { }</p></li>
+<li><p>Matiere = { }</p></li>
+<li><p>Note = { }</p></li>
+</ul>
+<p>Proposition 2.</p>
+<ul class="simple">
+<li><p>Eleve = {( ‘Titi ‘ , ‘Toto’, ‘AB56789 ‘ ), }</p></li>
+<li><p>Matiere = {(‘NSI’, 0), ( ‘Sport ‘, 1)}</p></li>
+<li><p>Note = {(‘ AB56789 ‘ , 1, 17)}</p></li>
+</ul>
+<p>Proposition 3.</p>
+<ul class="simple">
+<li><p>Eleve = {(‘ Titi’, ‘Toto’, ‘ AB56789 ‘ ), }</p></li>
+<li><p>Matiere = {(‘NSI’ ,0)}</p></li>
+<li><p>Note = {(‘ AB56789’ , 1,17)}</p></li>
+</ul>
+<p>Proposition 4.</p>
+<ul class="simple">
+<li><p>Eleve = {(‘ Titi’ , ‘Toto’, ‘AB56789’), }</p></li>
+<li><p>Matiere= {(‘NS1’ ,0),}</p></li>
+<li><p>Note= {(‘ AB56789 ‘ , 0, 17), (‘AB56789’ , 0,18)1</p></li>
+</ul>
+<p>Proposition 5.</p>
+<ul class="simple">
+<li><p>Eleve = {(‘Titi’ , ‘ Tot o ‘ , ‘AB56789 ‘ ), }</p></li>
+<li><p>Matiere= {(‘NSI ‘ , 0), ( ‘Sport ‘ , 1)}</p></li>
+<li><p>Note= {(‘ AB56789 ‘ , 0, 17), (‘AB56789’ , 1, 17)}</p></li>
+</ul>
+<p><strong>Exercice 144</strong></p>
+<p>Modéliser des informations sur les départements français. Pour chaque département on veut pouvoir stocker son nom, son code, son chef-lieu et la liste de tous les départements voisins. Attention, les codes de département sont tous des nombres, sauf la Corse du Sud et la Haute Corse qui ont les codes 2A et 2B respectivement. Les départements d’Outre-Mer ont un code sur trois chiffres (de 971 à 976). Proposer une contrainte utilisateur permettant d’éviter la redondance d’information dans la liste des voisins.</p>
+<p><strong>Exercice 145</strong></p>
+<p>Proposer une modélisation pour un réseau de bus. Cette dernière doit être suffisamment riche pour permettre de générer, pour chaque arrêt de bus du réseau, une fiche horaire avec tous les horaires de passage de toutes les lignes de bus qui desservent l’arrêt. Indication : ici, plus qu’une simple traduction du français vers le modèle relationnel, on essayera de déterminer dans un premier temps quelles informations sont pertinentes et comment les représenter. On pourra ensuite procéder à la modélisation sous forme de relations.</p>
+<p><strong>Exercice 146</strong></p>
+<p>On considère deux relations R(<u>(a: int)</u>, (b: int), (c: int)) et S(<u>#(a: int), (e: int)</u>) où l’attribut <code class="docutils literal notranslate"><span class="pre">a</span></code> de S est une clé étrangère faisant référence à <code class="docutils literal notranslate"><span class="pre">a</span></code> de R.<br />
+Dire si les affirmations suivantes sont vraies ou fausses, en justifiant.</p>
+<ol class="simple">
+<li><p>Les <code class="docutils literal notranslate"><span class="pre">a</span></code> de R sont tous deux à deux distincts.</p></li>
+<li><p>Les <code class="docutils literal notranslate"><span class="pre">b</span></code> de R sont tous deux à deux distincts.</p></li>
+<li><p>Les <code class="docutils literal notranslate"><span class="pre">a</span></code> de S sont tous deux à deux distincts.</p></li>
+<li><p>Les <code class="docutils literal notranslate"><span class="pre">e</span></code> de S sont tous deux à deux distincts.</p></li>
+<li><p>S peut être vide alors que R est non vide.</p></li>
+<li><p>R peut être vide alors que S est non vide .</p></li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="BDD_Modele_relationnel.html" title="previous page">LE MODELE RELATIONNEL</a>
+    <a class='right-next' id="next-link" href="Fiche_de_revision.html" title="next page">Fiche de révision: modèle relationnel</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
