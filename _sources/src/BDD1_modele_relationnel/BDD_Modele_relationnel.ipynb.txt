@@ -238,7 +238,8 @@
    "metadata": {},
    "source": [
     "Dans cet exemple, la relation `LIVRES` possède un attribut `id_auteur` qui correspond à l'attribut `id` de la relation `AUTEURS`.  \n",
-    "Cet attribut de la relation `LIVRES` qui fait référence à la clé primaire d'une autre relation est appelée **clé étrangère**.  \n",
+    "Cet attribut `id_auteur` de la relation `LIVRES` qui fait référence à la clé primaire d'une autre relation est appelée **clé étrangère**.  \n",
+    "Conséquence immédiate: on ne peut pas supprimer un auteur s'il est référencé dans la table `LIVRES` et on ne peut pas ajouter un livre si l'auteur n'existe pas dans `AUTEURS`.  \n",
     "\n",
     "Dans le schéma d'une relation, **la clé primaire est souvent soulignée** et les éventuelles **clés étangères sont précédées du signe** `#`."
    ]
@@ -275,14 +276,14 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "#### Contrainte de domaine"
+    "#### Contrainte d'intégrité de domaine"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Les contraintes de domaine sont utiles pour contrôler le type de données stockées. Cela est intégré au modèle relationnel. Par exemple, dans la table `Logement` évoquée plus haut, une entrée comme `10` pour l'attribut `id` sera refusée car le domaine de cet attribut est une chaîne de caractère."
+    "Les contraintes de domaine sont utiles pour **contrôler le type de données stockées**. Cela est intégré au modèle relationnel. Par exemple, dans la table `Logement` évoquée plus haut, une entrée comme `10` pour l'attribut `id` sera refusée car le domaine de cet attribut est une chaîne de caractère."
    ]
   },
   {
@@ -296,9 +297,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Cette contrainte permet d'assurer que chaque relation a bien une clé primaire unique et bien définie. Deux n-uplets ne peuvent avoir les mêmes valeurs pour l'ensemble des attributs.  \n",
+    "Cette contrainte permet d'assurer que **chaque relation a bien une clé primaire unique et bien définie**. Deux n-uplets ne peuvent avoir les mêmes valeurs pour l'ensemble des attributs.  \n",
     "\n",
-    "Par exemple, dans la relation `LIVRES`, choisir `titre` comme clé n'est pas une bonne idée (*on peut avoir deux livres avec le même titre*). On lui préfère une clé artificielle `id`."
+    "Par exemple dans la relation `LIVRES`, choisir `titre` comme clé primaire n'est pas une bonne idée (*on peut imaginer avoir deux livres avec le même titre*). On lui préfèrera une clé primaire artificielle `id`."
    ]
   },
   {
@@ -312,8 +313,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Cette contrainte permet d'assurer que chaque valeur d'une clé étrangère doit correspondre une valeur de clé primaire associée.  \n",
-    "Par exemple, dans la relation `LIVRES` possède une clé étrangère `id_auteur`. Pour qu'une valeur de `id_auteur` soit acceptée, il faut que cette valeur apparaisse dans la clé primaire de `AUTEURS`"
+    "Cette contrainte permet d'assurer que **chaque valeur d'une clé étrangère doit correspondre à une valeur de clé primaire dans une autre relation**.  \n",
+    "Par exemple, la relation `LIVRES` possède une clé étrangère `id_auteur`. Pour qu'une valeur de `id_auteur` soit acceptée, il faut que cette valeur apparaisse dans la clé primaire de `AUTEURS`"
    ]
   },
   {
@@ -336,22 +337,15 @@
    "source": [
     "**Références**  \n",
     "\n",
-    "Spécialité NSI - Terminale - pages 285 - 294; Balabonski & al; ellipses  \n",
-    "Site David Roche https://pixees.fr/informatiquelycee/n_site/nsi_term_bd_rela.html\n",
+    "Spécialité NSI Terminale; pages 285 - 294; Balabonski & al; ellipses  \n",
+    "[Site David Roche](https://pixees.fr/informatiquelycee/n_site/nsi_term_bd_rela.html) pour les exemples de relations.\n",
     "\n",
     "\n",
-    "**Liens intéressants pour manipuler les tables en markdown**  \n",
+    "**Liens intéressants pour manipuler les tables en markdown**, procurant un gain de temps appréciable  \n",
     "\n",
     "[convertion HTML vers csv](https://www.convertcsv.com/html-table-to-csv.htm)  \n",
     "[convertion csv vers markdown](https://donatstudios.com/CsvToMarkdownTable)"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {
