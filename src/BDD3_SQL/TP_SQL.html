@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>TP SQL &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes_exercices.html">Paradigmes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/liste.html">STRUCTURE DE DONNEES: LISTE</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/Exercices_liste.html">Exercices</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Arbres.html">ARBRES</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Exercices_arbres.html">Exercices - Arbres</a>
+  </li>
+  <li class="">
+    <a href="../A1_algo_arbres/ABR.html">ALGORITHMES SUR LES ABR</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Les_graphes_introduction.html">INTRODUCTION AUX GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Graphes_Exercices_I.html">Exercices - Représentations d’un graphe</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Algorithmes_graphes.html">ALGORITHMES SUR LES GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Exercices_algo_graphes_A2.html">Algorithmes des graphes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/BDD_Modele_relationnel.html">LE MODELE RELATIONNEL</a>
+  </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/BDD-Exercices.html">Modèle relationnel - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/Fiche_de_revision.html">Fiche de révision: modèle relationnel</a>
+  </li>
+  <li class="">
+    <a href="../BDD2_Structure_des_bddr/Structure_bdd.html">STRUCTURE DES BASES DE DONNEES RELATIONNELLES</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/BDD3_SQL/TP_SQL.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/BDD3_SQL/TP_SQL.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#requetes-simples-sans-jointure" class="nav-link">Requêtes simples, sans jointure</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#requetes-avancees-avec-jointure" class="nav-link">Requêtes avancées avec jointure</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tp-sql">
+<h1>TP SQL<a class="headerlink" href="#tp-sql" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requetes-simples-sans-jointure">
+<h2>Requêtes simples, sans jointure<a class="headerlink" href="#requetes-simples-sans-jointure" title="Permalink to this headline">¶</a></h2>
+<p>Soit la hase de données de <code class="docutils literal notranslate"><span class="pre">Livres</span></code> disponible sur <a class="reference external" href="https://bdarid.noho.st">bdarid.noho.st</a> et déjà étudiée.<br />
+Donner le code SQL de chacune des requêtes ci-dessous. Les mots en police fixe donnent une indication sur les attributs et les tables à utiliser dans la requête.</p>
+<ol class="simple">
+<li><p>Tous les <code class="docutils literal notranslate"><span class="pre">titre</span></code>s de <code class="docutils literal notranslate"><span class="pre">livre</span></code>.</p></li>
+<li><p>Tous les <code class="docutils literal notranslate"><span class="pre">nom</span></code>s d’<code class="docutils literal notranslate"><span class="pre">usager</span></code>.</p></li>
+<li><p>Tous les <code class="docutils literal notranslate"><span class="pre">nom</span></code>s d’<code class="docutils literal notranslate"><span class="pre">usager</span></code> en retirant les doublons.</p></li>
+<li><p>Les <code class="docutils literal notranslate"><span class="pre">titre</span></code>s des livres publiés avant 1980.</p></li>
+<li><p>Les <code class="docutils literal notranslate"><span class="pre">titre</span></code>s des livres dont le titre commence par la lettre « A ».</p></li>
+<li><p>Les <code class="docutils literal notranslate"><span class="pre">isbn</span></code> des livres à rendre pour le 01/01/2020.</p></li>
+<li><p>Les <code class="docutils literal notranslate"><span class="pre">nom</span></code>s d’<code class="docutils literal notranslate"><span class="pre">auteur</span></code>s triés par ordre alphabétique.</p></li>
+<li><p>Les <code class="docutils literal notranslate"><span class="pre">nom</span></code>s d’<code class="docutils literal notranslate"><span class="pre">usager</span></code>s vivant dans le 12e ou 13e arrondissement de Paris (codes postaux 75012 et 75013).</p></li>
+<li><p>Les <code class="docutils literal notranslate"><span class="pre">nom</span></code>s et <code class="docutils literal notranslate"><span class="pre">adresse</span></code>s des usagers n’habitant pas dans une rue. (la chaîne « Rue » ne doit pas apparaître dans l’adresse).</p></li>
+<li><p>Les <code class="docutils literal notranslate"><span class="pre">annee</span></code>s et <code class="docutils literal notranslate"><span class="pre">titre</span></code>s des <code class="docutils literal notranslate"><span class="pre">livre</span></code>s publiés lors d’une année bissextile. On rappelle que ce sont les années divisibles par 4, mais pas celles divisibles  par 100 sauf si elles sont divisibles par 400.</p></li>
+</ol>
+</div>
+<div class="section" id="requetes-avancees-avec-jointure">
+<h2>Requêtes avancées avec jointure<a class="headerlink" href="#requetes-avancees-avec-jointure" title="Permalink to this headline">¶</a></h2>
+<p>Soit la base de données <code class="docutils literal notranslate"><span class="pre">Livres</span></code> utilisée en cours et disponible en suivant le lien ci-dessus. Donner le code SQL de chacune des requêtes ci-dessous. Les mots en police fixe donnent une indication sur les attributs et les tables à utiliser dans la requête.</p>
+<ol class="simple">
+<li><p>Le <code class="docutils literal notranslate"><span class="pre">titre</span></code> des <code class="docutils literal notranslate"><span class="pre">livre</span></code>s <code class="docutils literal notranslate"><span class="pre">emprunt</span></code>és.</p></li>
+<li><p>Le <code class="docutils literal notranslate"><span class="pre">titre</span></code> des <code class="docutils literal notranslate"><span class="pre">livre</span></code>s <code class="docutils literal notranslate"><span class="pre">emprunt</span></code>és à rendre avant le 31/03/2020.</p></li>
+<li><p>Le <code class="docutils literal notranslate"><span class="pre">nom</span></code> et <code class="docutils literal notranslate"><span class="pre">prenom</span></code> de l’auteur du livre ‘1984’ .</p></li>
+<li><p>Le <code class="docutils literal notranslate"><span class="pre">nom</span></code> et le <code class="docutils literal notranslate"><span class="pre">prenom</span></code> des <code class="docutils literal notranslate"><span class="pre">usager</span></code>s ayant emprunté des livres, sans doublons (c’est-à-dire si un usager a emprunté plusieurs livres, il ne doit apparaître qu’une fois dans le résultat).</p></li>
+<li><p>Même requête que précédemment, avec les noms triés par ordre alphabétique.</p></li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
