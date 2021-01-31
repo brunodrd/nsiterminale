@@ -1,0 +1,394 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "DIVISER POUR REGNER\n",
+    "===================="
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## L'approche diviser pour régner"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "L'idée est de séparer le problème initial en des problèmes semblables mais avec une taille plus petite, puis de résoudre (*de façon récursive*) ces problèmes et enfin de combiner les solutions obtenues pour obtenir la solution du problème initial.  \n",
+    "\n",
+    "Il y aura donc trois étapes essentielles:  \n",
+    "\n",
+    "* **diviser** le problème en problèmes plus petits;\n",
+    "* **régner** en résolvant de manière récursive les problèmes plus petits;\n",
+    "* **combiner** (on dit aussi *fusionner*) les solutions des sous-problèmes pour obtenir la solution du problème initial."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Application 1: la recherche dichotomique"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Le problème"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Rappel du problème de 1re NSI: il s'agit de déterminer si une valeur `v` appartient à un tableau `t` trié. Ce problème a été résolu de manière itérative (voir [cours 1re sur github](https://brunodrd.github.io/book/algo/recherche_dico_v2.html).  \n",
+    "Adoptons une approche *diviser pour régner*.\n",
+    "\n",
+    "**Diviser**  \n",
+    "Comme le tableau est trié, on peut le \"*couper*\" en deux pour y effectuer la recherche. Si on travaille avec des indices `g` et `d`, le milieu se situe à $m=\\dfrac{g+d}{2}$.  \n",
+    "\n",
+    "**Régner**  \n",
+    "Il s'agit d'effectuer la recherche dans une partie du tableau qui est de taille plus petite que le tableau original.  \n",
+    "\n",
+    "**Combiner**  \n",
+    "Lors d'une recherche, si `v` est trouvé, on renvoie son indice. Dans le cas d'un tableau vide, on renvoie `None`.\n",
+    "\n",
+    "Illustration de la situation après quelques appels récursifs\n",
+    "\n",
+    "\n",
+    "```\n",
+    " __________________________________________\n",
+    "|               |             |             |\n",
+    "|  éléments < v | ........... | éléments > v|\n",
+    "|__________________________________________ |\n",
+    " ^               ^           ^               \n",
+    " |               |           |\n",
+    " 0               g           d\n",
+    " ```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Une solution"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def cherche_dans_tableau(t, v, g, d):\n",
+    "    \"\"\"\n",
+    "    cherche v dans le tableau t, entre les index g et d; renvoie l'index si trouvé, None sinon.\n",
+    "    t: tableau\n",
+    "    v: valeur à chercher\n",
+    "    g, d: index (entiers naturels)\n",
+    "    \"\"\"\n",
+    "    if g > d: \n",
+    "        return None\n",
+    "    m = (g + d) // 2\n",
+    "    if v > t[m]:\n",
+    "        return cherche_dans_tableau(t, v, m+1, d)\n",
+    "    if v < t[m]:\n",
+    "        return cherche_dans_tableau(t, v, g, m-1)\n",
+    "    else:\n",
+    "        return m        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def recherche_dichotomique(t, v):\n",
+    "    \"\"\"\n",
+    "    renvoie l'index de v dans t si trouvé, None sinon\n",
+    "    \"\"\"\n",
+    "    return cherche_dans_tableau(t, v, 0, len(t)-1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Exemple d'appel\n",
+    "t = [1,7,8,9,12,15,15,22,30,31]\n",
+    "print(recherche_dichotomique(t, 15))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "*Remarque*: le programme termine car on peut exhiber un **variant** de boucle: $d-g$. Il s'agit d'une grandeur entière, strictement positive et qui décroit à chaque appel récursif (voir illustration ci-dessus)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Application 2: le tri fusion (voir TP)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Le problème initial"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Il s'agit de trier une liste chaînée d'entiers, par ordre croissant. Plusieurs méthodes de tri peuvent être envisagées (*tri par sélection*, *tri par insertion*). On choisit ici une approche *diviser pour régner*.  \n",
+    "La liste sont des instances de la classe `Cell` vue au premier trimestre."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Cell:\n",
+    "    \"\"\" Classe cellule pour liste chainée\"\"\"\n",
+    "    \n",
+    "    def __init__(self, v, s):\n",
+    "        self.val = v\n",
+    "        self.suiv = s"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Exemple\n",
+    "lst1 = Cell(2, Cell(10, Cell(5, Cell(-4, Cell(0, Cell(1, None))))))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Approche diviser pour régner"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Diviser "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Il s'agit dans un premier temps de \"*couper*\" la liste originale en deux listes de taille égale (ou presque dans le cas d'un nombre impair d'éléments).  \n",
+    "Il existe plusieurs façon de résoudre ce problème (voir TP), on présente ici une version ne nécessitant pas de calcul de taille de liste au préalable."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def coupe_v3(lst):\n",
+    "    \"\"\"\n",
+    "    renvoie deux listes l1 et l2 issues de lst\n",
+    "    \"\"\"\n",
+    "    l1, l2 = None, None\n",
+    "    while l is not None:\n",
+    "        # les éléments sont mis alternativement dans l1 puis l2\n",
+    "        temp = l1\n",
+    "        l1 = Cell(lst.val, l2)\n",
+    "        l2 = temp\n",
+    "        lst = lst.suiv\n",
+    "    return l1, l2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Régner"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Après avoir réduit les listes à un élément, il devient facile de les trier: une liste à un élément est forcément triée !"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Combiner"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Il s'agit maintenant de \"*fusionner*\" les solutions des sous problèmes. Concrètement, on écrit une fonction `fusion` qui prend deux listes en paramètres et qui renvoie une liste, triée par ordre croissant."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def fusion(l1, l2):\n",
+    "    \"\"\"\n",
+    "    renvoie une liste contenant les éléments de l1 et de l2, triés par ordre croissant.\n",
+    "    \"\"\"\n",
+    "    if l1 is None: return l2\n",
+    "    if l2 is None: return l1\n",
+    "    if l1.val < l2.val:\n",
+    "        return Cell(l1.val, fusion(l1.suiv, l2))\n",
+    "    else:\n",
+    "        return Cell(l2.val, fusion(l1, l2.suiv))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "L'implémentation de l'algorithme du tri fusion, utilisant une approche diviser pour régner en python, s'écrit alors:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def tri_fusion(lst):\n",
+    "    \"\"\"\n",
+    "    \"\"\"\n",
+    "    # Cas de base: liste contenant 1 élément\n",
+    "    if lst.suiv is None:\n",
+    "        return lst\n",
+    "    # Cas récursif\n",
+    "    left, right = coupe_v3(lst)\n",
+    "    return fusion(tri_fusion(left), tri_fusion(right))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Illustration"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![diviser_regner](img/diviser_regner.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Efficacité"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Voici les relevés effectués sur des listes de tailles différentes, triées soit avec l'algorithme du tri sélection soit avec le tri fusion.  \n",
+    "\n",
+    "| Taille \t| Tri sélection \t| Tri fusion \t|\n",
+    "|--------\t|---------------\t|------------\t|\n",
+    "| 1000   \t| 0.06 s        \t| 0.01 s     \t|\n",
+    "| 2000   \t| 0.13 s        \t| 0.03 s     \t|\n",
+    "| 4000   \t| 0.44 s        \t| 0.05       \t|\n",
+    "| 8000   \t| 1.78          \t| 0.11 s     \t|\n",
+    "| 16000  \t| 6.79          \t| 0.29 s     \t|"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Il apparaît clairement que le tri fusion est nettement plus performant que le tri sélection lorsque la taille du problème augmente.  \n",
+    "Une étude approfondie de cet algorithme montre que sa complexité en temps est $\\mathcal{O}(n\\log{}n)$."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": true,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {
+    "height": "calc(100% - 180px)",
+    "left": "10px",
+    "top": "150px",
+    "width": "369.594px"
+   },
+   "toc_section_display": true,
+   "toc_window_display": true
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

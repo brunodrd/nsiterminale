@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Introduction au tri fusion: quelques opérations sur les listes chaînées &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TP QUART DE TOUR" href="TP_quart_tour.html" />
+    <link rel="prev" title="Exercices" href="Diviser_pour_regner_Exercices.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes_exercices.html">Paradigmes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/liste.html">STRUCTURE DE DONNEES: LISTE</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/Exercices_liste.html">Exercices</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Arbres.html">ARBRES</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Exercices_arbres.html">Exercices - Arbres</a>
+  </li>
+  <li class="">
+    <a href="../A1_algo_arbres/ABR.html">ALGORITHMES SUR LES ABR</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Les_graphes_introduction.html">INTRODUCTION AUX GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Graphes_Exercices_I.html">Exercices - Représentations d’un graphe</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Algorithmes_graphes.html">ALGORITHMES SUR LES GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Exercices_algo_graphes_A2.html">Algorithmes des graphes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/BDD_Modele_relationnel.html">LE MODELE RELATIONNEL</a>
+  </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/BDD-Exercices.html">Modèle relationnel - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/Fiche_de_revision.html">Fiche de révision: modèle relationnel</a>
+  </li>
+  <li class="">
+    <a href="../BDD2_Structure_des_bddr/Structure_bdd.html">STRUCTURE DES BASES DE DONNEES RELATIONNELLES</a>
+  </li>
+  <li class="">
+    <a href="../BDD3_SQL/Langage_SQL.html">LANGAGE SQL</a>
+  </li>
+  <li class="">
+    <a href="../BDD3_SQL/TP_SQL.html">TP SQL</a>
+  </li>
+  <li class="">
+    <a href="Diviser_pour_regner.html">DIVISER POUR REGNER</a>
+  </li>
+  <li class="">
+    <a href="Diviser_pour_regner_Exercices.html">Exercices</a>
+  </li>
+  <li class="active">
+    <a href="">Introduction au tri fusion: quelques opérations sur les listes chaînées</a>
+  </li>
+  <li class="">
+    <a href="TP_quart_tour.html">TP QUART DE TOUR</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/A3_diviser_pour_regner/TP_tri_fusion.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/A3_diviser_pour_regner/TP_tri_fusion.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#quelques-fonctions-ou-portions-de-code-utiles" class="nav-link">Quelques fonctions ou portions de code utiles</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#couper-une-liste-en-deux" class="nav-link">Couper une liste en deux</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#proposition-1" class="nav-link">Proposition 1</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#proposition-2" class="nav-link">Proposition 2</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#proposition-3" class="nav-link">Proposition 3</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#fusionner-deux-listes" class="nav-link">Fusionner deux listes</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#le-tri-fusion" class="nav-link">Le tri fusion</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction-au-tri-fusion-quelques-operations-sur-les-listes-chainees">
+<h1>Introduction au tri fusion: quelques opérations sur les listes chaînées<a class="headerlink" href="#introduction-au-tri-fusion-quelques-operations-sur-les-listes-chainees" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quelques-fonctions-ou-portions-de-code-utiles">
+<h2>Quelques fonctions ou portions de code utiles<a class="headerlink" href="#quelques-fonctions-ou-portions-de-code-utiles" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Classe cellule pour liste chainée&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suiv</span> <span class="o">=</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TESTS a voir éventuellement sur pythontutor</span>
+<span class="n">lst1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))))</span>
+<span class="n">lst2</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">lst1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">taille</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">suiv</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">taille</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">suiv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">taille</span><span class="p">(</span><span class="n">lst2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">affiche_list</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">l</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="s1">&#39; --&gt; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">suiv</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">copie</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    renvoie une liste chaînée, copie de l</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">l</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">Cell</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">copie</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">suiv</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="couper-une-liste-en-deux">
+<h2>Couper une liste en deux<a class="headerlink" href="#couper-une-liste-en-deux" title="Permalink to this headline">¶</a></h2>
+<p>Il s’agit de séparer les éléments d’une liste en deux listes de même taille (<em>à un élément près si la taille de la liste originale est impaire</em>).</p>
+<div class="section" id="proposition-1">
+<h3>Proposition 1<a class="headerlink" href="#proposition-1" title="Permalink to this headline">¶</a></h3>
+<p><em>Idée</em>:</p>
+<ul class="simple">
+<li><p>trouver la taille <span class="math notranslate nohighlight">\(n\)</span> de la liste;</p></li>
+<li><p>mettre les <span class="math notranslate nohighlight">\(\left\lfloor \dfrac{n}{2}\right\rfloor\)</span> premiers dans la première liste et les autres dans la seconde liste.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">coupe_v1</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    coupe l en deux parties (égales si la longueur de l est paire).</span>
+<span class="sd">    renvoie deux listes chainées l1 et l2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># A compléter</span>
+    <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">taille</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="c1"># il faut la taille de la liste</span>
+    <span class="n">cpt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">l_tempo</span> <span class="o">=</span> <span class="n">l</span>
+    <span class="k">while</span> <span class="n">l_tempo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># tant qu&#39;on n&#39;est pas en fin de liste</span>
+        <span class="k">if</span> <span class="n">cpt</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">l1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="n">l_tempo</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">l2</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="n">l_tempo</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+        <span class="n">l_tempo</span> <span class="o">=</span> <span class="n">l_tempo</span><span class="o">.</span><span class="n">suiv</span>
+        <span class="n">cpt</span> <span class="o">=</span> <span class="n">cpt</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TESTS</span>
+<span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">coupe_v1</span><span class="p">(</span><span class="n">lst2</span><span class="p">)</span>
+<span class="n">affiche_list</span><span class="p">(</span><span class="n">lst2</span><span class="p">)</span>
+<span class="n">affiche_list</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="n">affiche_list</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2  --&gt; 10  --&gt; 5  --&gt; -4  --&gt; 0  --&gt; 1  --&gt; None
+5  --&gt; 10  --&gt; 2  --&gt; None
+1  --&gt; 0  --&gt; -4  --&gt; None
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="proposition-2">
+<h3>Proposition 2<a class="headerlink" href="#proposition-2" title="Permalink to this headline">¶</a></h3>
+<p><em>Idée</em>:</p>
+<ul class="simple">
+<li><p>prendre deux éléments de la liste (si possible);</p></li>
+<li><p>disposer un élément dans chaque liste <code class="docutils literal notranslate"><span class="pre">l1</span></code> et <code class="docutils literal notranslate"><span class="pre">l2</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">coupe_v2</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    coupe l en deux parties (égales si la longueur de l est paire).</span>
+<span class="sd">    renvoie deux listes chainées l1 et l2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># A compléter</span>
+    <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="c1"># ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TESTS</span>
+<span class="c1">#l1, l2 = coupe_v2(lst1)</span>
+<span class="c1">#affiche_list(lst1)</span>
+<span class="c1">#affiche_list(l1)</span>
+<span class="c1">#affiche_list(l2)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="proposition-3">
+<h3>Proposition 3<a class="headerlink" href="#proposition-3" title="Permalink to this headline">¶</a></h3>
+<p><em>Idée</em>:</p>
+<p>On parcours la liste originale et on place la valeur une fois dans <code class="docutils literal notranslate"><span class="pre">l1</span></code>, une fois dans <code class="docutils literal notranslate"><span class="pre">l2</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">coupe_v3</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fusionner-deux-listes">
+<h2>Fusionner deux listes<a class="headerlink" href="#fusionner-deux-listes" title="Permalink to this headline">¶</a></h2>
+<p>On considère deux listes chaînées <code class="docutils literal notranslate"><span class="pre">l1</span></code> et <code class="docutils literal notranslate"><span class="pre">l2</span></code> que l’<strong>on suppose triées par ordre croissant</strong>.  On demande d’écrire une fonction <code class="docutils literal notranslate"><span class="pre">fusion</span></code> qui prend en paramètre <code class="docutils literal notranslate"><span class="pre">l1</span></code> et <code class="docutils literal notranslate"><span class="pre">l2</span></code> et qui renvoie une liste chaînée contenant tous les éléments de <code class="docutils literal notranslate"><span class="pre">l1</span></code> et <code class="docutils literal notranslate"><span class="pre">l2</span></code> triés par ordre croissant. La récursivité est bienvenue !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fusion</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    renvoie la fusion ordonée de deux listes triées;</span>
+<span class="sd">    l1, l2: listes chaînées</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Les cas de base</span>
+    <span class="k">if</span> <span class="n">l1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">l2</span>
+    <span class="k">if</span> <span class="n">l2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">l1</span>
+    <span class="c1"># Cas récursif</span>
+    <span class="k">if</span> <span class="n">l1</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">l2</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Cell</span><span class="p">(</span><span class="n">l1</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">fusion</span><span class="p">(</span><span class="n">l1</span><span class="o">.</span><span class="n">suiv</span><span class="p">,</span> <span class="n">l2</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Cell</span><span class="p">(</span><span class="n">l2</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">fusion</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="o">.</span><span class="n">suiv</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TESTS</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="kc">None</span><span class="p">))))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="kc">None</span><span class="p">))))</span>
+<span class="n">affiche_list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">affiche_list</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">liste_finale</span> <span class="o">=</span> <span class="n">fusion</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">affiche_list</span><span class="p">(</span><span class="n">liste_finale</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>3  --&gt; 8  --&gt; 13  --&gt; 17  --&gt; None
+-2  --&gt; 1  --&gt; 7  --&gt; 11  --&gt; None
+-2  --&gt; 1  --&gt; 3  --&gt; 7  --&gt; 8  --&gt; 11  --&gt; 13  --&gt; 17  --&gt; None
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="le-tri-fusion">
+<h2>Le tri fusion<a class="headerlink" href="#le-tri-fusion" title="Permalink to this headline">¶</a></h2>
+<p>En utilisant les résultats précédents, écrire une fonction <code class="docutils literal notranslate"><span class="pre">tri_fusion</span></code> qui prend en paramètre une liste chaînée et qui renvoie une nouvelle liste chaînée triée.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Diviser_pour_regner_Exercices.html" title="previous page">Exercices</a>
+    <a class='right-next' id="next-link" href="TP_quart_tour.html" title="next page">TP QUART DE TOUR</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
