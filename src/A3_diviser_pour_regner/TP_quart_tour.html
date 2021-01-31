@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>TP QUART DE TOUR &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Introduction au tri fusion: quelques opérations sur les listes chaînées" href="TP_tri_fusion.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes_exercices.html">Paradigmes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/liste.html">STRUCTURE DE DONNEES: LISTE</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/Exercices_liste.html">Exercices</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Arbres.html">ARBRES</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Exercices_arbres.html">Exercices - Arbres</a>
+  </li>
+  <li class="">
+    <a href="../A1_algo_arbres/ABR.html">ALGORITHMES SUR LES ABR</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Les_graphes_introduction.html">INTRODUCTION AUX GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Graphes_Exercices_I.html">Exercices - Représentations d’un graphe</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Algorithmes_graphes.html">ALGORITHMES SUR LES GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Exercices_algo_graphes_A2.html">Algorithmes des graphes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/BDD_Modele_relationnel.html">LE MODELE RELATIONNEL</a>
+  </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/BDD-Exercices.html">Modèle relationnel - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/Fiche_de_revision.html">Fiche de révision: modèle relationnel</a>
+  </li>
+  <li class="">
+    <a href="../BDD2_Structure_des_bddr/Structure_bdd.html">STRUCTURE DES BASES DE DONNEES RELATIONNELLES</a>
+  </li>
+  <li class="">
+    <a href="../BDD3_SQL/Langage_SQL.html">LANGAGE SQL</a>
+  </li>
+  <li class="">
+    <a href="../BDD3_SQL/TP_SQL.html">TP SQL</a>
+  </li>
+  <li class="">
+    <a href="Diviser_pour_regner.html">DIVISER POUR REGNER</a>
+  </li>
+  <li class="">
+    <a href="Diviser_pour_regner_Exercices.html">Exercices</a>
+  </li>
+  <li class="">
+    <a href="TP_tri_fusion.html">Introduction au tri fusion: quelques opérations sur les listes chaînées</a>
+  </li>
+  <li class="active">
+    <a href="">TP QUART DE TOUR</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/A3_diviser_pour_regner/TP_quart_tour.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/A3_diviser_pour_regner/TP_quart_tour.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#le-probleme-a-resoudre" class="nav-link">Le problème à résoudre</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#methode-de-resolution" class="nav-link">Méthode de résolution</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#modeliser-l-image-comme-un-tableau-de-pixel" class="nav-link">Modéliser l’image comme un tableau de pixel</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#resolution" class="nav-link">Résolution</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tp-quart-de-tour">
+<h1>TP QUART DE TOUR<a class="headerlink" href="#tp-quart-de-tour" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="le-probleme-a-resoudre">
+<h2>Le problème à résoudre<a class="headerlink" href="#le-probleme-a-resoudre" title="Permalink to this headline">¶</a></h2>
+<p>On souhaite effectuer la rotation d’un quart de tour (ou 90°) d’une image <em>carrée</em>, par exemple de 512 pixels sur 512 pixels.<br />
+<img alt="r2d2" src="../../_images/vignette_r2d2.png" /><img alt="r2d2_tourne" src="../../_images/vignette_R2D2_90.png" /></p>
+</div>
+<div class="section" id="methode-de-resolution">
+<h2>Méthode de résolution<a class="headerlink" href="#methode-de-resolution" title="Permalink to this headline">¶</a></h2>
+<p>On utilise l’approche <strong>diviser pour régner</strong>. On divise l’image en 4 puis on effectue une permutation circulaire des quatre quadrants obtenus. Ensuite on applique récursivement le même processus sur chaque quadrant jusqu’à obtenir … 1 pixel.<br />
+<img alt="process" src="../../_images/quart_r2d2.png" /></p>
+</div>
+<div class="section" id="modeliser-l-image-comme-un-tableau-de-pixel">
+<h2>Modéliser l’image comme un tableau de pixel<a class="headerlink" href="#modeliser-l-image-comme-un-tableau-de-pixel" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">space</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> &lt;− </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="p">)))</span>
+        <span class="n">wrapper</span><span class="o">.</span><span class="n">space</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">wrapper</span><span class="o">.</span><span class="n">space</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">space</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> −&gt; </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">val</span>
+    <span class="n">wrapper</span><span class="o">.</span><span class="n">space</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+
+<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./coursterminale/src/A3_diviser_pour_regner/img/R2D2.png&quot;</span><span class="p">)</span>
+<span class="n">largeur</span><span class="p">,</span> <span class="n">hauteur</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">size</span>
+<span class="n">pix</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">largeur</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>512
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pix</span></code> est une instance de la classe <code class="docutils literal notranslate"><span class="pre">PixelAccess</span></code> du module <code class="docutils literal notranslate"><span class="pre">Image</span></code> de la librairie <code class="docutils literal notranslate"><span class="pre">PIL</span></code>. Cette variable peut être vue comme un <strong>tableau de pixels</strong>. Ces derniers étant des n-uplets des composantes Rouge, Vert et Bleu. Pour modifier un pixel aux coordonées <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y</span></code> on effectue l’affectation:<br />
+<code class="docutils literal notranslate"><span class="pre">pix[x,</span> <span class="pre">y]</span> <span class="pre">=</span> <span class="pre">c</span></code> où <code class="docutils literal notranslate"><span class="pre">c</span></code> est un triplet représentant une couleur.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">im</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="resolution">
+<h2>Résolution<a class="headerlink" href="#resolution" title="Permalink to this headline">¶</a></h2>
+<p>On suppose que l’image est carrée <code class="docutils literal notranslate"><span class="pre">(t</span> <span class="pre">x</span> <span class="pre">t)</span> </code>où <code class="docutils literal notranslate"><span class="pre">t</span></code> est sa taille et correspond à une puissance de 2. On va récursivement:</p>
+<ul class="simple">
+<li><p>découper l’image en 4 et effectuer une rotation de 90° de chacun des 4 morceaux;</p></li>
+<li><p>déplacer chacun des morceaux vers leur position finale (voir schéma ci-dessous)</p></li>
+</ul>
+<p><img alt="schéma" src="../../_images/schema_1.png" /></p>
+<p>Compléter la fonction <code class="docutils literal notranslate"><span class="pre">rotation_aux</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">rotation_aux</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="c1"># Cas de base</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="c1"># Cas récursif</span>
+    <span class="c1"># Découpe</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="c1"># A décommenter et compléter</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    rotation_aux(px, ..., ..., ....)</span>
+<span class="sd">    rotation_aux(px, ...., ..., ...)</span>
+<span class="sd">    rotation_aux(px, ..., ...., ....)</span>
+<span class="sd">    rotation_aux(px, ..., ...., ...) </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Déplacement des morceaux</span>
+    <span class="c1"># A décommenter et compléter</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    for x in range(l, l+t):</span>
+<span class="sd">        for y in range(h, h+t):</span>
+<span class="sd">        ...</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compléter la fonction <code class="docutils literal notranslate"><span class="pre">rotation</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rotation</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">taille</span><span class="p">):</span>
+    <span class="c1"># A compléter</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="TP_tri_fusion.html" title="previous page">Introduction au tri fusion: quelques opérations sur les listes chaînées</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

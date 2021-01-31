@@ -1,0 +1,555 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>DIVISER POUR REGNER &#8212; Spécialité NSI Terminale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercices" href="Diviser_pour_regner_Exercices.html" />
+    <link rel="prev" title="TP SQL" href="../BDD3_SQL/TP_SQL.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo_LBO.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Spécialité NSI Terminale</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">NUMERIQUE & SCIENCE INFORMATIQUE - Terminale</a>
+  </li>
+  <li class="">
+    <a href="../accueil/serveur_nsi.html">UTILISATION DU SERVEUR nsiboisdo.bdrd.fr</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Recursivite.html">RECURSIVITE</a>
+  </li>
+  <li class="">
+    <a href="../LP2/Activites_Recursivite.html">Fiche d’activité 1</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données.html">Structures de données: implémentation et interface</a>
+  </li>
+  <li class="">
+    <a href="../SDD1/Structures_de_données_1_Exercice.html">Exercice: implémenter une file bornée avec un tableau</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Vocabulaire_OOP.html">Vocabulaire de la programmation objet</a>
+  </li>
+  <li class="">
+    <a href="../SDD2/Exercices_OOP.html">Vocabulaire de la programmation objet - Manipuler des classes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP3/Modularite.html">Méthodes de programmation modulaire</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes.html">PARADIGMES DE PROGRAMMATION</a>
+  </li>
+  <li class="">
+    <a href="../LP4/paradigmes_exercices.html">Paradigmes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../LP5/map_programmes.html">MISE AU POINT DE PROGRAMMES</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/liste.html">STRUCTURE DE DONNEES: LISTE</a>
+  </li>
+  <li class="">
+    <a href="../SDD3/Exercices_liste.html">Exercices</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Arbres.html">ARBRES</a>
+  </li>
+  <li class="">
+    <a href="../SDD4/Exercices_arbres.html">Exercices - Arbres</a>
+  </li>
+  <li class="">
+    <a href="../A1_algo_arbres/ABR.html">ALGORITHMES SUR LES ABR</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Les_graphes_introduction.html">INTRODUCTION AUX GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../SDD5/Graphes_Exercices_I.html">Exercices - Représentations d’un graphe</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Algorithmes_graphes.html">ALGORITHMES SUR LES GRAPHES</a>
+  </li>
+  <li class="">
+    <a href="../A2_algo_graphes/Exercices_algo_graphes_A2.html">Algorithmes des graphes - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/BDD_Modele_relationnel.html">LE MODELE RELATIONNEL</a>
+  </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/BDD-Exercices.html">Modèle relationnel - Exercices</a>
+  </li>
+  <li class="">
+    <a href="../BDD1_modele_relationnel/Fiche_de_revision.html">Fiche de révision: modèle relationnel</a>
+  </li>
+  <li class="">
+    <a href="../BDD2_Structure_des_bddr/Structure_bdd.html">STRUCTURE DES BASES DE DONNEES RELATIONNELLES</a>
+  </li>
+  <li class="">
+    <a href="../BDD3_SQL/Langage_SQL.html">LANGAGE SQL</a>
+  </li>
+  <li class="">
+    <a href="../BDD3_SQL/TP_SQL.html">TP SQL</a>
+  </li>
+  <li class="active">
+    <a href="">DIVISER POUR REGNER</a>
+  </li>
+  <li class="">
+    <a href="Diviser_pour_regner_Exercices.html">Exercices</a>
+  </li>
+  <li class="">
+    <a href="TP_tri_fusion.html">Introduction au tri fusion: quelques opérations sur les listes chaînées</a>
+  </li>
+  <li class="">
+    <a href="TP_quart_tour.html">TP QUART DE TOUR</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/src/A3_diviser_pour_regner/Diviser_pour_regner.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/src/A3_diviser_pour_regner/Diviser_pour_regner.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#l-approche-diviser-pour-regner" class="nav-link">L’approche diviser pour régner</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#application-1-la-recherche-dichotomique" class="nav-link">Application 1: la recherche dichotomique</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#le-probleme" class="nav-link">Le problème</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#une-solution" class="nav-link">Une solution</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#application-2-le-tri-fusion-voir-tp" class="nav-link">Application 2: le tri fusion (voir TP)</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#le-probleme-initial" class="nav-link">Le problème initial</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#approche-diviser-pour-regner" class="nav-link">Approche diviser pour régner</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#diviser" class="nav-link">Diviser</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#regner" class="nav-link">Régner</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#combiner" class="nav-link">Combiner</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#illustration" class="nav-link">Illustration</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#efficacite" class="nav-link">Efficacité</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="diviser-pour-regner">
+<h1>DIVISER POUR REGNER<a class="headerlink" href="#diviser-pour-regner" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="l-approche-diviser-pour-regner">
+<h2>L’approche diviser pour régner<a class="headerlink" href="#l-approche-diviser-pour-regner" title="Permalink to this headline">¶</a></h2>
+<p>L’idée est de séparer le problème initial en des problèmes semblables mais avec une taille plus petite, puis de résoudre (<em>de façon récursive</em>) ces problèmes et enfin de combiner les solutions obtenues pour obtenir la solution du problème initial.</p>
+<p>Il y aura donc trois étapes essentielles:</p>
+<ul class="simple">
+<li><p><strong>diviser</strong> le problème en problèmes plus petits;</p></li>
+<li><p><strong>régner</strong> en résolvant de manière récursive les problèmes plus petits;</p></li>
+<li><p><strong>combiner</strong> (on dit aussi <em>fusionner</em>) les solutions des sous-problèmes pour obtenir la solution du problème initial.</p></li>
+</ul>
+</div>
+<div class="section" id="application-1-la-recherche-dichotomique">
+<h2>Application 1: la recherche dichotomique<a class="headerlink" href="#application-1-la-recherche-dichotomique" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="le-probleme">
+<h3>Le problème<a class="headerlink" href="#le-probleme" title="Permalink to this headline">¶</a></h3>
+<p>Rappel du problème de 1re NSI: il s’agit de déterminer si une valeur <code class="docutils literal notranslate"><span class="pre">v</span></code> appartient à un tableau <code class="docutils literal notranslate"><span class="pre">t</span></code> trié. Ce problème a été résolu de manière itérative (voir <a class="reference external" href="https://brunodrd.github.io/book/algo/recherche_dico_v2.html">cours 1re sur github</a>.<br />
+Adoptons une approche <em>diviser pour régner</em>.</p>
+<p><strong>Diviser</strong><br />
+Comme le tableau est trié, on peut le “<em>couper</em>” en deux pour y effectuer la recherche. Si on travaille avec des indices <code class="docutils literal notranslate"><span class="pre">g</span></code> et <code class="docutils literal notranslate"><span class="pre">d</span></code>, le milieu se situe à <span class="math notranslate nohighlight">\(m=\dfrac{g+d}{2}\)</span>.</p>
+<p><strong>Régner</strong><br />
+Il s’agit d’effectuer la recherche dans une partie du tableau qui est de taille plus petite que le tableau original.</p>
+<p><strong>Combiner</strong><br />
+Lors d’une recherche, si <code class="docutils literal notranslate"><span class="pre">v</span></code> est trouvé, on renvoie son indice. Dans le cas d’un tableau vide, on renvoie <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Illustration de la situation après quelques appels récursifs</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">__________________________________________</span>
+<span class="o">|</span>               <span class="o">|</span>             <span class="o">|</span>             <span class="o">|</span>
+<span class="o">|</span>  <span class="n">éléments</span> <span class="o">&lt;</span> <span class="n">v</span> <span class="o">|</span> <span class="o">...........</span> <span class="o">|</span> <span class="n">éléments</span> <span class="o">&gt;</span> <span class="n">v</span><span class="o">|</span>
+<span class="o">|</span><span class="n">__________________________________________</span> <span class="o">|</span>
+ <span class="o">^</span>               <span class="o">^</span>           <span class="o">^</span>               
+ <span class="o">|</span>               <span class="o">|</span>           <span class="o">|</span>
+ <span class="mi">0</span>               <span class="n">g</span>           <span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="une-solution">
+<h3>Une solution<a class="headerlink" href="#une-solution" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cherche_dans_tableau</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    cherche v dans le tableau t, entre les index g et d; renvoie l&#39;index si trouvé, None sinon.</span>
+<span class="sd">    t: tableau</span>
+<span class="sd">    v: valeur à chercher</span>
+<span class="sd">    g, d: index (entiers naturels)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">g</span> <span class="o">&gt;</span> <span class="n">d</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">g</span> <span class="o">+</span> <span class="n">d</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="n">t</span><span class="p">[</span><span class="n">m</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">cherche_dans_tableau</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">[</span><span class="n">m</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">cherche_dans_tableau</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">m</span>        
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recherche_dichotomique</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    renvoie l&#39;index de v dans t si trouvé, None sinon</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">cherche_dans_tableau</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exemple d&#39;appel</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">recherche_dichotomique</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Remarque</em>: le programme termine car on peut exhiber un <strong>variant</strong> de boucle: <span class="math notranslate nohighlight">\(d-g\)</span>. Il s’agit d’une grandeur entière, strictement positive et qui décroit à chaque appel récursif (voir illustration ci-dessus).</p>
+</div>
+</div>
+<div class="section" id="application-2-le-tri-fusion-voir-tp">
+<h2>Application 2: le tri fusion (voir TP)<a class="headerlink" href="#application-2-le-tri-fusion-voir-tp" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="le-probleme-initial">
+<h3>Le problème initial<a class="headerlink" href="#le-probleme-initial" title="Permalink to this headline">¶</a></h3>
+<p>Il s’agit de trier une liste chaînée d’entiers, par ordre croissant. Plusieurs méthodes de tri peuvent être envisagées (<em>tri par sélection</em>, <em>tri par insertion</em>). On choisit ici une approche <em>diviser pour régner</em>.<br />
+La liste sont des instances de la classe <code class="docutils literal notranslate"><span class="pre">Cell</span></code> vue au premier trimestre.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Classe cellule pour liste chainée&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suiv</span> <span class="o">=</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exemple</span>
+<span class="n">lst1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">))))))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="approche-diviser-pour-regner">
+<h3>Approche diviser pour régner<a class="headerlink" href="#approche-diviser-pour-regner" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="diviser">
+<h4>Diviser<a class="headerlink" href="#diviser" title="Permalink to this headline">¶</a></h4>
+<p>Il s’agit dans un premier temps de “<em>couper</em>” la liste originale en deux listes de taille égale (ou presque dans le cas d’un nombre impair d’éléments).<br />
+Il existe plusieurs façon de résoudre ce problème (voir TP), on présente ici une version ne nécessitant pas de calcul de taille de liste au préalable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">coupe_v3</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    renvoie deux listes l1 et l2 issues de lst</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">while</span> <span class="n">l</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># les éléments sont mis alternativement dans l1 puis l2</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">l1</span>
+        <span class="n">l1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="n">lst</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+        <span class="n">l2</span> <span class="o">=</span> <span class="n">temp</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="n">suiv</span>
+    <span class="k">return</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="regner">
+<h4>Régner<a class="headerlink" href="#regner" title="Permalink to this headline">¶</a></h4>
+<p>Après avoir réduit les listes à un élément, il devient facile de les trier: une liste à un élément est forcément triée !</p>
+</div>
+<div class="section" id="combiner">
+<h4>Combiner<a class="headerlink" href="#combiner" title="Permalink to this headline">¶</a></h4>
+<p>Il s’agit maintenant de “<em>fusionner</em>” les solutions des sous problèmes. Concrètement, on écrit une fonction <code class="docutils literal notranslate"><span class="pre">fusion</span></code> qui prend deux listes en paramètres et qui renvoie une liste, triée par ordre croissant.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fusion</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    renvoie une liste contenant les éléments de l1 et de l2, triés par ordre croissant.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">l1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">l2</span>
+    <span class="k">if</span> <span class="n">l2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">l1</span>
+    <span class="k">if</span> <span class="n">l1</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">l2</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Cell</span><span class="p">(</span><span class="n">l1</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">fusion</span><span class="p">(</span><span class="n">l1</span><span class="o">.</span><span class="n">suiv</span><span class="p">,</span> <span class="n">l2</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Cell</span><span class="p">(</span><span class="n">l2</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">fusion</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="o">.</span><span class="n">suiv</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>L’implémentation de l’algorithme du tri fusion, utilisant une approche diviser pour régner en python, s’écrit alors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tri_fusion</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Cas de base: liste contenant 1 élément</span>
+    <span class="k">if</span> <span class="n">lst</span><span class="o">.</span><span class="n">suiv</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">lst</span>
+    <span class="c1"># Cas récursif</span>
+    <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">coupe_v3</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fusion</span><span class="p">(</span><span class="n">tri_fusion</span><span class="p">(</span><span class="n">left</span><span class="p">),</span> <span class="n">tri_fusion</span><span class="p">(</span><span class="n">right</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="illustration">
+<h4>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">¶</a></h4>
+<p><img alt="diviser_regner" src="../../_images/diviser_regner.png" /></p>
+</div>
+<div class="section" id="efficacite">
+<h4>Efficacité<a class="headerlink" href="#efficacite" title="Permalink to this headline">¶</a></h4>
+<p>Voici les relevés effectués sur des listes de tailles différentes, triées soit avec l’algorithme du tri sélection soit avec le tri fusion.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Taille</p></th>
+<th class="head"><p>Tri sélection</p></th>
+<th class="head"><p>Tri fusion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1000</p></td>
+<td><p>0.06 s</p></td>
+<td><p>0.01 s</p></td>
+</tr>
+<tr class="row-odd"><td><p>2000</p></td>
+<td><p>0.13 s</p></td>
+<td><p>0.03 s</p></td>
+</tr>
+<tr class="row-even"><td><p>4000</p></td>
+<td><p>0.44 s</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>8000</p></td>
+<td><p>1.78</p></td>
+<td><p>0.11 s</p></td>
+</tr>
+<tr class="row-even"><td><p>16000</p></td>
+<td><p>6.79</p></td>
+<td><p>0.29 s</p></td>
+</tr>
+</tbody>
+</table>
+<p>Il apparaît clairement que le tri fusion est nettement plus performant que le tri sélection lorsque la taille du problème augmente.<br />
+Une étude approfondie de cet algorithme montre que sa complexité en temps est <span class="math notranslate nohighlight">\(\mathcal{O}(n\log{}n)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../BDD3_SQL/TP_SQL.html" title="previous page">TP SQL</a>
+    <a class='right-next' id="next-link" href="Diviser_pour_regner_Exercices.html" title="next page">Exercices</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bruno DARID<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
